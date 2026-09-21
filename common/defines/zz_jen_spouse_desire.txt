@@ -1,0 +1,5 @@
+﻿NCharacter = {
+	# Allowed cap is doctrine number_of_spouses (40). Desire is piety pressure only.
+	DESIRED_SPOUSES_PER_TIER = { 0 1 2 4 8 12 16 }
+	DESIRED_CONCUBINES_PER_TIER = { 0 0 1 2 4 6 8 }
+}

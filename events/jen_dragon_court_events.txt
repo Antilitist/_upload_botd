@@ -1,0 +1,2849 @@
+﻿namespace = jen_dragon_court
+
+# Egg Watcher: the clutch runs hot.
+
+jen_dragon_court.1000 = {
+
+	type = character_event
+
+	title = jen_dragon_court.1000.t
+
+	desc = jen_dragon_court.1000.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_hatchery }
+
+	cooldown = { years = 6 }
+
+	left_portrait = {
+
+		character = scope:watcher
+
+		animation = worry
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		employs_court_position = jen_dragon_egg_watcher_court_position
+
+		jen_dragon_has_egg_artifact_trigger = yes
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.1000 Egg Watcher hot clutch"
+
+		court_position:jen_dragon_egg_watcher_court_position = { save_scope_as = watcher }
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1000.a
+
+		custom_tooltip = jen_dragon_court.1000.a.tt
+
+		add_prestige = miniscule_prestige_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+		scope:watcher = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1000.b
+
+		custom_tooltip = jen_dragon_court.1000.b.tt
+
+		add_gold = minor_gold_value
+
+		add_stress = miniscule_stress_gain
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1000.c
+
+		trigger = {
+
+			scope:watcher = { jen_dragon_court_holder_is_capable_trigger = yes }
+
+		}
+
+		custom_tooltip = jen_dragon_court.1000.c.tt
+
+		add_prestige = minor_prestige_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = medium_lifestyle_xp
+
+		}
+
+		add_stress = miniscule_stress_loss
+
+	}
+
+}
+
+# Egg Watcher: a step in the vault.
+
+jen_dragon_court.1001 = {
+
+	type = character_event
+
+	title = jen_dragon_court.1001.t
+
+	desc = jen_dragon_court.1001.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_hatchery }
+
+	cooldown = { years = 8 }
+
+	left_portrait = {
+
+		character = scope:watcher
+
+		animation = worry
+
+	}
+
+	right_portrait = {
+
+		trigger = { exists = scope:thief }
+
+		character = scope:thief
+
+		animation = shame
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		employs_court_position = jen_dragon_egg_watcher_court_position
+
+		jen_dragon_has_egg_artifact_trigger = yes
+
+		any_courtier = {
+
+			is_human = yes
+
+			is_adult = yes
+
+			is_imprisoned = no
+
+			NOT = { this = root }
+
+			NOT = { has_court_position = jen_dragon_egg_watcher_court_position }
+
+		}
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.1001 Egg Watcher vault"
+
+		court_position:jen_dragon_egg_watcher_court_position = { save_scope_as = watcher }
+
+		random_courtier = {
+
+			limit = {
+
+				is_human = yes
+
+				is_adult = yes
+
+				is_imprisoned = no
+
+				NOT = { this = root }
+
+				NOT = { this = scope:watcher }
+
+			}
+
+			save_scope_as = thief
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1001.a
+
+		trigger = {
+
+			scope:watcher = { jen_dragon_court_holder_is_capable_trigger = yes }
+
+		}
+
+		custom_tooltip = jen_dragon_court.1001.a.tt
+
+		trigger_event = {
+
+			id = jen_dragon_court.1002
+
+			days = { 3 8 }
+
+		}
+
+		scope:thief = {
+
+			imprison = {
+
+				target = root
+
+				type = dungeon
+
+			}
+
+		}
+
+		add_prestige = minor_prestige_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = medium_lifestyle_xp
+
+		}
+
+		scope:watcher = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1001.b
+
+		custom_tooltip = jen_dragon_court.1001.b.tt
+
+		add_dread = miniscule_dread_gain
+
+		add_tyranny = minor_tyranny_gain
+
+		scope:thief = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = angry_opinion
+
+				opinion = -20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1001.c
+
+		custom_tooltip = jen_dragon_court.1001.c.tt
+
+		add_gold = minor_gold_loss
+
+		add_prestige = miniscule_prestige_loss
+
+		add_stress = minor_stress_gain
+
+	}
+
+}
+
+# Keeper of the Yard: the sheep.
+
+jen_dragon_court.1100 = {
+
+	type = character_event
+
+	title = jen_dragon_court.1100.t
+
+	desc = jen_dragon_court.1100.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_yard }
+
+	cooldown = { years = 6 }
+
+	left_portrait = {
+
+		character = scope:keeper
+
+		animation = anger
+
+	}
+
+	right_portrait = {
+
+		character = scope:dragon
+
+		animation = idle
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		employs_court_position = jen_dragon_yard_keeper_court_position
+
+		jen_dragon_has_young_yard_dragon_trigger = yes
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.1100 Yard Keeper sheep"
+
+		court_position:jen_dragon_yard_keeper_court_position = { save_scope_as = keeper }
+
+		jen_dragon_save_young_yard_dragon_effect = yes
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1100.a
+
+		custom_tooltip = jen_dragon_court.1100.a.tt
+
+		remove_short_term_gold = minor_gold_value
+
+		add_prestige = miniscule_prestige_gain
+
+		scope:keeper = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1100.b
+
+		trigger = {
+
+			scope:keeper = { jen_dragon_court_holder_is_capable_trigger = yes }
+
+		}
+
+		custom_tooltip = jen_dragon_court.1100.b.tt
+
+		add_prestige = minor_prestige_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1100.c
+
+		custom_tooltip = jen_dragon_court.1100.c.tt
+
+		add_dread = miniscule_dread_gain
+
+		add_prestige = miniscule_prestige_loss
+
+		add_stress = miniscule_stress_gain
+
+	}
+
+}
+
+# Keeper of the Yard: the yard is too small.
+
+jen_dragon_court.1101 = {
+
+	type = character_event
+
+	title = jen_dragon_court.1101.t
+
+	desc = jen_dragon_court.1101.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_yard }
+
+	cooldown = { years = 8 }
+
+	left_portrait = {
+
+		character = scope:keeper
+
+		animation = worry
+
+	}
+
+	right_portrait = {
+
+		character = scope:dragon
+
+		animation = idle
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		employs_court_position = jen_dragon_yard_keeper_court_position
+
+		jen_dragon_has_growing_yard_dragon_trigger = yes
+
+		NOT = { has_character_flag = jen_recent_yard_pit_debate }
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.1101 Yard too small"
+
+		court_position:jen_dragon_yard_keeper_court_position = { save_scope_as = keeper }
+
+		jen_dragon_save_growing_yard_dragon_effect = yes
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1101.a
+
+		custom_tooltip = jen_dragon_court.1101.a.tt
+
+		remove_short_term_gold = medium_gold_value
+
+		add_prestige = miniscule_prestige_gain
+
+		scope:keeper = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1101.b
+
+		trigger = {
+
+			employs_court_position = jen_dragon_pitmaster_court_position
+
+		}
+
+		custom_tooltip = jen_dragon_court.1101.b.tt
+
+		trigger_event = jen_dragon_court.2000
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1101.c
+
+		custom_tooltip = jen_dragon_court.1101.c.tt
+
+		add_stress = minor_stress_gain
+
+		add_prestige = miniscule_prestige_loss
+
+		scope:keeper = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = angry_opinion
+
+				opinion = -20
+
+			}
+
+		}
+
+	}
+
+}
+
+# Yard versus pit. Fired from growth birthday, or from 1101.
+
+jen_dragon_court.2000 = {
+
+	type = character_event
+
+	title = jen_dragon_court.2000.t
+
+	desc = jen_dragon_court.2000.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_yard }
+
+	cooldown = { years = 8 }
+
+	left_portrait = {
+
+		trigger = { exists = scope:keeper }
+
+		character = scope:keeper
+
+		animation = personality_honorable
+
+	}
+
+	right_portrait = {
+
+		trigger = { exists = scope:pitmaster }
+
+		character = scope:pitmaster
+
+		animation = personality_bold
+
+	}
+
+	lower_center_portrait = {
+
+		character = scope:dragon
+
+		animation = idle
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		exists = scope:dragon
+
+		scope:dragon = {
+
+			is_alive = yes
+
+			has_trait = dragon
+
+		}
+
+		OR = {
+
+			employs_court_position = jen_dragon_yard_keeper_court_position
+
+			employs_court_position = jen_dragon_pitmaster_court_position
+
+		}
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.2000 Yard or Pit"
+
+		add_character_flag = {
+
+			flag = jen_recent_yard_pit_debate
+
+			years = 8
+
+		}
+
+		if = {
+
+			limit = { employs_court_position = jen_dragon_yard_keeper_court_position }
+
+			court_position:jen_dragon_yard_keeper_court_position = { save_scope_as = keeper }
+
+		}
+
+		if = {
+
+			limit = { employs_court_position = jen_dragon_pitmaster_court_position }
+
+			court_position:jen_dragon_pitmaster_court_position = { save_scope_as = pitmaster }
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.2000.a
+
+		custom_tooltip = jen_dragon_court.2000.a.tt
+
+		trigger_event = {
+
+			id = jen_dragon_court.2001
+
+			days = { 12 20 }
+
+		}
+
+		remove_short_term_gold = minor_gold_value
+
+		if = {
+
+			limit = { exists = scope:keeper }
+
+			scope:keeper = {
+
+				add_opinion = {
+
+					target = root
+
+					modifier = pleased_opinion
+
+					opinion = 20
+
+				}
+
+			}
+
+		}
+
+		if = {
+
+			limit = { exists = scope:pitmaster }
+
+			scope:pitmaster = {
+
+				add_opinion = {
+
+					target = root
+
+					modifier = angry_opinion
+
+					opinion = -20
+
+				}
+
+			}
+
+		}
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.2000.b
+
+		custom_tooltip = jen_dragon_court.2000.b.tt
+
+		trigger_event = {
+
+			id = jen_dragon_court.2002
+
+			days = { 12 20 }
+
+		}
+
+		add_dread = miniscule_dread_gain
+
+		if = {
+
+			limit = { exists = scope:pitmaster }
+
+			scope:pitmaster = {
+
+				add_opinion = {
+
+					target = root
+
+					modifier = pleased_opinion
+
+					opinion = 20
+
+				}
+
+			}
+
+		}
+
+		if = {
+
+			limit = { exists = scope:keeper }
+
+			scope:keeper = {
+
+				add_opinion = {
+
+					target = root
+
+					modifier = angry_opinion
+
+					opinion = -20
+
+				}
+
+			}
+
+		}
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.2000.c
+
+		trigger = {
+
+			exists = scope:keeper
+
+			exists = scope:pitmaster
+
+			scope:keeper = { jen_dragon_court_holder_is_capable_trigger = yes }
+
+			scope:pitmaster = { jen_dragon_court_holder_is_capable_trigger = yes }
+
+		}
+
+		custom_tooltip = jen_dragon_court.2000.c.tt
+
+		add_prestige = minor_prestige_gain
+
+		add_stress = miniscule_stress_loss
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = medium_lifestyle_xp
+
+		}
+
+		scope:keeper = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+		scope:pitmaster = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.2000.d
+
+		custom_tooltip = jen_dragon_court.2000.d.tt
+
+		add_stress = minor_stress_gain
+
+	}
+
+}
+
+# Pitmaster: the chains.
+
+jen_dragon_court.1200 = {
+
+	type = character_event
+
+	title = jen_dragon_court.1200.t
+
+	desc = jen_dragon_court.1200.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_pit }
+
+	cooldown = { years = 6 }
+
+	left_portrait = {
+
+		character = scope:pitmaster
+
+		animation = anger
+
+	}
+
+	right_portrait = {
+
+		character = scope:dragon
+
+		animation = idle
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		employs_court_position = jen_dragon_pitmaster_court_position
+
+		jen_dragon_has_grown_yard_dragon_trigger = yes
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.1200 Pitmaster chains"
+
+		court_position:jen_dragon_pitmaster_court_position = { save_scope_as = pitmaster }
+
+		jen_dragon_save_grown_yard_dragon_effect = yes
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1200.a
+
+		custom_tooltip = jen_dragon_court.1200.a.tt
+
+		remove_short_term_gold = medium_gold_value
+
+		add_prestige = miniscule_prestige_gain
+
+		scope:pitmaster = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1200.b
+
+		trigger = {
+
+			scope:pitmaster = { jen_dragon_court_holder_is_capable_trigger = yes }
+
+		}
+
+		custom_tooltip = jen_dragon_court.1200.b.tt
+
+		add_prestige = minor_prestige_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1200.c
+
+		custom_tooltip = jen_dragon_court.1200.c.tt
+
+		add_dread = miniscule_dread_gain
+
+		add_stress = minor_stress_gain
+
+	}
+
+}
+
+# Wingmaster: a flight over a village.
+
+jen_dragon_court.1300 = {
+
+	type = character_event
+
+	title = jen_dragon_court.1300.t
+
+	desc = jen_dragon_court.1300.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_sky }
+
+	cooldown = { years = 6 }
+
+	left_portrait = {
+
+		character = scope:wingmaster
+
+		animation = personality_bold
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		employs_court_position = jen_dragon_wingmaster_court_position
+
+		OR = {
+
+			jen_dragon_has_grown_yard_dragon_trigger = yes
+
+			any_courtier = { has_trait = dragonrider }
+
+		}
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.1300 Wingmaster flight"
+
+		court_position:jen_dragon_wingmaster_court_position = { save_scope_as = wingmaster }
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1300.a
+
+		custom_tooltip = jen_dragon_court.1300.a.tt
+
+		remove_short_term_gold = minor_gold_value
+
+		add_prestige = miniscule_prestige_loss
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1300.b
+
+		custom_tooltip = jen_dragon_court.1300.b.tt
+
+		add_dread = minor_dread_gain
+
+		add_prestige = miniscule_prestige_gain
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1300.c
+
+		trigger = {
+
+			scope:wingmaster = { jen_dragon_court_holder_is_capable_trigger = yes }
+
+		}
+
+		custom_tooltip = jen_dragon_court.1300.c.tt
+
+		add_prestige = minor_prestige_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+	}
+
+}
+
+# Bloodbinder: a dragonseed wants the blood named.
+
+jen_dragon_court.1400 = {
+
+	type = character_event
+
+	title = jen_dragon_court.1400.t
+
+	desc = jen_dragon_court.1400.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_oath }
+
+	cooldown = { years = 8 }
+
+	left_portrait = {
+
+		character = scope:bloodbinder
+
+		animation = personality_honorable
+
+	}
+
+	right_portrait = {
+
+		character = scope:seed
+
+		animation = personality_bold
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		employs_court_position = jen_dragon_bloodbinder_court_position
+
+		any_courtier = {
+
+			is_human = yes
+
+			is_adult = yes
+
+			agot_is_dragonblood_character = yes
+
+			NOT = { this = root }
+
+			NOT = { has_court_position = jen_dragon_bloodbinder_court_position }
+
+		}
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.1400 Bloodbinder seed"
+
+		court_position:jen_dragon_bloodbinder_court_position = { save_scope_as = bloodbinder }
+
+		random_courtier = {
+
+			limit = {
+
+				is_human = yes
+
+				is_adult = yes
+
+				agot_is_dragonblood_character = yes
+
+				NOT = { this = root }
+
+				NOT = { this = scope:bloodbinder }
+
+			}
+
+			save_scope_as = seed
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1400.a
+
+		custom_tooltip = jen_dragon_court.1400.a.tt
+
+		scope:seed = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = grateful_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+		add_prestige = miniscule_prestige_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1400.b
+
+		custom_tooltip = jen_dragon_court.1400.b.tt
+
+		add_prestige = minor_prestige_gain
+
+		scope:seed = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = angry_opinion
+
+				opinion = -20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1400.c
+
+		trigger = {
+
+			scope:bloodbinder = { jen_dragon_court_holder_is_capable_trigger = yes }
+
+		}
+
+		custom_tooltip = jen_dragon_court.1400.c.tt
+
+		add_prestige = minor_prestige_gain
+
+		scope:seed = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+		scope:bloodbinder = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+}
+
+# Scale-scribe: the book and the name.
+
+jen_dragon_court.1500 = {
+
+	type = character_event
+
+	title = jen_dragon_court.1500.t
+
+	desc = jen_dragon_court.1500.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_scriptorium }
+
+	cooldown = { years = 7 }
+
+	left_portrait = {
+
+		character = scope:scribe
+
+		animation = personality_rational
+
+	}
+
+	right_portrait = {
+
+		character = scope:dragon
+
+		animation = idle
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		employs_court_position = jen_dragon_scale_scribe_court_position
+
+		OR = {
+
+			jen_dragon_has_young_yard_dragon_trigger = yes
+
+			jen_dragon_has_growing_yard_dragon_trigger = yes
+
+			jen_dragon_has_grown_yard_dragon_trigger = yes
+
+		}
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.1500 Scale-scribe book"
+
+		court_position:jen_dragon_scale_scribe_court_position = { save_scope_as = scribe }
+
+		jen_dragon_save_any_yard_dragon_effect = yes
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1500.a
+
+		custom_tooltip = jen_dragon_court.1500.a.tt
+
+		add_prestige = miniscule_prestige_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+		scope:scribe = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1500.b
+
+		custom_tooltip = jen_dragon_court.1500.b.tt
+
+		add_prestige = minor_prestige_gain
+
+		add_stress = miniscule_stress_gain
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1500.c
+
+		custom_tooltip = jen_dragon_court.1500.c.tt
+
+		add_gold = minor_gold_value
+
+		add_prestige = miniscule_prestige_loss
+
+	}
+
+}
+
+# Cradle Nurse: the babe and the hatchling.
+
+jen_dragon_court.1600 = {
+
+	type = character_event
+
+	title = jen_dragon_court.1600.t
+
+	desc = jen_dragon_court.1600.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_nursery }
+
+	cooldown = { years = 7 }
+
+	left_portrait = {
+
+		character = scope:nurse
+
+		animation = personality_compassionate
+
+	}
+
+	right_portrait = {
+
+		character = scope:child
+
+		animation = idle
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		employs_court_position = jen_dragon_cradle_nurse_court_position
+
+		jen_dragon_has_young_yard_dragon_trigger = yes
+
+		any_courtier = {
+
+			is_human = yes
+
+			is_adult = no
+
+			age < 12
+
+			NOT = { has_trait = dragon }
+
+		}
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.1600 Cradle Nurse"
+
+		court_position:jen_dragon_cradle_nurse_court_position = { save_scope_as = nurse }
+
+		random_courtier = {
+
+			limit = {
+
+				is_human = yes
+
+				is_adult = no
+
+				age < 12
+
+				NOT = { has_trait = dragon }
+
+			}
+
+			save_scope_as = child
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1600.a
+
+		custom_tooltip = jen_dragon_court.1600.a.tt
+
+		add_stress = miniscule_stress_loss
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+		scope:nurse = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1600.b
+
+		custom_tooltip = jen_dragon_court.1600.b.tt
+
+		add_prestige = miniscule_prestige_gain
+
+		add_dread = miniscule_dread_gain
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1600.c
+
+		custom_tooltip = jen_dragon_court.1600.c.tt
+
+		add_stress = minor_stress_gain
+
+	}
+
+}
+
+# Master of Dragons: a rider refuses.
+
+jen_dragon_court.3000 = {
+
+	type = character_event
+
+	title = jen_dragon_court.3000.t
+
+	desc = jen_dragon_court.3000.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_ramparts }
+
+	cooldown = { years = 8 }
+
+	left_portrait = {
+
+		character = scope:master
+
+		animation = personality_bold
+
+	}
+
+	right_portrait = {
+
+		character = scope:rider
+
+		animation = personality_honorable
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		exists = cp:jen_dragon_councillor_master_of_dragons
+
+		any_courtier = {
+
+			has_trait = dragonrider
+
+			NOT = { this = root }
+
+		}
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.3000 Master of Dragons"
+
+		cp:jen_dragon_councillor_master_of_dragons = { save_scope_as = master }
+
+		random_courtier = {
+
+			limit = {
+
+				has_trait = dragonrider
+
+				NOT = { this = root }
+
+				NOT = { this = scope:master }
+
+			}
+
+			save_scope_as = rider
+
+		}
+
+		if = {
+
+			limit = { NOT = { exists = scope:rider } }
+
+			random_courtier = {
+
+				limit = {
+
+					has_trait = dragonrider
+
+					NOT = { this = root }
+
+				}
+
+				save_scope_as = rider
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3000.a
+
+		custom_tooltip = jen_dragon_court.3000.a.tt
+
+		add_dread = minor_dread_gain
+
+		scope:rider = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = angry_opinion
+
+				opinion = -20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3000.b
+
+		custom_tooltip = jen_dragon_court.3000.b.tt
+
+		add_prestige = miniscule_prestige_loss
+
+		add_stress = miniscule_stress_gain
+
+		scope:rider = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3000.c
+
+		trigger = {
+
+			scope:master = { jen_dragon_court_holder_is_capable_trigger = yes }
+
+		}
+
+		custom_tooltip = jen_dragon_court.3000.c.tt
+
+		add_prestige = minor_prestige_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = medium_lifestyle_xp
+
+		}
+
+	}
+
+}
+
+# Lord of the Pit: the city and the cost.
+
+jen_dragon_court.3100 = {
+
+	type = character_event
+
+	title = jen_dragon_court.3100.t
+
+	desc = jen_dragon_court.3100.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_vault }
+
+	cooldown = { years = 7 }
+
+	left_portrait = {
+
+		character = scope:lord
+
+		animation = personality_rational
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		is_landed = yes
+
+		exists = cp:jen_dragon_councillor_lord_of_the_pit
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.3100 Lord of the Pit"
+
+		cp:jen_dragon_councillor_lord_of_the_pit = { save_scope_as = lord }
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3100.a
+
+		custom_tooltip = jen_dragon_court.3100.a.tt
+
+		remove_short_term_gold = medium_gold_value
+
+		add_prestige = miniscule_prestige_gain
+
+		scope:lord = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3100.b
+
+		custom_tooltip = jen_dragon_court.3100.b.tt
+
+		add_dread = miniscule_dread_gain
+
+		add_prestige = miniscule_prestige_loss
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3100.c
+
+		trigger = {
+
+			scope:lord = { jen_dragon_court_holder_is_capable_trigger = yes }
+
+		}
+
+		custom_tooltip = jen_dragon_court.3100.c.tt
+
+		remove_short_term_gold = minor_gold_value
+
+		add_prestige = minor_prestige_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+	}
+
+}
+
+# Blood Chamberlain: a guest of the blood.
+
+jen_dragon_court.3200 = {
+
+	type = character_event
+
+	title = jen_dragon_court.3200.t
+
+	desc = jen_dragon_court.3200.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_hall }
+
+	cooldown = { years = 7 }
+
+	left_portrait = {
+
+		character = scope:chamberlain
+
+		animation = personality_honorable
+
+	}
+
+	right_portrait = {
+
+		character = scope:guest
+
+		animation = personality_bold
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		exists = cp:jen_dragon_councillor_blood_chamberlain
+
+		any_courtier = {
+
+			is_human = yes
+
+			is_adult = yes
+
+			agot_is_dragonblood_character = yes
+
+			NOT = { this = root }
+
+		}
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.3200 Blood Chamberlain"
+
+		cp:jen_dragon_councillor_blood_chamberlain = { save_scope_as = chamberlain }
+
+		random_courtier = {
+
+			limit = {
+
+				is_human = yes
+
+				is_adult = yes
+
+				agot_is_dragonblood_character = yes
+
+				NOT = { this = root }
+
+				NOT = { this = scope:chamberlain }
+
+			}
+
+			save_scope_as = guest
+
+		}
+
+		if = {
+
+			limit = { NOT = { exists = scope:guest } }
+
+			random_courtier = {
+
+				limit = {
+
+					is_human = yes
+
+					is_adult = yes
+
+					agot_is_dragonblood_character = yes
+
+					NOT = { this = root }
+
+				}
+
+				save_scope_as = guest
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3200.a
+
+		custom_tooltip = jen_dragon_court.3200.a.tt
+
+		remove_short_term_gold = minor_gold_value
+
+		add_prestige = miniscule_prestige_gain
+
+		scope:guest = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3200.b
+
+		custom_tooltip = jen_dragon_court.3200.b.tt
+
+		trigger_event = {
+
+			id = jen_dragon_court.3201
+
+			days = { 5 12 }
+
+		}
+
+		add_prestige = minor_prestige_gain
+
+		add_dread = miniscule_dread_gain
+
+		scope:guest = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = insult_opinion
+
+				opinion = -20
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3200.c
+
+		trigger = {
+
+			jen_dragon_has_egg_artifact_trigger = yes
+
+		}
+
+		custom_tooltip = jen_dragon_court.3200.c.tt
+
+		add_prestige = minor_prestige_gain
+
+		add_stress = miniscule_stress_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+	}
+
+}
+
+# Follow-up: thief in the vault, after a capable Watcher takes them.
+
+jen_dragon_court.1002 = {
+
+	type = character_event
+
+	title = jen_dragon_court.1002.t
+
+	desc = jen_dragon_court.1002.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_hatchery }
+
+	cooldown = { years = 1 }
+
+	left_portrait = {
+
+		character = scope:watcher
+
+		animation = personality_rational
+
+	}
+
+	right_portrait = {
+
+		trigger = { exists = scope:thief }
+
+		character = scope:thief
+
+		animation = shame
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		exists = scope:watcher
+
+		scope:watcher = { is_alive = yes }
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.1002 thief aftermath"
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1002.a
+
+		custom_tooltip = jen_dragon_court.1002.a.tt
+
+		add_dread = miniscule_dread_gain
+
+		add_prestige = miniscule_prestige_gain
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1002.b
+
+		trigger = { exists = scope:thief }
+
+		custom_tooltip = jen_dragon_court.1002.b.tt
+
+		scope:thief = {
+
+			release_from_prison = yes
+
+			add_opinion = {
+
+				target = root
+
+				modifier = grateful_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+		add_prestige = miniscule_prestige_loss
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.1002.c
+
+		trigger = { exists = scope:thief }
+
+		custom_tooltip = jen_dragon_court.1002.c.tt
+
+		scope:thief = {
+
+			death = { death_reason = death_execution killer = root }
+
+		}
+
+		add_dread = minor_dread_gain
+
+		add_tyranny = minor_tyranny_gain
+
+	}
+
+}
+
+# Follow-up: the dragon stayed in the yard.
+
+jen_dragon_court.2001 = {
+
+	type = character_event
+
+	title = jen_dragon_court.2001.t
+
+	desc = jen_dragon_court.2001.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_yard }
+
+	cooldown = { years = 1 }
+
+	left_portrait = {
+
+		trigger = { exists = scope:keeper }
+
+		character = scope:keeper
+
+		animation = happiness
+
+	}
+
+	right_portrait = {
+
+		character = scope:dragon
+
+		animation = idle
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		exists = scope:dragon
+
+		scope:dragon = {
+
+			is_alive = yes
+
+			has_trait = dragon
+
+		}
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.2001 dragon stayed in yard"
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.2001.a
+
+		custom_tooltip = jen_dragon_court.2001.a.tt
+
+		add_stress = miniscule_stress_loss
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+		if = {
+
+			limit = { exists = scope:keeper }
+
+			scope:keeper = {
+
+				add_opinion = {
+
+					target = root
+
+					modifier = pleased_opinion
+
+					opinion = 20
+
+				}
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.2001.b
+
+		custom_tooltip = jen_dragon_court.2001.b.tt
+
+		add_prestige = miniscule_prestige_gain
+
+		add_dread = miniscule_dread_gain
+
+	}
+
+}
+
+# Follow-up: the dragon went to the pit.
+
+jen_dragon_court.2002 = {
+
+	type = character_event
+
+	title = jen_dragon_court.2002.t
+
+	desc = jen_dragon_court.2002.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_pit }
+
+	cooldown = { years = 1 }
+
+	left_portrait = {
+
+		trigger = { exists = scope:pitmaster }
+
+		character = scope:pitmaster
+
+		animation = personality_bold
+
+	}
+
+	right_portrait = {
+
+		character = scope:dragon
+
+		animation = idle
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		exists = scope:dragon
+
+		scope:dragon = {
+
+			is_alive = yes
+
+			has_trait = dragon
+
+		}
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.2002 dragon sent to pit"
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.2002.a
+
+		custom_tooltip = jen_dragon_court.2002.a.tt
+
+		add_dread = miniscule_dread_gain
+
+		if = {
+
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+
+		}
+
+		if = {
+
+			limit = { exists = scope:pitmaster }
+
+			scope:pitmaster = {
+
+				add_opinion = {
+
+					target = root
+
+					modifier = pleased_opinion
+
+					opinion = 20
+
+				}
+
+			}
+
+		}
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.2002.b
+
+		custom_tooltip = jen_dragon_court.2002.b.tt
+
+		add_stress = miniscule_stress_gain
+
+		add_prestige = miniscule_prestige_gain
+
+	}
+
+}
+
+# Follow-up: the guest took the slight.
+
+jen_dragon_court.3201 = {
+
+	type = character_event
+
+	title = jen_dragon_court.3201.t
+
+	desc = jen_dragon_court.3201.desc
+
+	theme = jen_dragon_lifestyle
+
+	override_background = { reference = jen_dragon_bg_hall }
+
+	cooldown = { years = 1 }
+
+	left_portrait = {
+
+		trigger = { exists = scope:chamberlain }
+
+		character = scope:chamberlain
+
+		animation = worry
+
+	}
+
+	right_portrait = {
+
+		character = scope:guest
+
+		animation = personality_bold
+
+	}
+
+	trigger = {
+
+		is_available = yes
+
+		exists = scope:guest
+
+		scope:guest = { is_alive = yes }
+
+	}
+
+	immediate = {
+
+		debug_log = "BotD fired jen_dragon_court.3201 guest slight"
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3201.a
+
+		custom_tooltip = jen_dragon_court.3201.a.tt
+
+		remove_short_term_gold = minor_gold_value
+
+		scope:guest = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = pleased_opinion
+
+				opinion = 20
+
+			}
+
+		}
+
+		add_prestige = miniscule_prestige_loss
+
+	}
+
+	option = {
+
+		name = jen_dragon_court.3201.b
+
+		custom_tooltip = jen_dragon_court.3201.b.tt
+
+		add_dread = miniscule_dread_gain
+
+		add_prestige = miniscule_prestige_gain
+
+		scope:guest = {
+
+			add_opinion = {
+
+				target = root
+
+				modifier = angry_opinion
+
+				opinion = -20
+
+			}
+
+		}
+
+	}
+
+}
+
+# Bloodbinder rite: seed a live egg with dragonblood.
+jen_dragon_court.1410 = {
+	type = character_event
+	title = jen_dragon_court.1410.t
+	desc = jen_dragon_court.1410.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_seed }
+
+	left_portrait = {
+		character = scope:bloodbinder
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = root
+		animation = idle
+	}
+
+	trigger = {
+		is_available = yes
+		OR = {
+			jen_has_unseeded_live_egg_trigger = yes
+			has_game_rule = agot_debug_on
+		}
+	}
+
+	immediate = {
+		debug_log = "BotD fired jen_dragon_court.1410 Seed the Egg"
+		jen_save_unseeded_egg_effect = yes
+		if = {
+			limit = { employs_court_position = jen_dragon_bloodbinder_court_position }
+			court_position:jen_dragon_bloodbinder_court_position = { save_scope_as = bloodbinder }
+		}
+		else = {
+			save_scope_as = bloodbinder
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1410.a
+		trigger = {
+			exists = scope:egg
+			root = { jen_is_valid_egg_seeder_trigger = yes }
+		}
+		custom_tooltip = jen_dragon_court.1410.a.tt
+		save_scope_as = seeder
+		jen_seed_egg_with_seeder_effect = yes
+		if = {
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1410.b
+		trigger = {
+			exists = scope:egg
+			jen_has_court_dragonblood_kin_trigger = yes
+		}
+		custom_tooltip = jen_dragon_court.1410.b.tt
+		random_courtier = {
+			limit = {
+				jen_is_valid_egg_seeder_trigger = yes
+				NOT = { this = root }
+				OR = {
+					is_close_family_of = root
+					AND = {
+						exists = dynasty
+						exists = root.dynasty
+						dynasty = root.dynasty
+					}
+				}
+			}
+			save_scope_as = seeder
+		}
+		jen_seed_egg_with_seeder_effect = yes
+	}
+
+	option = {
+		name = jen_dragon_court.1410.c
+		custom_tooltip = jen_dragon_court.1410.c.tt
+	}
+}
+
+# Bloodbinder rite: bind a rider to their dragon.
+jen_dragon_court.1420 = {
+	type = character_event
+	title = jen_dragon_court.1420.t
+	desc = jen_dragon_court.1420.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_bind }
+
+	left_portrait = {
+		character = scope:bloodbinder
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = scope:dragon
+		animation = idle
+	}
+
+	trigger = {
+		is_available = yes
+		OR = {
+			jen_has_living_bound_dragon_trigger = yes
+			has_game_rule = agot_debug_on
+		}
+	}
+
+	immediate = {
+		debug_log = "BotD fired jen_dragon_court.1420 Bind the Rider"
+		jen_save_bind_dragon_effect = yes
+		if = {
+			limit = { employs_court_position = jen_dragon_bloodbinder_court_position }
+			court_position:jen_dragon_bloodbinder_court_position = { save_scope_as = bloodbinder }
+		}
+		else = {
+			save_scope_as = bloodbinder
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1420.a
+		trigger = { exists = scope:dragon }
+		custom_tooltip = jen_dragon_court.1420.a.tt
+		random_list = {
+			55 = {
+				modifier = {
+					add = 20
+					employs_court_position = jen_dragon_bloodbinder_court_position
+					court_position:jen_dragon_bloodbinder_court_position = {
+						jen_dragon_court_holder_is_capable_trigger = yes
+					}
+				}
+				modifier = {
+					add = 10
+					agot_is_dragonblood_character = yes
+				}
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = jen_dragon_court.1420.success_toast
+					left_icon = root
+					right_icon = scope:dragon
+					custom_tooltip = jen_dragon_court.1420.success_toast_desc
+				}
+				jen_bind_rider_success_effect = yes
+			}
+			45 = {
+				modifier = {
+					factor = 0.55
+					employs_court_position = jen_dragon_bloodbinder_court_position
+					court_position:jen_dragon_bloodbinder_court_position = {
+						jen_dragon_court_holder_is_capable_trigger = yes
+					}
+				}
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = jen_dragon_court.1420.fail_toast
+					left_icon = root
+					right_icon = scope:dragon
+					custom_tooltip = jen_dragon_court.1420.fail_toast_desc
+				}
+				jen_bind_rider_fail_effect = yes
+			}
+		}
+		if = {
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1420.b
+		custom_tooltip = jen_dragon_court.1420.b.tt
+	}
+}
+
+# A year later: the bond pays, or it does not.
+jen_dragon_court.1421 = {
+	type = character_event
+	title = jen_dragon_court.1421.t
+	desc = jen_dragon_court.1421.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_year_named }
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:dragon
+		animation = idle
+	}
+
+	immediate = {
+		debug_log = "BotD fired jen_dragon_court.1421 Bind payoff"
+		if = {
+			limit = { exists = var:jen_bind_dragon }
+			var:jen_bind_dragon = { save_scope_as = dragon }
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1421.a
+		trigger = {
+			exists = scope:dragon
+			scope:dragon = { is_alive = yes }
+			has_relation_agot_dragon = scope:dragon
+		}
+		jen_bind_rider_payoff_effect = yes
+	}
+
+	option = {
+		name = jen_dragon_court.1421.b
+		trigger = {
+			OR = {
+				NOT = { exists = scope:dragon }
+				scope:dragon = { is_alive = no }
+				AND = {
+					exists = scope:dragon
+					NOT = { has_relation_agot_dragon = scope:dragon }
+				}
+			}
+		}
+		jen_bind_rider_payoff_effect = yes
+	}
+}
+
+# Bloodbinder rite: two dragonbloods swear a kin-oath.
+jen_dragon_court.1430 = {
+	type = character_event
+	title = jen_dragon_court.1430.t
+	desc = jen_dragon_court.1430.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_kin_oath }
+
+	left_portrait = {
+		character = scope:bloodbinder
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = scope:oath_kin_1
+		animation = idle
+	}
+
+	trigger = {
+		is_available = yes
+		OR = {
+			jen_can_swear_kin_oath_trigger = yes
+			has_game_rule = agot_debug_on
+		}
+	}
+
+	immediate = {
+		debug_log = "BotD fired jen_dragon_court.1430 Kin-oath"
+		jen_save_oath_kin_candidates_effect = yes
+		if = {
+			limit = { employs_court_position = jen_dragon_bloodbinder_court_position }
+			court_position:jen_dragon_bloodbinder_court_position = { save_scope_as = bloodbinder }
+		}
+		else = {
+			save_scope_as = bloodbinder
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1430.a
+		trigger = { exists = scope:oath_kin_1 }
+		custom_tooltip = jen_dragon_court.1430.a.tt
+		scope:oath_kin_1 = { save_scope_as = oath_kin }
+		jen_kin_oath_cut_effect = yes
+		if = {
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1430.b
+		trigger = { exists = scope:oath_kin_2 }
+		custom_tooltip = jen_dragon_court.1430.b.tt
+		scope:oath_kin_2 = { save_scope_as = oath_kin }
+		jen_kin_oath_cut_effect = yes
+		if = {
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1430.c
+		trigger = { exists = scope:oath_kin_3 }
+		custom_tooltip = jen_dragon_court.1430.c.tt
+		scope:oath_kin_3 = { save_scope_as = oath_kin }
+		jen_kin_oath_cut_effect = yes
+		if = {
+			limit = { has_lifestyle = jen_dragon_lifestyle }
+			add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1430.d
+		custom_tooltip = jen_dragon_court.1430.d.tt
+	}
+}
+
+# Night-terror: the other half of the oath is dead.
+jen_dragon_court.1431 = {
+	type = character_event
+	title = jen_dragon_court.1431.t
+	desc = jen_dragon_court.1431.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_death_dream }
+
+	left_portrait = {
+		character = scope:dead_kin
+		animation = shock
+	}
+
+	immediate = {
+		debug_log = "BotD fired jen_dragon_court.1431 Kin-oath death"
+		if = {
+			limit = { exists = var:jen_oath_kin }
+			var:jen_oath_kin = { save_scope_as = dead_kin }
+		}
+		jen_kin_oath_widow_effect = yes
+	}
+
+	option = {
+		name = jen_dragon_court.1431.a
+	}
+}
+
+# Break the oath on purpose. The Bloodbinder sickens.
+jen_dragon_court.1432 = {
+	type = character_event
+	title = jen_dragon_court.1432.t
+	desc = jen_dragon_court.1432.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_break }
+
+	left_portrait = {
+		character = scope:bloodbinder
+		animation = disgust
+	}
+	right_portrait = {
+		character = scope:oath_kin
+		animation = idle
+	}
+
+	trigger = {
+		is_available = yes
+		OR = {
+			jen_has_kin_oath_trigger = yes
+			has_game_rule = agot_debug_on
+		}
+	}
+
+	immediate = {
+		debug_log = "BotD fired jen_dragon_court.1432 Kin-oath break"
+		if = {
+			limit = {
+				exists = var:jen_oath_kin
+				var:jen_oath_kin = { is_alive = yes }
+			}
+			var:jen_oath_kin = { save_scope_as = oath_kin }
+		}
+		if = {
+			limit = { employs_court_position = jen_dragon_bloodbinder_court_position }
+			court_position:jen_dragon_bloodbinder_court_position = { save_scope_as = bloodbinder }
+		}
+		else = {
+			save_scope_as = bloodbinder
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1432.a
+		custom_tooltip = jen_dragon_court.1432.a.tt
+		jen_kin_oath_break_effect = yes
+	}
+
+	option = {
+		name = jen_dragon_court.1432.b
+		custom_tooltip = jen_dragon_court.1432.b.tt
+	}
+}
+
+# The other half learns the oath was cut.
+jen_dragon_court.1433 = {
+	type = character_event
+	title = jen_dragon_court.1433.t
+	desc = jen_dragon_court.1433.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_oath_cut }
+
+	left_portrait = {
+		character = scope:breaker
+		animation = personality_dishonorable
+	}
+
+	immediate = {
+		debug_log = "BotD fired jen_dragon_court.1433 Kin-oath broken notice"
+	}
+
+	option = {
+		name = jen_dragon_court.1433.a
+	}
+}
+# Found the Dragon Court for this house.
+jen_dragon_court.1440 = {
+	type = character_event
+	title = jen_dragon_court.1440.t
+	desc = jen_dragon_court.1440.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_establish }
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	trigger = {
+		is_available = yes
+		OR = {
+			jen_can_see_establish_dragon_court_trigger = yes
+			has_game_rule = agot_debug_on
+		}
+	}
+
+	immediate = {
+		debug_log = "BotD fired jen_dragon_court.1440 Establish Dragon Court"
+	}
+
+	option = {
+		name = jen_dragon_court.1440.a
+		custom_tooltip = jen_dragon_court.1440.a.tt
+		jen_establish_dragon_court_effect = yes
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = jen_dragon_court.1440.success_toast
+			left_icon = root
+			custom_tooltip = jen_dragon_court.1440.success_toast_desc
+		}
+	}
+
+	option = {
+		name = jen_dragon_court.1440.b
+		custom_tooltip = jen_dragon_court.1440.b.tt
+	}
+}

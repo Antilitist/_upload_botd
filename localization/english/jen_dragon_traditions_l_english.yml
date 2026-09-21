@@ -1,0 +1,64 @@
+﻿l_english:
+ jen_dragon_tradition_requires_blood_tt:0 "This [culture|E] has Valyrian heritage, or you have dragonblood, ride a dragon, or keep a living [dragon|E]"
+ jen_dragon_tradition_requires_fourteen_region_tt:0 "This [culture|E] holds land on Dragonstone, the Valyrian Crownlands, or in old Valyria"
+ jen_dragon_tradition_requires_salt_region_tt:0 "This [culture|E] holds land in the Stepstones, Dragonstone, or the Valyrian Crownlands"
+
+ tradition_jen_keepers_of_the_yard_name:0 "Keepers of the Yard"
+ tradition_jen_keepers_of_the_yard_desc:0 "Eggs, pits, and keepers. A culture that treats the yard as a craft will keep more dragons alive than it burns."
+ culture_parameter_jen_keepers_of_the_yard:0 "Castles are cheaper to expand, and [county|E] [control|E] recovers faster — the work of pits and keepers"
+
+ tradition_jen_dragonlords_peace_name:0 "Dragonlord's Peace"
+ tradition_jen_dragonlords_peace_desc:0 "Fire is a kind of law. Vassals who have seen a dragon over the walls are slower to raise banners of their own."
+ culture_parameter_jen_dragonlords_peace:0 "Rule by dread: intimidated vassals pay more tax, and baseline [dread|E] is higher"
+
+ tradition_jen_fire_made_flesh_name:0 "Fire Made Flesh"
+ tradition_jen_fire_made_flesh_desc:0 "The old rite still sits in the blood. A rider who keeps the words will find the beast answering sooner."
+ culture_parameter_jen_fire_made_flesh:0 "Dragonriders gain extra dragon bond each year. [piety|E] from [dread|E]"
+
+ tradition_jen_fourteen_flames_name:0 "The Fourteen Flames"
+ tradition_jen_fourteen_flames_desc:0 "Oath and funeral are both fire. A people who remember the Fourteen do not linger long in mourning, nor let dread go cold."
+ culture_parameter_jen_fourteen_flames:0 "Faster [stress|E] loss, slower [dread|E] decay, and shorter [short_reign|E]"
+
+ tradition_jen_wings_over_the_wall_name:0 "Wings Over the Wall"
+ tradition_jen_wings_over_the_wall_desc:0 "A saddle is a siege tower that does not wait for the ram. The air is the road."
+ culture_parameter_jen_wings_over_the_wall:0 "Faster sieges and travel. Dragonriders gain extra training each year"
+
+ tradition_jen_dracarys_name:0 "Dracarys"
+ tradition_jen_dracarys_desc:0 "The word is a weapon. Armies that have seen dragonfire do not hold a line for long."
+ culture_parameter_jen_dracarys:0 "Higher [dread|E], deadlier [knights|E], and bloodier battles"
+
+ tradition_jen_blood_binds_blood_name:0 "Blood Binds Blood"
+ tradition_jen_blood_binds_blood_desc:0 "Valyria kept the blood close. Marriage inside the family is not shame here — it is how the fire stays in the line."
+ culture_parameter_jen_blood_binds_blood:0 "Close kin and [dynasty|E] think better of you. Less [inbreeding|E]. Prefers not to marry outside the [culture|E]"
+
+ tradition_jen_dragonseeds_place_name:0 "Dragonseed's Place"
+ tradition_jen_dragonseeds_place_desc:0 "A rider's bastard is still of the blood. Houses that admit as much find more hands for the saddle, and fewer secrets in the yard."
+ culture_parameter_jen_dragonseeds_place:0 "Dragonseeds and acknowledged blood are less a scandal: extra [diplomacy|E], [dynasty|E] and attraction opinion"
+
+ tradition_jen_children_of_the_fourteen_name:0 "Children of the Fourteen"
+ tradition_jen_children_of_the_fourteen_desc:0 "Dragonstone, the Blackwater isles, and the smoking lands still remember. Building and keeping come easier where the Freehold's shadow lies."
+ culture_parameter_jen_children_of_the_fourteen:0 "Cheaper building, faster [control|E], and more [prestige|E] — in the old Valyrian shadow"
+
+ tradition_jen_salt_smoke_and_tide_name:0 "Salt, Smoke, and Tide"
+ tradition_jen_salt_smoke_and_tide_desc:0 "Driftmark, the Stepstones, and the island yards live by ship as much as by wing. The tide is a second road."
+ culture_parameter_jen_salt_smoke_and_tide:0 "Coastal advantage, cheaper embarkation, longer diplomatic range, and faster travel"
+
+ tradition_jen_lustful_dragonblood_name:0 "Lustful Dragonblood"
+ tradition_jen_lustful_dragonblood_desc:0 "The blood is strong, and it will not be kept to one bed. While the body stays hale, age does not close the door on children."
+ culture_parameter_jen_lustful_dragonblood:0 "Strong blood: better health and more congenital traits. A household of many beds. While [health|E] is Good or better, you stay fertile past the usual years."
+ jen_lustful_cannot_have_other_marriage_tt:0 "Cannot be taken together with Monogamous, Polygamous, or Concubines"
+
+ tradition_jen_dragon_court_name:0 "The Dragon Court"
+ tradition_jen_dragon_court_desc:0 "Pits need a Pitmaster. Eggs need a Watcher. Blood needs a binder. A Valyrian court that remembers the Freehold keeps those offices, and does not pretend they are ornaments."
+ culture_parameter_jen_dragon_court:0 "May Establish the Dragon Court. Pit, yard, and blood offices become a house's to name"
+ tradition_jen_freehold_domain_name:0 "Freehold Domain"
+ tradition_jen_freehold_domain_desc:0 "The Forty Families did not rule one keep. They ruled a chain of holds and settlements, and still called it the house. The old habit is to take more land into the palm and keep it."
+ culture_parameter_jen_freehold_domain:0 "+20 [domain|E] limit. +10 AGOT settlement holdings you may personally hold"
+
+ tradition_jen_valyrian_blood_army_name:0 "Valyrian Blood Army"
+ tradition_jen_valyrian_blood_army_desc:0 "The Freehold did not send levies. It sent a blood army: knights on dragon-bred horses, ranked foot, and archers who learned to shoot under wing-shadow. The old drill still sits in the bone."
+ culture_parameter_jen_valyrian_blood_army:0 "+10% [knight|E] effectiveness. -5% [men_at_arms|E] maintenance. +5% army damage"
+ culture_parameter_unlock_maa_jen_dragon_knights:0 "Can recruit [GetMaA('jen_dragon_knights').GetName] as [men_at_arms|E]"
+ culture_parameter_unlock_maa_jen_valyrian_horsemen:0 "Can recruit [GetMaA('jen_valyrian_horsemen').GetName] as [men_at_arms|E]"
+ culture_parameter_unlock_maa_jen_valyrian_archers:0 "Can recruit [GetMaA('jen_valyrian_archers').GetName] as [men_at_arms|E]"
+ culture_parameter_unlock_maa_jen_dragon_footmen:0 "Can recruit [GetMaA('jen_dragon_footmen').GetName] as [men_at_arms|E]"

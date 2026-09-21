@@ -1,0 +1,352 @@
+# BotD dragon court position tasks. One or two tasks per jen_ court seat.
+
+jen_dragon_yard_keep_grounds_task = {
+	court_position_types = { jen_dragon_yard_keeper_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_yard_keep_grounds_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { monthly_prestige = 0.1 build_gold_cost = -0.02 }
+		poor = { monthly_prestige = 0.15 build_gold_cost = -0.03 }
+		average = { monthly_prestige = 0.2 build_gold_cost = -0.04 }
+		good = { monthly_prestige = 0.25 build_gold_cost = -0.05 }
+		excellent = { monthly_prestige = 0.3 build_gold_cost = -0.06 }
+	}
+}
+
+jen_dragon_yard_stock_pens_task = {
+	court_position_types = { jen_dragon_yard_keeper_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_yard_stock_pens_task_tt
+	}
+
+	cost = {
+		round = no
+		gold = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { domain_tax_mult = 0.01 }
+		poor = { domain_tax_mult = 0.015 }
+		average = { domain_tax_mult = 0.02 }
+		good = { domain_tax_mult = 0.025 }
+		excellent = { domain_tax_mult = 0.03 }
+	}
+}
+
+jen_dragon_pitmaster_drill_handlers_task = {
+	court_position_types = { jen_dragon_pitmaster_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_pitmaster_drill_handlers_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { knight_effectiveness_mult = 0.02 }
+		poor = { knight_effectiveness_mult = 0.03 }
+		average = { knight_effectiveness_mult = 0.04 }
+		good = { knight_effectiveness_mult = 0.05 }
+		excellent = { knight_effectiveness_mult = 0.06 }
+	}
+}
+
+jen_dragon_pitmaster_ward_chains_task = {
+	court_position_types = { jen_dragon_pitmaster_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_pitmaster_ward_chains_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { dread_baseline_add = 1 defender_advantage = 1 }
+		poor = { dread_baseline_add = 2 defender_advantage = 2 }
+		average = { dread_baseline_add = 3 defender_advantage = 3 }
+		good = { dread_baseline_add = 4 defender_advantage = 4 }
+		excellent = { dread_baseline_add = 5 defender_advantage = 5 }
+	}
+}
+
+jen_dragon_egg_watch_clutch_task = {
+	court_position_types = { jen_dragon_egg_watcher_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_egg_watch_clutch_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { stress_loss_mult = 0.03 monthly_learning_lifestyle_xp_gain_mult = 0.02 }
+		poor = { stress_loss_mult = 0.05 monthly_learning_lifestyle_xp_gain_mult = 0.03 }
+		average = { stress_loss_mult = 0.07 monthly_learning_lifestyle_xp_gain_mult = 0.04 }
+		good = { stress_loss_mult = 0.09 monthly_learning_lifestyle_xp_gain_mult = 0.05 }
+		excellent = { stress_loss_mult = 0.12 monthly_learning_lifestyle_xp_gain_mult = 0.06 }
+	}
+}
+
+jen_dragon_wingmaster_train_wings_task = {
+	court_position_types = { jen_dragon_wingmaster_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_wingmaster_train_wings_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { knight_effectiveness_mult = 0.02 prowess = 1 }
+		poor = { knight_effectiveness_mult = 0.03 prowess = 1 }
+		average = { knight_effectiveness_mult = 0.04 prowess = 1 }
+		good = { knight_effectiveness_mult = 0.05 prowess = 2 }
+		excellent = { knight_effectiveness_mult = 0.06 prowess = 2 }
+	}
+}
+
+jen_dragon_wingmaster_escort_flights_task = {
+	court_position_types = { jen_dragon_wingmaster_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_wingmaster_escort_flights_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { character_travel_safety = 3 character_travel_speed = 2 }
+		poor = { character_travel_safety = 5 character_travel_speed = 4 }
+		average = { character_travel_safety = 7 character_travel_speed = 6 }
+		good = { character_travel_safety = 9 character_travel_speed = 8 }
+		excellent = { character_travel_safety = 12 character_travel_speed = 10 }
+	}
+}
+
+jen_dragon_bloodbinder_weave_oaths_task = {
+	court_position_types = { jen_dragon_bloodbinder_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_bloodbinder_weave_oaths_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { vassal_opinion = 1 }
+		poor = { vassal_opinion = 2 }
+		average = { vassal_opinion = 3 }
+		good = { vassal_opinion = 4 }
+		excellent = { vassal_opinion = 5 }
+	}
+}
+
+jen_dragon_bloodbinder_host_kin_task = {
+	court_position_types = { jen_dragon_bloodbinder_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_bloodbinder_host_kin_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { general_opinion = 1 monthly_prestige = 0.1 }
+		poor = { general_opinion = 2 monthly_prestige = 0.15 }
+		average = { general_opinion = 3 monthly_prestige = 0.2 }
+		good = { general_opinion = 4 monthly_prestige = 0.25 }
+		excellent = { general_opinion = 5 monthly_prestige = 0.3 }
+	}
+}
+
+jen_dragon_scale_scribe_annals_task = {
+	court_position_types = { jen_dragon_scale_scribe_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_scale_scribe_annals_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { monthly_prestige = 0.1 }
+		poor = { monthly_prestige = 0.15 }
+		average = { monthly_prestige = 0.2 }
+		good = { monthly_prestige = 0.25 }
+		excellent = { monthly_prestige = 0.3 }
+	}
+}
+
+jen_dragon_scale_scribe_pedigree_task = {
+	court_position_types = { jen_dragon_scale_scribe_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_scale_scribe_pedigree_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { monthly_dynasty_prestige_mult = 0.02 }
+		poor = { monthly_dynasty_prestige_mult = 0.03 }
+		average = { monthly_dynasty_prestige_mult = 0.04 }
+		good = { monthly_dynasty_prestige_mult = 0.05 }
+		excellent = { monthly_dynasty_prestige_mult = 0.06 }
+	}
+}
+
+jen_dragon_cradle_nurse_tend_hearth_task = {
+	court_position_types = { jen_dragon_cradle_nurse_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_cradle_nurse_tend_hearth_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { courtier_and_guest_opinion = 1 }
+		poor = { courtier_and_guest_opinion = 2 }
+		average = { courtier_and_guest_opinion = 3 }
+		good = { courtier_and_guest_opinion = 4 }
+		excellent = { courtier_and_guest_opinion = 5 }
+	}
+}
+
+jen_dragon_cradle_nurse_soothe_court_task = {
+	court_position_types = { jen_dragon_cradle_nurse_court_position }
+
+	on_start = {
+		custom_tooltip = jen_dragon_cradle_nurse_soothe_court_task_tt
+	}
+
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { stress_loss_mult = 0.05 }
+		poor = { stress_loss_mult = 0.08 }
+		average = { stress_loss_mult = 0.1 }
+		good = { stress_loss_mult = 0.12 }
+		excellent = { stress_loss_mult = 0.15 }
+	}
+}

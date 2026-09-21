@@ -1,0 +1,102 @@
+# AGOT Teach Dragonlore, with wards added so the toast is honest.
+
+agot_teach_dragonlore = {
+	icon = icon_scheme_dragon
+	category = interaction_category_friendly
+	desc = agot_teach_dragonlore_desc
+	common_interaction = yes
+	interface_priority = 90
+	ignores_pending_interaction_block = yes
+	auto_accept = yes
+	is_shown = {
+		scope:actor = {
+			is_human = yes
+			employs_court_position = head_dragonkeeper_court_position
+		}
+		scope:recipient = {
+			is_human = yes
+			age >= 5
+			NOT = {
+				has_character_modifier = agot_taught_dragonlore
+				scope:recipient = scope:actor
+			}
+			OR = {
+				house ?= scope:actor.house
+				is_child_of = scope:actor
+				is_grandchild_of = scope:actor
+				any_relation = {
+					type = guardian
+					this = scope:actor
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			add_prestige = minor_prestige_gain
+			court_position:head_dragonkeeper_court_position = {
+				save_scope_as = head_dragonkeeper
+				save_scope_value_as = {
+					name = hdk_aptitude
+					value = aptitude:head_dragonkeeper_court_position
+				}
+			}
+			hidden_effect = {
+				send_interface_message = {
+					type = event_generic_neutral
+					title = agot_taught_dragonlore
+					right_icon = scope:recipient
+					stress_impact = {
+						greedy = medium_stress_impact_gain
+					}
+					custom_tooltip = agot_teach_dragonlore_increased_dragonlore_interface_tt
+					show_as_tooltip = {
+						scope:recipient = {
+							add_character_modifier = {
+								modifier = agot_taught_dragonlore
+								years = 15
+							}
+						}
+					}
+				}
+			}
+		}
+		scope:recipient = {
+			add_prestige = minor_prestige_gain
+			add_character_modifier = {
+				modifier = agot_taught_dragonlore
+				years = 15
+			}
+			add_opinion = {
+				target = scope:actor
+				modifier = pleased_opinion
+				opinion = 20
+			}
+			custom_tooltip = agot_teach_dragonlore_increased_dragonlore_preview_tt
+			if = {
+				limit = {
+					has_variable = dragonlore
+				}
+				change_variable = {
+					name = dragonlore
+					add = scope:head_dragonkeeper.aptitude:head_dragonkeeper_court_position
+				}
+			}
+			else = {
+				set_variable = {
+					name = dragonlore
+					value = scope:head_dragonkeeper.aptitude:head_dragonkeeper_court_position
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+	ai_frequency = 12
+	ai_targets = {
+		ai_recipients = children
+	}
+}

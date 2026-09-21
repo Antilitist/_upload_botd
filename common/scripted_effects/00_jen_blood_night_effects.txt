@@ -1,0 +1,608 @@
+﻿jen_blood_night_strip_one_effect = {
+	if = {
+		limit = { NOT = { has_character_flag = jen_blood_night_was_naked } }
+		add_character_flag = jen_blood_night_was_naked
+	}
+	make_naked_effect = yes
+}
+
+jen_blood_night_dress_one_effect = {
+	if = {
+		limit = { has_character_flag = jen_blood_night_was_naked }
+		remove_naked_effect = yes
+		remove_character_flag = jen_blood_night_was_naked
+	}
+}
+
+jen_blood_night_strip_hall_effect = {
+	every_in_list = {
+		variable = jen_blood_night_guests
+		jen_blood_night_strip_one_effect = yes
+	}
+	jen_blood_night_strip_one_effect = yes
+}
+
+jen_blood_night_dress_hall_effect = {
+	every_in_list = {
+		variable = jen_blood_night_guests
+		jen_blood_night_dress_one_effect = yes
+	}
+	jen_blood_night_dress_one_effect = yes
+}
+
+jen_blood_night_clear_night_effect = {
+	jen_blood_night_dress_hall_effect = yes
+	every_in_list = {
+		variable = jen_blood_night_guests
+		remove_character_flag = jen_blood_night_attendee
+		remove_character_flag = jen_blood_night_paired
+		remove_character_flag = jen_blood_night_with_man
+		remove_character_flag = jen_blood_night_was_naked
+		remove_variable = jen_blood_night_pair
+		remove_variable = jen_blood_night_sire
+		remove_character_flag = jen_blood_night_pair_reported
+	}
+	clear_variable_list = jen_blood_night_guests
+	remove_variable = jen_blood_night_beats
+	remove_variable = jen_blood_night_partner
+	remove_variable = jen_blood_night_partner_2
+	remove_variable = jen_blood_night_extra_a
+	remove_variable = jen_blood_night_extra_b
+	remove_character_flag = jen_blood_night_active
+	remove_character_flag = jen_blood_night_intent_pleasure
+	remove_character_flag = jen_blood_night_intent_children
+	remove_character_flag = jen_blood_night_with_man
+	remove_character_flag = jen_blood_night_was_naked
+	remove_variable = jen_blood_night_pair
+	remove_variable = jen_blood_night_sire
+}
+
+jen_blood_night_add_if_new_effect = {
+	if = {
+		limit = {
+			NOT = {
+				root = {
+					is_target_in_variable_list = {
+						name = jen_blood_night_guests
+						target = prev
+					}
+				}
+			}
+		}
+		root = {
+			add_to_variable_list = {
+				name = jen_blood_night_guests
+				target = prev
+			}
+		}
+		add_character_flag = jen_blood_night_attendee
+	}
+}
+
+jen_blood_night_add_bed_guests_effect = {
+	every_spouse = {
+		limit = { jen_blood_night_can_attend_trigger = yes }
+		jen_blood_night_add_if_new_effect = yes
+	}
+	every_concubine = {
+		limit = { jen_blood_night_can_attend_trigger = yes }
+		jen_blood_night_add_if_new_effect = yes
+	}
+	every_relation = {
+		type = jen_consort
+		limit = { jen_blood_night_can_attend_trigger = yes }
+		jen_blood_night_add_if_new_effect = yes
+	}
+}
+
+jen_blood_night_add_lovers_effect = {
+	every_relation = {
+		type = lover
+		limit = { jen_blood_night_can_attend_trigger = yes }
+		jen_blood_night_add_if_new_effect = yes
+	}
+}
+
+jen_blood_night_auto_gather_effect = {
+	jen_blood_night_add_bed_guests_effect = yes
+	jen_blood_night_add_lovers_effect = yes
+	every_courtier_or_guest = {
+		limit = {
+			jen_blood_night_can_attend_trigger = yes
+			is_imprisoned = no
+		}
+		jen_blood_night_add_if_new_effect = yes
+	}
+}
+
+jen_blood_night_begin_night_effect = {
+	jen_blood_night_clear_night_effect = yes
+	add_character_flag = jen_blood_night_active
+	add_to_variable_list = {
+		name = jen_blood_night_guests
+		target = this
+	}
+	jen_blood_night_auto_gather_effect = yes
+}
+
+jen_blood_night_set_intent_pleasure_effect = {
+	remove_character_flag = jen_blood_night_intent_children
+	add_character_flag = jen_blood_night_intent_pleasure
+}
+
+jen_blood_night_set_intent_children_effect = {
+	remove_character_flag = jen_blood_night_intent_pleasure
+	add_character_flag = jen_blood_night_intent_children
+}
+
+jen_blood_night_mark_man_in_pair_effect = {
+	if = {
+		limit = {
+			is_female = yes
+			scope:pair_other = { is_male = yes }
+		}
+		add_character_flag = jen_blood_night_with_man
+	}
+	if = {
+		limit = {
+			is_male = yes
+			scope:pair_other = { is_female = yes }
+		}
+		scope:pair_other = { add_character_flag = jen_blood_night_with_man }
+	}
+}
+
+jen_blood_night_pair_this_with_other_effect = {
+	set_variable = {
+		name = jen_blood_night_pair
+		value = scope:pair_other
+	}
+	scope:pair_other = {
+		set_variable = {
+			name = jen_blood_night_pair
+			value = prev
+		}
+	}
+	jen_blood_night_mark_man_in_pair_effect = yes
+	jen_blood_night_record_sire_this_and_other_effect = yes
+}
+
+# Set the woman's sire. Overwrite THAT woman only. Never clear another woman's sire.
+jen_blood_night_record_sire_this_and_other_effect = {
+	if = {
+		limit = {
+			is_female = yes
+			exists = scope:pair_other
+			scope:pair_other = { is_male = yes }
+		}
+		set_variable = {
+			name = jen_blood_night_sire
+			value = scope:pair_other
+		}
+	}
+	if = {
+		limit = {
+			is_male = yes
+			exists = scope:pair_other
+			scope:pair_other = { is_female = yes }
+		}
+		scope:pair_other = {
+			set_variable = {
+				name = jen_blood_night_sire
+				value = prev
+			}
+		}
+	}
+}
+
+jen_blood_night_clear_my_pair_effect = {
+	if = {
+		limit = { exists = var:jen_blood_night_pair }
+		var:jen_blood_night_pair = {
+			remove_character_flag = jen_blood_night_with_man
+			remove_variable = jen_blood_night_pair
+		}
+	}
+	remove_character_flag = jen_blood_night_with_man
+	remove_variable = jen_blood_night_pair
+}
+
+jen_blood_night_assign_player_match_effect = {
+	if = {
+		limit = { has_character_flag = jen_blood_night_intent_children }
+		if = {
+			limit = { is_female = yes }
+			random_in_list = {
+				variable = jen_blood_night_guests
+				limit = {
+					jen_blood_night_is_unpaired_guest_trigger = yes
+					is_male = yes
+					jen_blood_night_is_close_bed_of_root_trigger = yes
+				}
+				save_scope_as = pair_other
+			}
+			if = {
+				limit = { NOT = { exists = scope:pair_other } }
+				random_in_list = {
+					variable = jen_blood_night_guests
+					limit = {
+						jen_blood_night_is_unpaired_guest_trigger = yes
+						is_male = yes
+					}
+					save_scope_as = pair_other
+				}
+			}
+		}
+		else = {
+			random_in_list = {
+				variable = jen_blood_night_guests
+				limit = {
+					jen_blood_night_is_unpaired_guest_trigger = yes
+					jen_blood_night_is_fertile_woman_trigger = yes
+					jen_blood_night_is_close_bed_of_root_trigger = yes
+				}
+				save_scope_as = pair_other
+			}
+			if = {
+				limit = { NOT = { exists = scope:pair_other } }
+				random_in_list = {
+					variable = jen_blood_night_guests
+					limit = {
+						jen_blood_night_is_unpaired_guest_trigger = yes
+						jen_blood_night_is_fertile_woman_trigger = yes
+					}
+					save_scope_as = pair_other
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = { is_female = yes }
+			random_in_list = {
+				variable = jen_blood_night_guests
+				limit = {
+					jen_blood_night_is_unpaired_guest_trigger = yes
+					is_female = yes
+					jen_blood_night_is_close_bed_of_root_trigger = yes
+				}
+				save_scope_as = pair_other
+			}
+			if = {
+				limit = { NOT = { exists = scope:pair_other } }
+				random_in_list = {
+					variable = jen_blood_night_guests
+					limit = {
+						jen_blood_night_is_unpaired_guest_trigger = yes
+						is_female = yes
+					}
+					save_scope_as = pair_other
+				}
+			}
+			if = {
+				limit = { NOT = { exists = scope:pair_other } }
+				random_in_list = {
+					variable = jen_blood_night_guests
+					limit = { jen_blood_night_is_unpaired_guest_trigger = yes }
+					save_scope_as = pair_other
+				}
+			}
+		}
+		else = {
+			random_in_list = {
+				variable = jen_blood_night_guests
+				limit = {
+					jen_blood_night_is_unpaired_guest_trigger = yes
+					is_female = yes
+					jen_blood_night_is_close_bed_of_root_trigger = yes
+				}
+				save_scope_as = pair_other
+			}
+			if = {
+				limit = { NOT = { exists = scope:pair_other } }
+				random_in_list = {
+					variable = jen_blood_night_guests
+					limit = {
+						jen_blood_night_is_unpaired_guest_trigger = yes
+						is_female = yes
+					}
+					save_scope_as = pair_other
+				}
+			}
+			if = {
+				limit = { NOT = { exists = scope:pair_other } }
+				random_in_list = {
+					variable = jen_blood_night_guests
+					limit = { jen_blood_night_is_unpaired_guest_trigger = yes }
+					save_scope_as = pair_other
+				}
+			}
+		}
+	}
+	if = {
+		limit = { exists = scope:pair_other }
+		jen_blood_night_pair_this_with_other_effect = yes
+		scope:pair_other = { save_scope_as = partner }
+		set_variable = {
+			name = jen_blood_night_partner
+			value = scope:partner
+		}
+	}
+}
+
+jen_blood_night_try_one_children_pair_effect = {
+	random_in_list = {
+		variable = jen_blood_night_guests
+		limit = {
+			jen_blood_night_is_unpaired_person_trigger = yes
+			jen_blood_night_is_fertile_woman_trigger = yes
+		}
+		save_scope_as = night_woman
+	}
+	if = {
+		limit = { exists = scope:night_woman }
+		random_in_list = {
+			variable = jen_blood_night_guests
+			limit = {
+				jen_blood_night_is_unpaired_person_trigger = yes
+				is_male = yes
+				this != scope:night_woman
+			}
+			save_scope_as = pair_other
+		}
+		if = {
+			limit = { exists = scope:pair_other }
+			scope:night_woman = { jen_blood_night_pair_this_with_other_effect = yes }
+			debug_log = "BotD BN children extra pair made"
+		}
+	}
+}
+
+jen_blood_night_try_one_pleasure_pair_effect = {
+	random_in_list = {
+		variable = jen_blood_night_guests
+		limit = { jen_blood_night_is_unpaired_person_trigger = yes }
+		save_scope_as = night_person
+	}
+	if = {
+		limit = { exists = scope:night_person }
+		random_in_list = {
+			variable = jen_blood_night_guests
+			limit = {
+				jen_blood_night_is_unpaired_person_trigger = yes
+				this != scope:night_person
+			}
+			save_scope_as = pair_other
+		}
+		if = {
+			limit = { exists = scope:pair_other }
+			scope:night_person = { jen_blood_night_pair_this_with_other_effect = yes }
+			debug_log = "BotD BN pleasure extra pair made"
+		}
+	}
+}
+
+# Host bed does not count. Cap 7 extra pairs.
+jen_blood_night_pair_rest_children_effect = {
+	jen_blood_night_try_one_children_pair_effect = yes
+	jen_blood_night_try_one_children_pair_effect = yes
+	jen_blood_night_try_one_children_pair_effect = yes
+	jen_blood_night_try_one_children_pair_effect = yes
+	jen_blood_night_try_one_children_pair_effect = yes
+	jen_blood_night_try_one_children_pair_effect = yes
+	jen_blood_night_try_one_children_pair_effect = yes
+}
+
+jen_blood_night_pair_rest_pleasure_effect = {
+	jen_blood_night_try_one_pleasure_pair_effect = yes
+	jen_blood_night_try_one_pleasure_pair_effect = yes
+	jen_blood_night_try_one_pleasure_pair_effect = yes
+	jen_blood_night_try_one_pleasure_pair_effect = yes
+	jen_blood_night_try_one_pleasure_pair_effect = yes
+	jen_blood_night_try_one_pleasure_pair_effect = yes
+	jen_blood_night_try_one_pleasure_pair_effect = yes
+}
+
+jen_blood_night_debug_counts_effect = {
+	set_variable = { name = jen_bn_debug_guests value = 0 }
+	set_variable = { name = jen_bn_debug_pairs value = 0 }
+	every_in_list = {
+		variable = jen_blood_night_guests
+		remove_character_flag = jen_bn_debug_pair_tick
+	}
+	every_in_list = {
+		variable = jen_blood_night_guests
+		root = { change_variable = { name = jen_bn_debug_guests add = 1 } }
+	}
+	every_in_list = {
+		variable = jen_blood_night_guests
+		limit = {
+			exists = var:jen_blood_night_pair
+			NOT = { has_character_flag = jen_bn_debug_pair_tick }
+			var:jen_blood_night_pair = { is_alive = yes }
+		}
+		add_character_flag = jen_bn_debug_pair_tick
+		var:jen_blood_night_pair = { add_character_flag = jen_bn_debug_pair_tick }
+		root = { change_variable = { name = jen_bn_debug_pairs add = 1 } }
+	}
+	every_in_list = {
+		variable = jen_blood_night_guests
+		remove_character_flag = jen_bn_debug_pair_tick
+	}
+	debug_log = "BotD BN counts: root vars jen_bn_debug_guests and jen_bn_debug_pairs"
+}
+
+jen_blood_night_auto_pair_room_effect = {
+	debug_log = "BotD BN auto-pair start"
+	jen_blood_night_assign_player_match_effect = yes
+	if = {
+		limit = { has_character_flag = jen_blood_night_intent_children }
+		jen_blood_night_pair_rest_children_effect = yes
+	}
+	else = {
+		jen_blood_night_pair_rest_pleasure_effect = yes
+	}
+	jen_blood_night_debug_counts_effect = yes
+}
+
+jen_blood_night_load_partners_effect = {
+	if = {
+		limit = { exists = var:jen_blood_night_partner }
+		var:jen_blood_night_partner = { save_scope_as = partner }
+	}
+	else_if = {
+		limit = { exists = var:jen_blood_night_pair }
+		var:jen_blood_night_pair = { save_scope_as = partner }
+	}
+}
+
+jen_blood_night_take_match_effect = {
+	if = {
+		limit = { exists = scope:partner }
+		scope:partner = {
+			add_opinion = {
+				target = root
+				modifier = pleased_opinion
+				opinion = 20
+			}
+		}
+	}
+	trigger_event = {
+		id = jen_blood_night.0020
+		days = { 1 2 }
+	}
+}
+
+jen_blood_night_save_next_pair_report_effect = {
+	if = {
+		limit = { NOT = { exists = scope:jen_bn_p1a } }
+		scope:pair_a = { save_scope_as = jen_bn_p1a }
+		scope:pair_b = { save_scope_as = jen_bn_p1b }
+	}
+	else_if = {
+		limit = { NOT = { exists = scope:jen_bn_p2a } }
+		scope:pair_a = { save_scope_as = jen_bn_p2a }
+		scope:pair_b = { save_scope_as = jen_bn_p2b }
+	}
+	else_if = {
+		limit = { NOT = { exists = scope:jen_bn_p3a } }
+		scope:pair_a = { save_scope_as = jen_bn_p3a }
+		scope:pair_b = { save_scope_as = jen_bn_p3b }
+	}
+	else_if = {
+		limit = { NOT = { exists = scope:jen_bn_p4a } }
+		scope:pair_a = { save_scope_as = jen_bn_p4a }
+		scope:pair_b = { save_scope_as = jen_bn_p4b }
+	}
+	else_if = {
+		limit = { NOT = { exists = scope:jen_bn_p5a } }
+		scope:pair_a = { save_scope_as = jen_bn_p5a }
+		scope:pair_b = { save_scope_as = jen_bn_p5b }
+	}
+	else_if = {
+		limit = { NOT = { exists = scope:jen_bn_p6a } }
+		scope:pair_a = { save_scope_as = jen_bn_p6a }
+		scope:pair_b = { save_scope_as = jen_bn_p6b }
+	}
+	else_if = {
+		limit = { NOT = { exists = scope:jen_bn_p7a } }
+		scope:pair_a = { save_scope_as = jen_bn_p7a }
+		scope:pair_b = { save_scope_as = jen_bn_p7b }
+	}
+	else_if = {
+		limit = { NOT = { exists = scope:jen_bn_p8a } }
+		scope:pair_a = { save_scope_as = jen_bn_p8a }
+		scope:pair_b = { save_scope_as = jen_bn_p8b }
+	}
+}
+
+jen_blood_night_collect_pair_report_effect = {
+	every_in_list = {
+		variable = jen_blood_night_guests
+		remove_character_flag = jen_blood_night_pair_reported
+	}
+	every_in_list = {
+		variable = jen_blood_night_guests
+		limit = {
+			exists = var:jen_blood_night_pair
+			NOT = { has_character_flag = jen_blood_night_pair_reported }
+			var:jen_blood_night_pair = {
+				is_alive = yes
+				NOT = { has_character_flag = jen_blood_night_pair_reported }
+			}
+		}
+		save_scope_as = pair_a
+		var:jen_blood_night_pair = { save_scope_as = pair_b }
+		add_character_flag = jen_blood_night_pair_reported
+		scope:pair_b = { add_character_flag = jen_blood_night_pair_reported }
+		jen_blood_night_save_next_pair_report_effect = yes
+	}
+}
+
+jen_blood_night_grant_rite_xp_effect = {
+	every_in_list = {
+		variable = jen_blood_night_guests
+		limit = {
+			is_alive = yes
+			is_adult = yes
+			is_human = yes
+			NOT = { has_trait = dragon }
+		}
+		if = {
+			limit = { NOT = { has_trait = jen_blood_rite } }
+			add_trait = jen_blood_rite
+		}
+		add_trait_xp = {
+			trait = jen_blood_rite
+			value = 20
+		}
+	}
+	if = {
+		limit = { has_trait = jen_blood_rite }
+		add_trait_xp = {
+			trait = jen_blood_rite
+			value = 10
+		}
+	}
+}
+jen_blood_night_morning_effect = {
+	jen_blood_night_dress_hall_effect = yes
+	jen_blood_night_grant_rite_xp_effect = yes
+	save_scope_as = ignore_cheating_error_check
+	if = {
+		limit = { has_character_flag = jen_blood_night_intent_children }
+		every_in_list = {
+			variable = jen_blood_night_guests
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				is_female = yes
+				exists = var:jen_blood_night_sire
+				var:jen_blood_night_sire = { is_alive = yes }
+			}
+			var:jen_blood_night_sire = { save_scope_as = night_man }
+			had_sex_with_effect = {
+				CHARACTER = scope:night_man
+				PREGNANCY_CHANCE = pregnancy_chance
+			}
+		}
+	}
+	stress_impact = {
+		base = medium_stress_impact_loss
+	}
+	if = {
+		limit = {
+			any_in_list = {
+				variable = jen_blood_night_guests
+				this != root
+				NOT = { jen_faith_is_valyrian_trigger = yes }
+			}
+		}
+		add_dread = minor_dread_gain
+	}
+	add_character_flag = {
+		flag = jen_blood_night_cooldown
+		years = 3
+	}
+	jen_blood_night_clear_night_effect = yes
+}

@@ -1,0 +1,54 @@
+﻿jen_blood_rite = {
+	category = lifestyle
+	icon = jen_blood_rite.dds
+
+	diplomacy = 1
+	monthly_prestige = 0.10
+	monthly_piety = 0.10
+	same_opinion = 10
+
+	track = {
+		50 = {
+			diplomacy = 1
+			monthly_prestige = 0.10
+			monthly_piety = 0.15
+			attraction_opinion = 5
+		}
+		100 = {
+			diplomacy = 1
+			monthly_prestige = 0.20
+			monthly_piety = 0.25
+			attraction_opinion = 5
+			fertility = 0.1
+		}
+	}
+
+	shown_in_ruler_designer = no
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = jen_blood_rite
+						value >= 100
+					}
+				}
+				desc = trait_jen_blood_rite_3
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = jen_blood_rite
+						value >= 50
+					}
+				}
+				desc = trait_jen_blood_rite_2
+			}
+			desc = trait_jen_blood_rite
+		}
+	}
+}
+

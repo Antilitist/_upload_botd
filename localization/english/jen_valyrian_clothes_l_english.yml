@@ -1,0 +1,10 @@
+﻿l_english:
+ jen_wear_valyrian_dress_decision:0 "Wear Valyrian Dress"
+ jen_wear_valyrian_dress_decision_desc:0 "True Valyrian women wear the AGOT high-noble vestments in your dynasty colors by default. Toggle off to drop the force (Barbershop DNA can show through)."
+ jen_wear_valyrian_dress_decision_tooltip:0 "Toggle the dynastic Valyrian vestments on or off"
+ jen_wear_valyrian_dress_decision_confirm:0 "Dress"
+ jen_wear_valyrian_dress_decision_effect_tt:0 "Dynastic Valyrian vestments turned off for this character"
+ jen_wear_valyrian_dress_decision_clear_tt:0 "Dynastic Valyrian vestments restored (default on)"
+ jen_wear_valyrian_dress_interaction:0 "Wear Valyrian Dress"
+ jen_wear_valyrian_dress_interaction_desc:0 "Toggle the dynastic-color Valyrian vestments (default on for True Valyrian women)."
+ jen_wear_valyrian_dress_interaction_action:0 "Dress"

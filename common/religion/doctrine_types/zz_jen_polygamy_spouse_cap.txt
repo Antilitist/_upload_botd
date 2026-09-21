@@ -1,0 +1,20 @@
+# BotD: polygamy fallback must include consort slots or the game strips concubines.
+doctrine_polygamy = {
+	piety_cost = {
+		value = faith_doctrine_cost_mid
+		if = {
+			limit = { has_doctrine = doctrine_polygamy }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	parameters = {
+		number_of_spouses = 40
+		number_of_consorts = 40
+		spouse_piety_loss = yes
+		men_can_have_multiple_spouses = yes
+		women_can_have_multiple_spouses = yes
+		men_can_have_consorts = yes
+		women_can_have_consorts = yes
+		jen_blood_wives_law = yes
+	}
+}

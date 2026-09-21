@@ -1,0 +1,15 @@
+﻿# Hidden marker for later magic / blood events.
+# Check with: faith = { has_doctrine = special_doctrine_jen_is_valyrian_faith }
+
+special_doctrine_jen_is_valyrian_faith = {
+	visible = no
+
+	parameters = {
+		jen_is_valyrian_faith = yes
+		jen_true_magic_eligible = yes
+		jen_blood_magic_permitted = yes
+		jen_valyrian_supremacy = yes
+		jen_sorcerous_arts = yes
+		jen_fire_and_blood = yes
+	}
+}

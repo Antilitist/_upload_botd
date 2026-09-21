@@ -1,0 +1,95 @@
+# Toasts when a child or ward can learn a language or be taught Dragonlore.
+
+action_jen_child_learn_language = {
+	type = alert
+	priority = 360
+
+	check_create_action = {
+		if = {
+			limit = {
+				has_ep1_court_positions_dlc_trigger = yes
+				is_human = yes
+				OR = {
+					employs_court_position = court_tutor_court_position
+					employs_court_position = court_guru_court_position
+					employs_court_position = septa_court_position
+					employs_court_position = maester_court_position
+				}
+			}
+			every_child = {
+				limit = {
+					jen_can_be_taught_a_language_trigger = { TEACHER = root }
+				}
+				try_create_important_action = {
+					important_action_type = action_jen_child_learn_language
+					actor = root
+					recipient = this
+				}
+			}
+			every_relation = {
+				type = ward
+				limit = {
+					NOT = { is_child_of = root }
+					jen_can_be_taught_a_language_trigger = { TEACHER = root }
+				}
+				try_create_important_action = {
+					important_action_type = action_jen_child_learn_language
+					actor = root
+					recipient = this
+				}
+			}
+		}
+	}
+
+	effect = {
+		open_interaction_window = {
+			interaction = make_child_learn_language_interaction
+			actor = scope:actor
+			recipient = scope:recipient
+		}
+	}
+}
+
+action_jen_teach_dragonlore = {
+	type = alert
+	priority = 358
+
+	check_create_action = {
+		if = {
+			limit = {
+				is_human = yes
+				employs_court_position = head_dragonkeeper_court_position
+			}
+			every_child = {
+				limit = {
+					jen_can_be_taught_dragonlore_trigger = { TEACHER = root }
+				}
+				try_create_important_action = {
+					important_action_type = action_jen_teach_dragonlore
+					actor = root
+					recipient = this
+				}
+			}
+			every_relation = {
+				type = ward
+				limit = {
+					NOT = { is_child_of = root }
+					jen_can_be_taught_dragonlore_trigger = { TEACHER = root }
+				}
+				try_create_important_action = {
+					important_action_type = action_jen_teach_dragonlore
+					actor = root
+					recipient = this
+				}
+			}
+		}
+	}
+
+	effect = {
+		open_interaction_window = {
+			interaction = agot_teach_dragonlore
+			actor = scope:actor
+			recipient = scope:recipient
+		}
+	}
+}

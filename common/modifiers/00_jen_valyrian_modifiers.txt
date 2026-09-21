@@ -1,0 +1,16 @@
+﻿jen_sister_wife_active = {
+	icon = fertility_positive
+	spouse_opinion = 15
+	fertility = 0.1
+}
+
+jen_rider_sacrament_active = {
+	icon = dread_positive
+	dread_baseline_add = 10
+	monthly_piety_gain_mult = 0.1
+}
+
+jen_gods_that_walk_active = {
+	icon = piety_positive
+	monthly_piety = 0.1
+}

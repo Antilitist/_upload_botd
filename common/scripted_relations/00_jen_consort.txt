@@ -1,0 +1,8 @@
+# Blood-Wives concubine for both sexes. Engine GetMaxConsorts / make_concubine often will not stick on women.
+
+jen_consort = {
+	corresponding = jen_consort
+	special_guest = yes
+	opinion = 15
+	fertility = 1.0
+}

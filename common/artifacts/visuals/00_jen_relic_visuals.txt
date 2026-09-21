@@ -1,0 +1,57 @@
+# BotD Seek-a-Relic unique inventory icons (240x240)
+# Glass candle stays AGOT glass_candle (locked black shard) — not redefined here.
+
+jen_art_dragonbone_spear = {
+	icon = "jen_art_dragonbone_spear.dds"
+	asset = ep1_western_spear_01_a_portrait_entity
+}
+
+jen_art_bloodknife = {
+	icon = "jen_art_bloodknife.dds"
+	asset = portrait_prop_western_dagger_01_entity
+}
+
+jen_art_ash_scale_cloak = {
+	icon = "jen_art_ash_scale_cloak.dds"
+	asset = ep1_western_book_big_01_a_entity
+}
+
+jen_art_fused_bracers = {
+	icon = "jen_art_fused_bracers.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+
+jen_art_circlet_forty = {
+	icon = "jen_art_circlet_forty.dds"
+	asset = male_headgear_secular_byzantine_royalty_01_artifact_entity
+}
+
+jen_art_ash_crown = {
+	icon = "jen_art_ash_crown.dds"
+	asset = male_headgear_secular_byzantine_royalty_01_artifact_entity
+}
+
+jen_art_songs_fourteen = {
+	icon = "jen_art_songs_fourteen.dds"
+	asset = ep1_western_book_big_01_a_entity
+}
+
+jen_art_glass_treatise = {
+	icon = "jen_art_glass_treatise.dds"
+	asset = ep1_western_book_big_01_a_entity
+}
+
+jen_art_blood_ledger = {
+	icon = "jen_art_blood_ledger.dds"
+	asset = ep1_western_book_big_01_a_entity
+}
+
+jen_art_empty_shell = {
+	icon = "jen_art_empty_shell.dds"
+	asset = ep1_western_book_big_01_a_entity
+}
+
+jen_art_fake_trinket = {
+	icon = "jen_art_fake_trinket.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}

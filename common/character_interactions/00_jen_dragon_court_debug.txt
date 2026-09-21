@@ -1,0 +1,251 @@
+﻿# Debug: right-click yourself. Console: type debug, then these show under AGOT Debug.
+
+jen_dragon_court_debug_interaction = {
+
+	icon = icon_scheme_dragon
+
+	category = interaction_category_agot_debug
+
+	interface_priority = 94
+
+	ignores_pending_interaction_block = yes
+
+	auto_accept = yes
+
+	use_diplomatic_range = no
+
+	send_option = { flag = jen_debug_log_court localization = jen_debug_log_court }
+
+	send_option = { flag = jen_debug_fire_1000 localization = jen_debug_fire_1000 }
+
+	send_option = { flag = jen_debug_fire_1001 localization = jen_debug_fire_1001 }
+
+	send_option = { flag = jen_debug_fire_1100 localization = jen_debug_fire_1100 }
+
+	send_option = { flag = jen_debug_fire_1101 localization = jen_debug_fire_1101 }
+
+	send_option = { flag = jen_debug_fire_1200 localization = jen_debug_fire_1200 }
+
+	send_option = { flag = jen_debug_fire_1300 localization = jen_debug_fire_1300 }
+
+	send_option = { flag = jen_debug_fire_1400 localization = jen_debug_fire_1400 }
+	send_option = { flag = jen_debug_fire_1410 localization = jen_debug_fire_1410 }
+	send_option = { flag = jen_debug_fire_1420 localization = jen_debug_fire_1420 }
+	send_option = { flag = jen_debug_fire_1421 localization = jen_debug_fire_1421 }
+	send_option = { flag = jen_debug_fire_1430 localization = jen_debug_fire_1430 }
+	send_option = { flag = jen_debug_fire_1431 localization = jen_debug_fire_1431 }
+	send_option = { flag = jen_debug_fire_1432 localization = jen_debug_fire_1432 }
+	send_option = { flag = jen_debug_fire_1440 localization = jen_debug_fire_1440 }
+
+	send_option = { flag = jen_debug_become_true_valyrian localization = jen_debug_become_true_valyrian }
+
+	send_option = { flag = jen_debug_fire_blood_night localization = jen_debug_fire_blood_night }
+
+	send_option = { flag = jen_debug_fire_relic_expedition localization = jen_debug_fire_relic_expedition }
+
+	send_option = { flag = jen_debug_fire_1500 localization = jen_debug_fire_1500 }
+
+	send_option = { flag = jen_debug_fire_1600 localization = jen_debug_fire_1600 }
+
+	send_option = { flag = jen_debug_fire_2000 localization = jen_debug_fire_2000 }
+
+	send_option = { flag = jen_debug_fire_3000 localization = jen_debug_fire_3000 }
+
+	send_option = { flag = jen_debug_fire_3100 localization = jen_debug_fire_3100 }
+
+	send_option = { flag = jen_debug_fire_3200 localization = jen_debug_fire_3200 }
+
+	send_option = { flag = jen_debug_fire_1002 localization = jen_debug_fire_1002 }
+
+	send_option = { flag = jen_debug_fire_2001 localization = jen_debug_fire_2001 }
+
+	send_option = { flag = jen_debug_fire_2002 localization = jen_debug_fire_2002 }
+
+	send_option = { flag = jen_debug_fire_3201 localization = jen_debug_fire_3201 }
+
+	is_shown = {
+
+		OR = {
+
+			has_game_rule = agot_debug_on
+
+			debug_only = yes
+
+		}
+
+		scope:actor = { is_ai = no }
+
+		scope:recipient = { this = scope:actor }
+
+	}
+
+	ai_will_do = { base = 0 }
+
+	on_accept = {
+
+		scope:actor = {
+
+			jen_dragon_court_debug_log_eligibility_effect = yes
+
+			jen_dragon_save_any_yard_dragon_effect = yes
+
+			if = {
+
+				limit = { employs_court_position = jen_dragon_egg_watcher_court_position }
+
+				court_position:jen_dragon_egg_watcher_court_position = { save_scope_as = watcher }
+
+			}
+
+			if = {
+
+				limit = { employs_court_position = jen_dragon_yard_keeper_court_position }
+
+				court_position:jen_dragon_yard_keeper_court_position = { save_scope_as = keeper }
+
+			}
+
+			if = {
+
+				limit = { employs_court_position = jen_dragon_pitmaster_court_position }
+
+				court_position:jen_dragon_pitmaster_court_position = { save_scope_as = pitmaster }
+
+			}
+
+			if = {
+
+				limit = { employs_court_position = jen_dragon_wingmaster_court_position }
+
+				court_position:jen_dragon_wingmaster_court_position = { save_scope_as = wingmaster }
+
+			}
+
+			if = {
+
+				limit = { employs_court_position = jen_dragon_bloodbinder_court_position }
+
+				court_position:jen_dragon_bloodbinder_court_position = { save_scope_as = bloodbinder }
+
+			}
+
+			if = {
+
+				limit = { employs_court_position = jen_dragon_scale_scribe_court_position }
+
+				court_position:jen_dragon_scale_scribe_court_position = { save_scope_as = scribe }
+
+			}
+
+			if = {
+
+				limit = { employs_court_position = jen_dragon_cradle_nurse_court_position }
+
+				court_position:jen_dragon_cradle_nurse_court_position = { save_scope_as = nurse }
+
+			}
+
+			if = {
+
+				limit = { exists = cp:jen_dragon_councillor_master_of_dragons }
+
+				cp:jen_dragon_councillor_master_of_dragons = { save_scope_as = master }
+
+			}
+
+			if = {
+
+				limit = { exists = cp:jen_dragon_councillor_lord_of_the_pit }
+
+				cp:jen_dragon_councillor_lord_of_the_pit = { save_scope_as = lord }
+
+			}
+
+			if = {
+
+				limit = { exists = cp:jen_dragon_councillor_blood_chamberlain }
+
+				cp:jen_dragon_councillor_blood_chamberlain = { save_scope_as = chamberlain }
+
+			}
+
+			if = {
+
+				limit = { scope:jen_debug_log_court = yes }
+
+				debug_log = "BotD court debug dump only"
+
+				send_interface_toast = {
+
+					type = event_toast_effect_neutral
+
+					title = jen_dragon_court_debug_pulse_title
+
+					desc = jen_dragon_court_debug_pulse_desc
+
+				}
+
+			}
+
+			if = { limit = { scope:jen_debug_fire_1000 = yes } trigger_event = jen_dragon_court.1000 }
+
+			if = { limit = { scope:jen_debug_fire_1001 = yes } trigger_event = jen_dragon_court.1001 }
+
+			if = { limit = { scope:jen_debug_fire_1100 = yes } trigger_event = jen_dragon_court.1100 }
+
+			if = { limit = { scope:jen_debug_fire_1101 = yes } trigger_event = jen_dragon_court.1101 }
+
+			if = { limit = { scope:jen_debug_fire_1200 = yes } trigger_event = jen_dragon_court.1200 }
+
+			if = { limit = { scope:jen_debug_fire_1300 = yes } trigger_event = jen_dragon_court.1300 }
+
+			if = { limit = { scope:jen_debug_fire_1400 = yes } trigger_event = jen_dragon_court.1400 }
+			if = { limit = { scope:jen_debug_fire_1410 = yes } trigger_event = jen_dragon_court.1410 }
+			if = { limit = { scope:jen_debug_fire_1420 = yes } trigger_event = jen_dragon_court.1420 }
+			if = { limit = { scope:jen_debug_fire_1421 = yes } trigger_event = jen_dragon_court.1421 }
+			if = { limit = { scope:jen_debug_fire_1430 = yes } trigger_event = jen_dragon_court.1430 }
+			if = { limit = { scope:jen_debug_fire_1431 = yes } trigger_event = jen_dragon_court.1431 }
+			if = { limit = { scope:jen_debug_fire_1432 = yes } trigger_event = jen_dragon_court.1432 }
+			if = { limit = { scope:jen_debug_fire_1440 = yes } trigger_event = jen_dragon_court.1440 }
+
+			if = { limit = { scope:jen_debug_fire_blood_night = yes } trigger_event = jen_blood_night.0001 }
+
+			if = { limit = { scope:jen_debug_fire_relic_expedition = yes } trigger_event = jen_relic_expedition.0001 }
+
+			if = {
+				limit = { scope:jen_debug_become_true_valyrian = yes }
+				jen_convert_to_true_valyrian_effect = yes
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = jen_debug_become_true_valyrian
+					left_icon = this
+					custom_tooltip = jen_establish_become_true_valyrian_tt
+				}
+			}
+
+			if = { limit = { scope:jen_debug_fire_1500 = yes } trigger_event = jen_dragon_court.1500 }
+
+			if = { limit = { scope:jen_debug_fire_1600 = yes } trigger_event = jen_dragon_court.1600 }
+
+			if = { limit = { scope:jen_debug_fire_2000 = yes } trigger_event = jen_dragon_court.2000 }
+
+			if = { limit = { scope:jen_debug_fire_3000 = yes } trigger_event = jen_dragon_court.3000 }
+
+			if = { limit = { scope:jen_debug_fire_3100 = yes } trigger_event = jen_dragon_court.3100 }
+
+			if = { limit = { scope:jen_debug_fire_3200 = yes } trigger_event = jen_dragon_court.3200 }
+
+			if = { limit = { scope:jen_debug_fire_1002 = yes } trigger_event = jen_dragon_court.1002 }
+
+			if = { limit = { scope:jen_debug_fire_2001 = yes } trigger_event = jen_dragon_court.2001 }
+
+			if = { limit = { scope:jen_debug_fire_2002 = yes } trigger_event = jen_dragon_court.2002 }
+
+			if = { limit = { scope:jen_debug_fire_3201 = yes } trigger_event = jen_dragon_court.3201 }
+
+		}
+
+	}
+
+}
+

@@ -1,0 +1,31 @@
+﻿# Kin-oath: bound, widow, broken, fever, and the binder's sickness.
+
+jen_kin_oath_bound = {
+	icon = prestige_positive
+	monthly_prestige = 0.1
+	stress_loss_mult = 0.05
+}
+
+jen_oath_widow = {
+	icon = stressed
+	stress_gain_mult = 0.3
+	health = -0.25
+}
+
+jen_oath_broken = {
+	icon = stressed
+	monthly_prestige = -0.2
+	dread_decay_mult = -0.1
+}
+
+jen_blood_fever = {
+	icon = health_negative
+	health = -0.75
+	monthly_prestige = -0.1
+}
+
+jen_binder_sickens = {
+	icon = health_negative
+	health = -1.0
+	diplomacy = -1
+}

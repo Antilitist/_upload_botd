@@ -1,0 +1,49 @@
+﻿# Later magic events should gate on these, not on religion_tag alone.
+
+jen_faith_is_valyrian_trigger = {
+	faith = {
+		OR = {
+			has_doctrine = special_doctrine_jen_is_valyrian_faith
+			religion = religion:jen_valyrian_religion
+		}
+	}
+}
+
+jen_faith_permits_blood_magic_trigger = {
+	faith = {
+		OR = {
+			has_doctrine_parameter = jen_blood_magic_permitted
+			has_doctrine = tenet_jen_blood_of_the_fourteen
+			has_doctrine = doctrine_jen_sorcerous_arts
+		}
+	}
+}
+
+jen_faith_true_magic_eligible_trigger = {
+	faith = { has_doctrine_parameter = jen_true_magic_eligible }
+}
+
+jen_faith_worships_dragons_trigger = {
+	faith = { has_doctrine_parameter = jen_dragon_worship }
+}
+
+# AGOT: rider trait, living dragon relation, or a real egg artifact.
+jen_gods_that_walk_has_living_god_trigger = {
+	OR = {
+		has_trait = dragonrider
+		jen_has_live_egg_or_dragon_trigger = yes
+		jen_dragon_has_egg_artifact_trigger = yes
+	}
+}
+
+jen_valyrian_player_has_living_dragon_trigger = {
+	OR = {
+		has_trait = dragonrider
+		any_relation = {
+			type = agot_dragon
+			is_alive = yes
+			has_trait = dragon
+			has_character_flag = owned_dragon
+		}
+	}
+}

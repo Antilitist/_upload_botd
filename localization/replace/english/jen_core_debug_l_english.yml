@@ -1,0 +1,2 @@
+﻿l_english:
+ CHARACTER_DEBUG_TOOLTIP:2 "#D DEBUG:#!\nID: [CHARACTER.GetID|V], Historical ID: [CHARACTER.GetHistoryId|V]\n$CHARACTER_DEBUG_REAL_FATHER_TOOLTIP$$CHARACTER_DEBUG_REAL_MOTHER_TOOLTIP$Fertility: [CHARACTER.GetFertility|%0V], Health: [CHARACTER.GetHealth|1V], Stress: [CHARACTER.GetStress|0V]\nDragonblood: [CHARACTER.MakeScope.ScriptValue('dragonblood_percent')|0]%\nBase Weight: [CHARACTER.GetBaseWeight], Target Weight: [CHARACTER.GetTargetWeight], Current Weight: [CHARACTER.GetCurrentWeight]\n"

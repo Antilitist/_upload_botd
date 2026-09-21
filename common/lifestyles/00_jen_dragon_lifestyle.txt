@@ -1,0 +1,6 @@
+﻿jen_dragon_lifestyle = {
+	icon = jen_dragon_lifestyle
+	is_valid = { always = yes }
+	xp_per_level = 1000
+	base_xp_gain = 25
+}

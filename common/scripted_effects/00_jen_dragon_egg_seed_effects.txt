@@ -1,0 +1,109 @@
+﻿# Apply or pulse Bloodbinder egg-seeding. scope:egg and scope:seeder must exist.
+
+jen_save_unseeded_egg_effect = {
+	if = {
+		limit = {
+			any_character_artifact = {
+				jen_artifact_is_unseeded_live_egg_trigger = yes
+				has_variable = cradled_egg
+			}
+		}
+		random_character_artifact = {
+			limit = {
+				jen_artifact_is_unseeded_live_egg_trigger = yes
+				has_variable = cradled_egg
+			}
+			save_scope_as = egg
+		}
+	}
+	else_if = {
+		limit = { jen_has_unseeded_live_egg_trigger = yes }
+		random_character_artifact = {
+			limit = { jen_artifact_is_unseeded_live_egg_trigger = yes }
+			save_scope_as = egg
+		}
+	}
+}
+
+jen_seed_egg_with_seeder_effect = {
+	if = {
+		limit = {
+			exists = scope:egg
+			exists = scope:seeder
+			scope:egg = { jen_artifact_is_unseeded_live_egg_trigger = yes }
+			scope:seeder = { jen_is_valid_egg_seeder_trigger = yes }
+		}
+		debug_log = "BotD seeded a dragon egg with dragonblood"
+		scope:egg = {
+			set_variable = jen_blood_seeded
+			set_variable = {
+				name = jen_seeded_seeder
+				value = scope:seeder
+			}
+			if = {
+				limit = { exists = scope:seeder.house }
+				set_variable = {
+					name = jen_seeded_house
+					value = scope:seeder.house
+				}
+			}
+		}
+		scope:seeder = {
+			add_stress = medium_stress_gain
+			add_character_modifier = {
+				modifier = jen_let_blood
+				years = 1
+			}
+		}
+		add_character_flag = {
+			flag = jen_recent_egg_seed
+			years = 5
+		}
+		custom_tooltip = jen_seed_egg_applied_tt
+	}
+}
+
+jen_dragon_egg_seed_yearly_effect = {
+	every_character_artifact = {
+		limit = {
+			has_variable = dragon_egg
+			has_variable = cradled_egg
+			has_variable = jen_blood_seeded
+			NOT = { has_variable = dud_egg }
+			exists = var:cradled_egg_year
+			var:cradled_egg_year < current_year
+		}
+		save_scope_as = egg
+		if = {
+			limit = { jen_egg_seed_matches_owner_trigger = yes }
+			random = {
+				chance = 10
+				modifier = {
+					artifact_owner = { agot_is_dragonblood_character = no }
+					factor = 0.2
+				}
+				debug_log = "BotD seeded egg extra hatch"
+				artifact_owner = {
+					save_scope_as = cradlemate
+					trigger_event = {
+						id = agot_dragon_egg_cradling_birth.0001
+						days = { 7 60 }
+					}
+				}
+			}
+		}
+		else = {
+			random = {
+				chance = 12
+				debug_log = "BotD seeded egg extra dud"
+				save_scope_as = dud_egg
+				artifact_owner = {
+					trigger_event = {
+						id = agot_dragon_egg_cradling.1000
+						days = { 7 90 }
+					}
+				}
+			}
+		}
+	}
+}

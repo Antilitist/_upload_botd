@@ -1,0 +1,14 @@
+# After vanilla make_concubine. If the engine slot did not stick, or this is Blood-Wives, set jen_consort.
+
+jen_ensure_consort_effect = {
+	if = {
+		limit = {
+			scope:actor.faith = { has_doctrine = doctrine_jen_blood_wives }
+			exists = scope:recipient
+			NOT = { scope:actor = { has_relation_jen_consort = scope:recipient } }
+		}
+		scope:actor = {
+			set_relation_jen_consort = { target = scope:recipient }
+		}
+	}
+}

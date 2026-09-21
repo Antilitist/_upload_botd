@@ -1,0 +1,243 @@
+# BotD event scenes. IDs are override_background references.
+
+jen_dragon_bg_yard = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_yard_keeper.dds"
+		environment = "environment_event_courtyard"
+		ambience = "event:/SFX/Events/Backgrounds/castle_courtyard_western"
+	}
+}
+
+jen_dragon_bg_pit = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_pitmaster.dds"
+		environment = "environment_event_dungeon"
+		ambience = "event:/SFX/Events/Backgrounds/dungeon"
+	}
+}
+
+jen_dragon_bg_hatchery = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_egg_watcher.dds"
+		environment = "environment_event_corridor"
+		ambience = "event:/SFX/Events/Backgrounds/castle_corridor_night"
+	}
+}
+
+jen_dragon_bg_sky = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_wingmaster.dds"
+		environment = "environment_event_fp1_ocean"
+		ambience = "event:/DLC/FP1/SFX/Events/event_ocean"
+	}
+}
+
+jen_dragon_bg_oath = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_bloodbinder.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/SFX/Events/Backgrounds/dungeon"
+	}
+}
+
+jen_dragon_bg_scriptorium = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_scale_scribe.dds"
+		environment = "environment_event_study"
+		ambience = "event:/SFX/Events/Backgrounds/library"
+	}
+}
+
+jen_dragon_bg_nursery = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_cradle_nurse.dds"
+		environment = "environment_event_corridor"
+		ambience = "event:/SFX/Events/Backgrounds/castle_corridor_night"
+	}
+}
+
+jen_dragon_bg_ramparts = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragon_council_master_of_dragons.dds"
+		environment = "environment_event_fp1_ocean"
+		ambience = "event:/DLC/FP1/SFX/Events/event_ocean"
+	}
+}
+
+jen_dragon_bg_vault = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragon_council_lord_of_the_pit.dds"
+		environment = "environment_event_dungeon"
+		ambience = "event:/SFX/Events/Backgrounds/dungeon"
+	}
+}
+
+jen_dragon_bg_hall = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragon_council_blood_chamberlain.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/DLC/FP1/SFX/Events/event_throneroom"
+	}
+}
+
+jen_dragon_bg_seed = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_seed.dds"
+		environment = "environment_event_corridor"
+		ambience = "event:/SFX/Events/Backgrounds/castle_corridor_night"
+	}
+}
+jen_dragon_bg_bind = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_bind.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/SFX/Events/Backgrounds/dungeon"
+	}
+}
+jen_dragon_bg_kin_oath = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_kin_oath.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/SFX/Events/Backgrounds/dungeon"
+	}
+}
+jen_dragon_bg_break = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_break.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/SFX/Events/Backgrounds/dungeon"
+	}
+}
+jen_dragon_bg_establish = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_establish.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/DLC/FP1/SFX/Events/event_throneroom"
+	}
+}
+jen_dragon_bg_year_named = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_year_named.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/SFX/Events/Backgrounds/dungeon"
+	}
+}
+jen_dragon_bg_death_dream = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_death_dream.dds"
+		environment = "environment_event_corridor"
+		ambience = "event:/SFX/Events/Backgrounds/castle_corridor_night"
+	}
+}
+jen_dragon_bg_oath_cut = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_oath_cut.dds"
+		environment = "environment_event_corridor"
+		ambience = "event:/SFX/Events/Backgrounds/castle_corridor_night"
+	}
+}
+jen_dragon_bg_dawn_flight = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_dawn_flight.dds"
+		environment = "environment_event_fp1_ocean"
+		ambience = "event:/DLC/FP1/SFX/Events/event_ocean"
+	}
+}
+jen_dragon_bg_clutch = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_clutch.dds"
+		environment = "environment_event_corridor"
+		ambience = "event:/SFX/Events/Backgrounds/castle_corridor_night"
+	}
+}
+jen_dragon_bg_old_words = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_old_words.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/SFX/Events/Backgrounds/dungeon"
+	}
+}
+jen_dragon_bg_dragon_dreams = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_dragon_dreams.dds"
+		environment = "environment_event_corridor"
+		ambience = "event:/SFX/Events/Backgrounds/castle_corridor_night"
+	}
+}
+jen_dragon_bg_first_fire = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_first_fire.dds"
+		environment = "environment_event_courtyard"
+		ambience = "event:/SFX/Events/Backgrounds/castle_courtyard_western"
+	}
+}
+jen_dragon_bg_raising_yard = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_raising_yard.dds"
+		environment = "environment_event_courtyard"
+		ambience = "event:/SFX/Events/Backgrounds/castle_courtyard_western"
+	}
+}
+jen_dragon_bg_growing = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_scene_growing.dds"
+		environment = "environment_event_courtyard"
+		ambience = "event:/SFX/Events/Backgrounds/castle_courtyard_western"
+	}
+}
+
+jen_valyrian_funeral_dragonfire = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_valyrian_funeral_dragonfire.dds"
+		environment = "environment_event_dungeon"
+		ambience = "event:/SFX/Events/Backgrounds/dungeon"
+	}
+}
+
+jen_blood_night_pairing = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_blood_night_pairing.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/DLC/FP1/SFX/Events/event_throneroom"
+	}
+}
+
+jen_blood_night_morning = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_blood_night_morning.dds"
+		environment = "environment_event_courtyard"
+		ambience = "event:/SFX/Events/Backgrounds/castle_courtyard_western"
+	}
+}
+
+jen_blood_night_wine = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_blood_night_wine.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/DLC/FP1/SFX/Events/event_throneroom"
+	}
+}
+
+jen_blood_night_chamber = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_blood_night_chamber.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/DLC/FP1/SFX/Events/event_throneroom"
+	}
+}
+
+jen_blood_night_match = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_blood_night_match.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/DLC/FP1/SFX/Events/event_throneroom"
+	}
+}
+
+jen_blood_sire_chamber = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jen_dragonseed_chamber.dds"
+		environment = "environment_throneroom_dragonstone"
+		ambience = "event:/DLC/FP1/SFX/Events/event_throneroom"
+	}
+}

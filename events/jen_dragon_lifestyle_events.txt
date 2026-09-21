@@ -1,0 +1,152 @@
+﻿namespace = jen_dragon_lifestyle
+
+jen_dragon_lifestyle.1000 = {
+	type = character_event
+	title = jen_dragon_lifestyle.1000.t
+	desc = jen_dragon_lifestyle.1000.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_dawn_flight }
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	cooldown = { years = 8 }
+
+	trigger = {
+		has_lifestyle = jen_dragon_lifestyle
+		jen_agot_can_use_dragon_lifestyle_trigger = yes
+		has_trait = dragonrider
+		is_available = yes
+	}
+
+	option = {
+		name = jen_dragon_lifestyle.1000.a
+		agot_add_dragon_training_xp = { VALUE = 8 }
+		add_stress = miniscule_stress_loss
+	}
+
+	option = {
+		name = jen_dragon_lifestyle.1000.b
+		add_prestige = minor_prestige_gain
+		add_dread = miniscule_dread_gain
+	}
+}
+
+jen_dragon_lifestyle.1010 = {
+	type = character_event
+	title = jen_dragon_lifestyle.1010.t
+	desc = jen_dragon_lifestyle.1010.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_clutch }
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+
+	cooldown = { years = 8 }
+
+	trigger = {
+		has_lifestyle = jen_dragon_lifestyle
+		jen_agot_can_use_dragon_lifestyle_trigger = yes
+		OR = {
+			has_focus = jen_dragon_raising_focus
+			has_perk = jen_dragon_clutch_perk
+			employs_court_position = head_dragonkeeper_court_position
+			any_character_artifact = { agot_is_dragon_egg_artifact = yes }
+		}
+		is_available = yes
+	}
+
+	option = {
+		name = jen_dragon_lifestyle.1010.a
+		add_jen_dragon_lifestyle_xp = medium_lifestyle_xp
+		add_prestige = miniscule_prestige_gain
+	}
+
+	option = {
+		name = jen_dragon_lifestyle.1010.b
+		add_gold = minor_gold_value
+		add_prestige = miniscule_prestige_loss
+	}
+}
+
+jen_dragon_lifestyle.1020 = {
+	type = character_event
+	title = jen_dragon_lifestyle.1020.t
+	desc = jen_dragon_lifestyle.1020.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_old_words }
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	cooldown = { years = 8 }
+
+	trigger = {
+		has_lifestyle = jen_dragon_lifestyle
+		jen_agot_can_use_dragon_lifestyle_trigger = yes
+		OR = {
+			has_focus = jen_dragon_bonding_focus
+			has_perk = jen_dragon_blood_perk
+			culture = { has_cultural_pillar = heritage_valyrian }
+			has_trait = dragonrider
+		}
+		is_available = yes
+	}
+
+	option = {
+		name = jen_dragon_lifestyle.1020.a
+		if = {
+			limit = { has_trait = dragonrider }
+			add_trait_xp = {
+				trait = dragonrider
+				track = dragon_bond
+				value = 8
+			}
+		}
+		add_jen_dragon_lifestyle_xp = minor_lifestyle_xp
+	}
+
+	option = {
+		name = jen_dragon_lifestyle.1020.b
+		add_prestige = minor_prestige_gain
+		add_stress = miniscule_stress_gain
+	}
+}
+
+jen_dragon_lifestyle.1030 = {
+	type = character_event
+	title = jen_dragon_lifestyle.1030.t
+	desc = jen_dragon_lifestyle.1030.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_dragon_dreams }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	cooldown = { years = 10 }
+
+	trigger = {
+		has_lifestyle = jen_dragon_lifestyle
+		jen_agot_can_use_dragon_lifestyle_trigger = yes
+		is_available = yes
+	}
+
+	option = {
+		name = jen_dragon_lifestyle.1030.a
+		add_stress = miniscule_stress_loss
+		add_prestige = miniscule_prestige_gain
+	}
+
+	option = {
+		name = jen_dragon_lifestyle.1030.b
+		add_dread = minor_dread_gain
+		stress_impact = {
+			compassionate = minor_stress_impact_gain
+			sadistic = miniscule_stress_impact_loss
+		}
+	}
+}

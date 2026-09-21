@@ -1,0 +1,54 @@
+﻿jen_wyrmrider = {
+	category = lifestyle
+	icon = jen_wyrmrider.dds
+
+	martial = 2
+	prowess = 2
+	character_travel_speed_mult = 0.25
+	dread_baseline_add = 15
+	knight_effectiveness_mult = 0.1
+	advantage = 5
+
+	ruler_designer_cost = 80
+	shown_in_ruler_designer = yes
+
+	ai_boldness = 20
+	ai_energy = 10
+}
+
+jen_dragon_keeper = {
+	category = lifestyle
+	icon = jen_dragon_keeper.dds
+
+	stewardship = 2
+	learning = 2
+	court_grandeur_baseline_add = 8
+	monthly_prestige = 0.5
+	build_gold_cost = -0.1
+	courtier_and_guest_opinion = 10
+
+	ruler_designer_cost = 80
+	shown_in_ruler_designer = yes
+
+	ai_rationality = 15
+}
+
+jen_dragonlord = {
+	category = lifestyle
+	icon = jen_dragonlord.dds
+
+	diplomacy = 2
+	martial = 1
+	legitimacy_gain_mult = 0.2
+	monthly_dynasty_prestige_mult = 0.15
+	vassal_opinion = 15
+	dread_gain_mult = 0.2
+	bond_with_dragon_scheme_scheme_phase_duration_add = miniscule_scheme_phase_duration_bonus_value
+	deepen_bond_with_dragon_scheme_scheme_phase_duration_add = miniscule_scheme_phase_duration_bonus_value
+
+	ruler_designer_cost = 100
+	shown_in_ruler_designer = yes
+
+	ai_boldness = 15
+	ai_honor = 10
+}

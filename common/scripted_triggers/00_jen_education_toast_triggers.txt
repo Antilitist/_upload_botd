@@ -1,0 +1,53 @@
+# Child/ward education toasts. $TEACHER$ is the player.
+
+jen_is_child_or_ward_of_trigger = {
+	OR = {
+		is_child_of = $TEACHER$
+		any_relation = {
+			type = guardian
+			this = $TEACHER$
+		}
+	}
+}
+
+jen_can_be_taught_a_language_trigger = {
+	age >= 6
+	is_adult = no
+	is_ai = yes
+	is_human = yes
+	is_imprisoned = no
+	NOT = { has_trait = incapable }
+	is_in_the_same_court_as = $TEACHER$
+	NOT = {
+		any_scheme = { scheme_type = learn_language }
+	}
+	save_temporary_scope_as = jen_language_kid
+	$TEACHER$ = {
+		OR = {
+			scope:jen_language_kid = {
+				can_start_scheme = {
+					type = learn_language
+					target_character = prev
+				}
+			}
+			any_courtier = {
+				is_physically_able_adult = yes
+				is_human = yes
+				scope:jen_language_kid = {
+					can_start_scheme = {
+						type = learn_language
+						target_character = prev
+					}
+				}
+			}
+		}
+	}
+}
+
+jen_can_be_taught_dragonlore_trigger = {
+	is_human = yes
+	age >= 5
+	NOT = { this = $TEACHER$ }
+	NOT = { has_character_modifier = agot_taught_dragonlore }
+	jen_is_child_or_ward_of_trigger = { TEACHER = $TEACHER$ }
+}

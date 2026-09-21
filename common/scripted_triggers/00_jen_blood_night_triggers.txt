@@ -1,0 +1,66 @@
+jen_blood_night_host_culture_or_faith_trigger = {
+	OR = {
+		culture = culture:jen_true_valyrian
+		jen_faith_is_valyrian_trigger = yes
+		faith = { has_doctrine = doctrine_jen_blood_wives }
+		faith = { has_doctrine = tenet_jen_blood_wives }
+	}
+}
+
+jen_blood_night_can_attend_trigger = {
+	is_alive = yes
+	is_adult = yes
+	is_human = yes
+	this != root
+	NOT = { has_trait = dragon }
+	OR = {
+		is_imprisoned = no
+		is_spouse_of = root
+		is_concubine_of = root
+		root = { has_relation_jen_consort = prev }
+		has_relation_lover = root
+	}
+}
+
+jen_blood_night_has_adult_partner_trigger = {
+	OR = {
+		any_spouse = { jen_blood_night_can_attend_trigger = yes }
+		any_concubine = { jen_blood_night_can_attend_trigger = yes }
+		any_relation = {
+			type = jen_consort
+			jen_blood_night_can_attend_trigger = yes
+		}
+		any_relation = {
+			type = lover
+			jen_blood_night_can_attend_trigger = yes
+		}
+	}
+}
+
+jen_blood_night_is_unpaired_guest_trigger = {
+	is_alive = yes
+	is_adult = yes
+	this != root
+	NOT = { exists = var:jen_blood_night_pair }
+}
+
+jen_blood_night_is_unpaired_person_trigger = {
+	is_alive = yes
+	is_adult = yes
+	NOT = { exists = var:jen_blood_night_pair }
+}
+
+jen_blood_night_is_fertile_woman_trigger = {
+	is_female = yes
+	is_adult = yes
+	is_pregnant = no
+}
+
+jen_blood_night_is_close_bed_of_root_trigger = {
+	OR = {
+		is_spouse_of = root
+		is_concubine_of = root
+		root = { has_relation_jen_consort = prev }
+		has_relation_lover = root
+	}
+}

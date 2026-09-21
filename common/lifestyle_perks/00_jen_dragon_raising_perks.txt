@@ -1,0 +1,194 @@
+﻿jen_dragon_clutch_perk = {
+	lifestyle = jen_dragon_lifestyle
+	tree = jen_dragon_raising
+	position = { 0 0 }
+	icon = node_stewardship
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				OR = {
+					employs_court_position = head_dragonkeeper_court_position
+					jen_has_education_dragon_trigger = yes
+				}
+			}
+			add = 1989
+		}
+		if = {
+			limit = { has_focus = jen_dragon_raising_focus }
+			multiply = 5
+		}
+		if = {
+			limit = { can_start_new_lifestyle_tree_trigger = no }
+			multiply = 0
+		}
+	}
+
+	character_modifier = {
+		stewardship = 1
+		learning = 1
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = jen_dragon_clutch_perk_effect
+		}
+	}
+}
+
+jen_dragon_warmth_perk = {
+	lifestyle = jen_dragon_lifestyle
+	tree = jen_dragon_raising
+	position = { 2 0 }
+	icon = node_stewardship
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				OR = {
+					employs_court_position = head_dragonkeeper_court_position
+					jen_has_education_dragon_trigger = yes
+				}
+			}
+			add = 1989
+		}
+		if = {
+			limit = { has_focus = jen_dragon_raising_focus }
+			multiply = 5
+		}
+		if = {
+			limit = { can_start_new_lifestyle_tree_trigger = no }
+			multiply = 0
+		}
+	}
+
+	character_modifier = {
+		court_grandeur_baseline_add = 3
+		monthly_prestige = 0.3
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = jen_dragon_warmth_perk_effect
+		}
+	}
+}
+
+jen_dragon_hatchling_perk = {
+	lifestyle = jen_dragon_lifestyle
+	tree = jen_dragon_raising
+	position = { 1 1 }
+	icon = node_stewardship
+	parent = jen_dragon_clutch_perk
+	parent = jen_dragon_warmth_perk
+
+	character_modifier = {
+		stress_loss_mult = 0.1
+		health = 0.25
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = jen_dragon_hatchling_perk_effect
+		}
+	}
+}
+
+jen_dragon_pitmaster_perk = {
+	lifestyle = jen_dragon_lifestyle
+	tree = jen_dragon_raising
+	position = { 0 2 }
+	icon = node_stewardship
+	parent = jen_dragon_hatchling_perk
+
+	character_modifier = {
+		build_gold_cost = -0.1
+		build_speed = -0.1
+		castle_holding_build_gold_cost = -0.05
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = jen_dragon_pitmaster_perk_effect
+		}
+	}
+}
+
+jen_dragon_scale_perk = {
+	lifestyle = jen_dragon_lifestyle
+	tree = jen_dragon_raising
+	position = { 2 2 }
+	icon = node_stewardship
+	parent = jen_dragon_hatchling_perk
+
+	character_modifier = {
+		monthly_income_mult = 0.05
+		domain_tax_mult = 0.05
+		vassal_tax_contribution_mult = 0.05
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = jen_dragon_scale_perk_effect
+		}
+	}
+}
+
+jen_dragon_keepers_eye_perk = {
+	lifestyle = jen_dragon_lifestyle
+	tree = jen_dragon_raising
+	position = { 1 3 }
+	icon = node_stewardship
+	parent = jen_dragon_pitmaster_perk
+	parent = jen_dragon_scale_perk
+
+	character_modifier = {
+		courtier_and_guest_opinion = 10
+		court_grandeur_baseline_add = 5
+		monthly_dynasty_prestige = 0.2
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = jen_dragon_keepers_eye_perk_effect
+		}
+	}
+}
+
+jen_dragon_brood_perk = {
+	lifestyle = jen_dragon_lifestyle
+	tree = jen_dragon_raising
+	position = { 1 4 }
+	icon = node_stewardship
+	parent = jen_dragon_keepers_eye_perk
+
+	character_modifier = {
+		monthly_dynasty_prestige_mult = 0.1
+		legitimacy_gain_mult = 0.1
+		vassal_opinion = 5
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = jen_dragon_brood_perk_effect
+		}
+	}
+}
+
+jen_dragon_keeper_perk = {
+	lifestyle = jen_dragon_lifestyle
+	tree = jen_dragon_raising
+	position = { 1 5 }
+	icon = trait_jen_dragon_keeper
+	parent = jen_dragon_brood_perk
+
+	trait = jen_dragon_keeper
+	effect = {
+		custom_description_no_bullet = {
+			text = jen_dragon_keeper_perk_effect
+		}
+		add_trait_force_tooltip = jen_dragon_keeper
+	}
+}

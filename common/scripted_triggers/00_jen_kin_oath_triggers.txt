@@ -1,0 +1,39 @@
+﻿# Bloodbinder kin-oath. Two living dragonbloods. One oath at a time.
+
+jen_world_has_living_dragon_trigger = {
+	any_living_character = {
+		has_trait = dragon
+		is_alive = yes
+	}
+}
+
+jen_is_valid_kin_oath_partner_trigger = {
+	is_alive = yes
+	is_human = yes
+	age >= 12
+	is_available = yes
+	agot_is_dragonblood_character = yes
+	NOT = { this = root }
+	NOT = { exists = var:jen_oath_kin }
+}
+
+jen_has_kin_oath_partner_trigger = {
+	OR = {
+		any_close_family_member = { jen_is_valid_kin_oath_partner_trigger = yes }
+		any_courtier_or_guest = { jen_is_valid_kin_oath_partner_trigger = yes }
+	}
+}
+
+jen_has_kin_oath_trigger = {
+	exists = var:jen_oath_kin
+	var:jen_oath_kin = { is_alive = yes }
+}
+
+jen_can_swear_kin_oath_trigger = {
+	is_alive = yes
+	is_human = yes
+	agot_is_dragonblood_character = yes
+	NOT = { exists = var:jen_oath_kin }
+	NOT = { has_character_flag = jen_recent_kin_oath }
+	jen_has_kin_oath_partner_trigger = yes
+}

@@ -1,0 +1,111 @@
+﻿jen_dragon_riding_focus = {
+	lifestyle = jen_dragon_lifestyle
+	icon = jen_dragon_riding_focus
+
+	modifier = {
+		martial = 2
+		character_travel_speed_mult = 0.15
+		dread_gain_mult = 0.1
+
+	}
+
+	desc = {
+		desc = jen_dragon_riding_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				OR = {
+					has_trait = dragonrider
+					jen_has_education_dragon_trigger = yes
+					has_education_martial_trigger = yes
+				}
+			}
+			add = 1989
+		}
+		if = {
+			limit = {
+				jen_agot_can_use_dragon_lifestyle_trigger = no
+			}
+			multiply = 0
+		}
+	}
+}
+
+jen_dragon_raising_focus = {
+	lifestyle = jen_dragon_lifestyle
+	icon = jen_dragon_raising_focus
+
+	modifier = {
+		stewardship = 2
+		learning = 1
+		monthly_prestige = 0.5
+
+	}
+
+	desc = {
+		desc = jen_dragon_raising_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				OR = {
+					employs_court_position = head_dragonkeeper_court_position
+					has_court_position = head_dragonkeeper_court_position
+					jen_has_education_dragon_trigger = yes
+					has_education_stewardship_trigger = yes
+				}
+			}
+			add = 1989
+		}
+		if = {
+			limit = {
+				jen_agot_can_use_dragon_lifestyle_trigger = no
+			}
+			multiply = 0
+		}
+	}
+}
+
+jen_dragon_bonding_focus = {
+	lifestyle = jen_dragon_lifestyle
+	icon = jen_dragon_bonding_focus
+
+	modifier = {
+		diplomacy = 2
+		bond_with_dragon_scheme_scheme_phase_duration_add = miniscule_scheme_phase_duration_bonus_value
+		deepen_bond_with_dragon_scheme_scheme_phase_duration_add = miniscule_scheme_phase_duration_bonus_value
+
+	}
+
+	desc = {
+		desc = jen_dragon_bonding_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				OR = {
+					has_trait = dragonrider
+					jen_has_education_dragon_trigger = yes
+					has_education_diplomacy_trigger = yes
+				}
+			}
+			add = 1989
+		}
+		if = {
+			limit = {
+				jen_agot_can_use_dragon_lifestyle_trigger = no
+			}
+			multiply = 0
+		}
+	}
+}

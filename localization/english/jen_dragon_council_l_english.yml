@@ -1,0 +1,68 @@
+﻿l_english:
+ JEN_DRAGON_COUNCIL_HEADER: "Dragon Council"
+ JEN_DRAGON_CLICK_TO_HIRE_MASTER: "Click to appoint a Master of Dragons"
+ JEN_DRAGON_CLICK_TO_HIRE_PIT: "Click to appoint a Lord of the Pit"
+ JEN_DRAGON_CLICK_TO_HIRE_CHAMBERLAIN: "Click to appoint a Blood Chamberlain"
+
+ jen_dragon_councillor_master_of_dragons: "Master of Dragons"
+ jen_dragon_councillor_master_of_dragons_desc: "The $jen_dragon_councillor_master_of_dragons$ answers for war in the sky: wings, riders, and the courage to send them."
+ jen_dragon_councillor_master_of_dragons_modifier: "Master of Dragons"
+ jen_dragon_councillor_master_of_dragons_owner_modifier: "Master of Dragons"
+
+ jen_dragon_councillor_lord_of_the_pit: "Lord of the Pit"
+ jen_dragon_councillor_lord_of_the_pit_desc: "The $jen_dragon_councillor_lord_of_the_pit$ keeps the dragonpit's coin, stone, and stores so the fire does not go hungry."
+ jen_dragon_councillor_lord_of_the_pit_modifier: "Lord of the Pit"
+ jen_dragon_councillor_lord_of_the_pit_owner_modifier: "Lord of the Pit"
+
+ jen_dragon_councillor_blood_chamberlain: "Blood Chamberlain"
+ jen_dragon_councillor_blood_chamberlain_desc: "The $jen_dragon_councillor_blood_chamberlain$ keeps the dragonlord household: guests, gifts, and the honors owed to Valyrian blood."
+ jen_dragon_councillor_blood_chamberlain_modifier: "Blood Chamberlain"
+ jen_dragon_councillor_blood_chamberlain_owner_modifier: "Blood Chamberlain"
+
+ task_jen_dragon_master_drill_wings: "Drill the Wings"
+ task_jen_dragon_master_drill_wings_desc: "School riders and dragons for war."
+ task_jen_dragon_master_drill_wings_effect_desc: "#P +5%#! Knight effectiveness\n#P +1#! Knight limit\n#P +1#! Prowess"
+ task_jen_dragon_master_ward_skies: "Ward the Skies"
+ task_jen_dragon_master_ward_skies_desc: "Keep a wing over the realm and a watch on every approach."
+ task_jen_dragon_master_ward_skies_effect_desc: "#P +5#! Defender advantage\n#P +3#! Dread\n#P -3%#! Army maintenance"
+ task_jen_dragon_master_overawe_realm:0 "Overawe the Realm"
+ task_jen_dragon_master_overawe_realm_desc:0 "Send dragons over the counties until fear does the work of garrisons."
+ task_jen_dragon_master_overawe_realm_effect_desc:0 "#P +0.4#! Monthly county control growth\n#P +5#! Dread\n#P +1#! Knight limit"
+
+ task_jen_dragon_pit_keep_vaults: "Keep the Vaults"
+ task_jen_dragon_pit_keep_vaults_desc: "Count the pit's gold and spend it where stone and chain need it most."
+ task_jen_dragon_pit_keep_vaults_effect_desc: "#P +3%#! Domain tax\n#P -4%#! Build cost"
+ task_jen_dragon_pit_expand_yards: "Expand the Yards"
+ task_jen_dragon_pit_expand_yards_desc: "Widen pens, raise ramps, and let the pit grow with its dragons."
+ task_jen_dragon_pit_expand_yards_effect_desc: "#P +5#! County opinion\n#P +2#! Court grandeur\n#P +5%#! Development growth"
+
+ task_jen_dragon_pit_seed_freehold: "Seed the Freehold"
+ task_jen_dragon_pit_seed_freehold_desc: "Stamp True Valyrian ways on every county and court of the realm."
+ task_jen_dragon_pit_seed_freehold_effect_desc: "#P +5#! Same-culture opinion\n#P +4%#! Domain tax\n#P +10%#! Stewardship lifestyle XP\nYearly: convert a county (and a courtier) to True Valyrian culture"
+
+ task_jen_dragon_chamberlain_host_blood: "Host the Blood"
+ task_jen_dragon_chamberlain_host_blood_desc: "Receive dragonlord guests with the honors their blood expects."
+ task_jen_dragon_chamberlain_host_blood_effect_desc: "#P +5#! Vassal opinion\n#P +2#! Court grandeur\n#P +0.15#! Monthly prestige"
+ task_jen_dragon_chamberlain_bind_houses: "Bind the Houses"
+ task_jen_dragon_chamberlain_bind_houses_desc: "Speak for marriages, gifts, and the quiet work of keeping dragonlord houses aligned."
+ task_jen_dragon_chamberlain_bind_houses_effect_desc: "#P +5#! General opinion\n#P +5#! Personal scheme success\n#P +10%#! Diplomacy lifestyle XP"
+
+ JEN_DRAGON_CLICK_TO_HIRE_VOICE: "Click to appoint a Voice of the Fourteen"
+
+ jen_dragon_councillor_voice_of_the_fourteen: "Voice of the Fourteen"
+ jen_dragon_councillor_voice_of_the_fourteen_desc: "The $jen_dragon_councillor_voice_of_the_fourteen$ keeps the old flame: rites, glass candles, and the faith of Valyria in every hall of the realm."
+ jen_dragon_councillor_voice_of_the_fourteen_modifier: "Voice of the Fourteen"
+ jen_dragon_councillor_voice_of_the_fourteen_owner_modifier: "Voice of the Fourteen"
+
+ task_jen_dragon_voice_kindle_realm: "Kindle the Realm"
+ task_jen_dragon_voice_kindle_realm_desc: "Carry Valyrian faith into every county and court of the realm."
+ task_jen_dragon_voice_kindle_realm_effect_desc: "#P +0.4#! Monthly piety\n#P +5#! Same-faith opinion\nYearly: convert one or more counties (and a courtier) to Valyrian faith; a learned Voice kindles more"
+
+ task_jen_dragon_voice_seek_kindling: "Seek the Kindling"
+ task_jen_dragon_voice_seek_kindling_desc: "Name a man and a woman who can bring forth a child. At least one must carry dragonblood."
+ task_jen_dragon_voice_seek_kindling_effect_desc: "#P +15%#! Fertility\n#P +5#! Attraction opinion\nYearly: pair a man and a woman (one with dragonblood) for a child"
+
+ task_jen_dragon_voice_wake_candles: "Wake the Candles"
+ task_jen_dragon_voice_wake_candles_desc: "Keep a glass-candle vigil so the Voice may read what fire remembers."
+ task_jen_dragon_voice_wake_candles_effect_desc: "#P +15%#! Learning lifestyle XP\n#P +2#! Learning\nYearly: Learning lifestyle XP"
+ jen_dragon_councillor_voice_of_the_fourteen_name: "Voice of the Fourteen"

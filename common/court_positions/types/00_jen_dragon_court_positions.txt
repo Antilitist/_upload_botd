@@ -1,0 +1,844 @@
+# BotD dragon court positions. New jen_ IDs only; does not reuse head_dragonkeeper_court_position.
+
+jen_dragon_yard_keeper_court_position = {
+	sort_order = 990
+	max_available_positions = 1
+	minimum_rank = county
+	skill = stewardship
+
+	court_position_asset = {
+		animation = idle
+		background = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_yard_keeper.dds"
+	}
+
+	opinion = { value = regular_court_position_opinion }
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	aptitude = {
+		value = 15
+		add = {
+			value = stewardship
+			multiply = 2.5
+			max = 50
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = learning
+			multiply = 1.0
+			max = 20
+			desc = court_position_skill_learning
+		}
+		if = {
+			limit = { has_trait = diligent }
+			add = { value = 10 desc = court_position_diligent_trait }
+		}
+		if = {
+			limit = { has_trait = administrator }
+			add = { value = 15 desc = court_position_administrator_trait }
+		}
+		if = {
+			limit = { culture ?= { has_cultural_pillar = heritage_valyrian } }
+			add = { value = 10 desc = jen_dragon_court_aptitude_valyrian }
+		}
+		if = {
+			limit = { jen_has_education_dragon_trigger = yes }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragon_education }
+		}
+		if = {
+			limit = { has_trait = dragonrider }
+			add = { value = 20 desc = jen_dragon_court_aptitude_dragonrider }
+		}
+		if = {
+			limit = { has_character_flag = historical_dragonseed }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragonseed }
+		}
+		add = court_position_aptitude_high_penalty_value
+		add = general_aptitude_bonus
+	}
+
+	is_shown = { jen_dragon_court_can_employ_trigger = yes }
+	valid_position = {
+		jen_dragon_court_can_employ_trigger = yes
+		highest_held_title_tier >= tier_county
+	}
+
+	is_shown_character = {
+		scope:employee = { jen_dragon_court_employee_base_trigger = yes }
+	}
+	valid_character = {
+		scope:employee = {
+			jen_dragon_court_employee_base_trigger = yes
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+
+	revoke_cost = {
+		prestige = {
+			value = minor_court_position_prestige_revoke_cost
+			if = {
+				limit = { exists = this is_ai = yes }
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+	received_salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { monthly_prestige = 0.1 build_gold_cost = -0.02 }
+		poor = { monthly_prestige = 0.15 build_gold_cost = -0.03 }
+		average = { monthly_prestige = 0.2 build_gold_cost = -0.04 }
+		good = { monthly_prestige = 0.25 build_gold_cost = -0.05 }
+		excellent = { monthly_prestige = 0.3 build_gold_cost = -0.06 }
+	}
+	custom_employer_modifier_description = jen_dragon_yard_keeper_employer_custom_effect_description
+	modifier = {
+		monthly_stewardship_lifestyle_xp_gain_mult = 0.1
+		stewardship = 1
+	}
+}
+
+jen_dragon_pitmaster_court_position = {
+	sort_order = 989
+	max_available_positions = 1
+	minimum_rank = county
+	skill = martial
+
+	court_position_asset = {
+		animation = personality_bold
+		background = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_pitmaster.dds"
+	}
+
+	opinion = { value = regular_court_position_opinion }
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	aptitude = {
+		value = 15
+		add = {
+			value = martial
+			multiply = 2.5
+			max = 50
+			desc = court_position_skill_martial
+		}
+		add = {
+			value = prowess
+			multiply = 1.5
+			max = 25
+			desc = court_position_skill_prowess
+		}
+		if = {
+			limit = { has_trait = brave }
+			add = { value = 10 desc = court_position_brave_trait }
+		}
+		if = {
+			limit = { has_trait = gallant }
+			add = { value = 10 desc = court_position_gallant_trait }
+		}
+		if = {
+			limit = { culture ?= { has_cultural_pillar = heritage_valyrian } }
+			add = { value = 10 desc = jen_dragon_court_aptitude_valyrian }
+		}
+		if = {
+			limit = { jen_has_education_dragon_trigger = yes }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragon_education }
+		}
+		if = {
+			limit = { has_trait = dragonrider }
+			add = { value = 20 desc = jen_dragon_court_aptitude_dragonrider }
+		}
+		if = {
+			limit = { has_character_flag = historical_dragonseed }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragonseed }
+		}
+		add = court_position_aptitude_high_penalty_value
+		add = general_aptitude_bonus
+	}
+
+	is_shown = { jen_dragon_court_can_employ_trigger = yes }
+	valid_position = {
+		jen_dragon_court_can_employ_trigger = yes
+		highest_held_title_tier >= tier_county
+	}
+
+	is_shown_character = {
+		scope:employee = { jen_dragon_court_employee_base_trigger = yes }
+	}
+	valid_character = {
+		scope:employee = {
+			jen_dragon_court_employee_base_trigger = yes
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+
+	revoke_cost = {
+		prestige = {
+			value = minor_court_position_prestige_revoke_cost
+			if = {
+				limit = { exists = this is_ai = yes }
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+	received_salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { knight_effectiveness_mult = 0.02 dread_baseline_add = 1 }
+		poor = { knight_effectiveness_mult = 0.03 dread_baseline_add = 2 }
+		average = { knight_effectiveness_mult = 0.04 dread_baseline_add = 3 }
+		good = { knight_effectiveness_mult = 0.05 dread_baseline_add = 4 }
+		excellent = { knight_effectiveness_mult = 0.06 dread_baseline_add = 5 }
+	}
+	custom_employer_modifier_description = jen_dragon_pitmaster_employer_custom_effect_description
+	modifier = {
+		monthly_martial_lifestyle_xp_gain_mult = 0.1
+		prowess = 1
+	}
+}
+
+jen_dragon_egg_watcher_court_position = {
+	sort_order = 988
+	max_available_positions = 1
+	minimum_rank = county
+	skill = learning
+
+	court_position_asset = {
+		animation = agot_egg_yellow
+		background = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_egg_watcher.dds"
+	}
+
+	opinion = { value = regular_court_position_opinion }
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	aptitude = {
+		value = 15
+		add = {
+			value = learning
+			multiply = 2.5
+			max = 50
+			desc = court_position_skill_learning
+		}
+		add = {
+			value = stewardship
+			multiply = 1.0
+			max = 20
+			desc = court_position_skill_stewardship
+		}
+		if = {
+			limit = { has_trait = patient }
+			add = { value = 10 desc = court_position_patient_trait }
+		}
+		if = {
+			limit = { has_trait = scholar }
+			add = { value = 15 desc = court_position_scholar_trait }
+		}
+		if = {
+			limit = { culture ?= { has_cultural_pillar = heritage_valyrian } }
+			add = { value = 10 desc = jen_dragon_court_aptitude_valyrian }
+		}
+		if = {
+			limit = { jen_has_education_dragon_trigger = yes }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragon_education }
+		}
+		if = {
+			limit = { has_trait = dragonrider }
+			add = { value = 20 desc = jen_dragon_court_aptitude_dragonrider }
+		}
+		if = {
+			limit = { has_character_flag = historical_dragonseed }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragonseed }
+		}
+		add = court_position_aptitude_high_penalty_value
+		add = general_aptitude_bonus
+	}
+
+	is_shown = { jen_dragon_court_can_employ_trigger = yes }
+	valid_position = {
+		jen_dragon_court_can_employ_trigger = yes
+		highest_held_title_tier >= tier_county
+	}
+
+	is_shown_character = {
+		scope:employee = { jen_dragon_court_employee_base_trigger = yes }
+	}
+	valid_character = {
+		scope:employee = {
+			jen_dragon_court_employee_base_trigger = yes
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+
+	revoke_cost = {
+		prestige = {
+			value = minor_court_position_prestige_revoke_cost
+			if = {
+				limit = { exists = this is_ai = yes }
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+	received_salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { monthly_learning_lifestyle_xp_gain_mult = 0.02 stress_loss_mult = 0.03 }
+		poor = { monthly_learning_lifestyle_xp_gain_mult = 0.03 stress_loss_mult = 0.05 }
+		average = { monthly_learning_lifestyle_xp_gain_mult = 0.04 stress_loss_mult = 0.07 }
+		good = { monthly_learning_lifestyle_xp_gain_mult = 0.05 stress_loss_mult = 0.09 }
+		excellent = { monthly_learning_lifestyle_xp_gain_mult = 0.06 stress_loss_mult = 0.12 }
+	}
+	custom_employer_modifier_description = jen_dragon_egg_watcher_employer_custom_effect_description
+	modifier = {
+		monthly_learning_lifestyle_xp_gain_mult = 0.1
+		learning = 1
+	}
+}
+
+jen_dragon_wingmaster_court_position = {
+	sort_order = 987
+	max_available_positions = 1
+	minimum_rank = county
+	skill = martial
+
+	court_position_asset = {
+		animation = hunting
+		background = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_wingmaster.dds"
+	}
+
+	opinion = { value = regular_court_position_opinion }
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	aptitude = {
+		value = 15
+		add = {
+			value = martial
+			multiply = 2.5
+			max = 50
+			desc = court_position_skill_martial
+		}
+		add = {
+			value = prowess
+			multiply = 2.0
+			max = 40
+			desc = court_position_skill_prowess
+		}
+		if = {
+			limit = { has_trait = brave }
+			add = { value = 10 desc = court_position_brave_trait }
+		}
+		if = {
+			limit = { has_trait = lifestyle_blademaster }
+			add = { value = 15 desc = court_position_blademaster_trait }
+		}
+		if = {
+			limit = { culture ?= { has_cultural_pillar = heritage_valyrian } }
+			add = { value = 10 desc = jen_dragon_court_aptitude_valyrian }
+		}
+		if = {
+			limit = { jen_has_education_dragon_trigger = yes }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragon_education }
+		}
+		if = {
+			limit = { has_trait = dragonrider }
+			add = { value = 20 desc = jen_dragon_court_aptitude_dragonrider }
+		}
+		if = {
+			limit = { has_character_flag = historical_dragonseed }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragonseed }
+		}
+		add = court_position_aptitude_high_penalty_value
+		add = general_aptitude_bonus
+	}
+
+	is_shown = { jen_dragon_court_can_employ_trigger = yes }
+	valid_position = {
+		jen_dragon_court_can_employ_trigger = yes
+		highest_held_title_tier >= tier_county
+	}
+
+	is_shown_character = {
+		scope:employee = { jen_dragon_court_employee_base_trigger = yes }
+	}
+	valid_character = {
+		scope:employee = {
+			jen_dragon_court_employee_base_trigger = yes
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+
+	revoke_cost = {
+		prestige = {
+			value = minor_court_position_prestige_revoke_cost
+			if = {
+				limit = { exists = this is_ai = yes }
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+	received_salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { character_travel_safety = 2 knight_limit = 1 }
+		poor = { character_travel_safety = 4 knight_limit = 1 }
+		average = { character_travel_safety = 6 knight_limit = 1 }
+		good = { character_travel_safety = 8 knight_limit = 1 }
+		excellent = { character_travel_safety = 10 knight_limit = 1 }
+	}
+	custom_employer_modifier_description = jen_dragon_wingmaster_employer_custom_effect_description
+	modifier = {
+		monthly_martial_lifestyle_xp_gain_mult = 0.1
+		prowess = 2
+	}
+}
+
+jen_dragon_bloodbinder_court_position = {
+	sort_order = 986
+	max_available_positions = 1
+	minimum_rank = county
+	skill = diplomacy
+
+	court_position_asset = {
+		animation = chancellor
+		background = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_bloodbinder.dds"
+	}
+
+	opinion = { value = regular_court_position_opinion }
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	aptitude = {
+		value = 15
+		add = {
+			value = diplomacy
+			multiply = 2.5
+			max = 50
+			desc = court_position_skill_diplomacy
+		}
+		add = {
+			value = learning
+			multiply = 1.0
+			max = 20
+			desc = court_position_skill_learning
+		}
+		if = {
+			limit = { has_trait = diplomat }
+			add = { value = 15 desc = court_position_diplomat_trait }
+		}
+		if = {
+			limit = { has_trait = gregarious }
+			add = { value = 10 desc = court_position_gregarious_trait }
+		}
+		if = {
+			limit = { culture ?= { has_cultural_pillar = heritage_valyrian } }
+			add = { value = 10 desc = jen_dragon_court_aptitude_valyrian }
+		}
+		if = {
+			limit = { jen_has_education_dragon_trigger = yes }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragon_education }
+		}
+		if = {
+			limit = { has_trait = dragonrider }
+			add = { value = 20 desc = jen_dragon_court_aptitude_dragonrider }
+		}
+		if = {
+			limit = { has_character_flag = historical_dragonseed }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragonseed }
+		}
+		add = court_position_aptitude_high_penalty_value
+		add = general_aptitude_bonus
+	}
+
+	is_shown = { jen_dragon_court_can_employ_trigger = yes }
+	valid_position = {
+		jen_dragon_court_can_employ_trigger = yes
+		highest_held_title_tier >= tier_county
+	}
+
+	is_shown_character = {
+		scope:employee = { jen_dragon_court_employee_base_trigger = yes }
+	}
+	valid_character = {
+		scope:employee = {
+			jen_dragon_court_employee_base_trigger = yes
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+
+	revoke_cost = {
+		prestige = {
+			value = minor_court_position_prestige_revoke_cost
+			if = {
+				limit = { exists = this is_ai = yes }
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+	received_salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { vassal_opinion = 1 monthly_prestige = 0.1 }
+		poor = { vassal_opinion = 2 monthly_prestige = 0.15 }
+		average = { vassal_opinion = 3 monthly_prestige = 0.2 }
+		good = { vassal_opinion = 4 monthly_prestige = 0.25 }
+		excellent = { vassal_opinion = 5 monthly_prestige = 0.3 }
+	}
+	custom_employer_modifier_description = jen_dragon_bloodbinder_employer_custom_effect_description
+	modifier = {
+		monthly_diplomacy_lifestyle_xp_gain_mult = 0.1
+		diplomacy = 1
+	}
+}
+
+jen_dragon_scale_scribe_court_position = {
+	sort_order = 985
+	max_available_positions = 1
+	minimum_rank = county
+	skill = learning
+
+	court_position_asset = {
+		animation = personality_rational
+		background = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_scale_scribe.dds"
+	}
+
+	opinion = { value = regular_court_position_opinion }
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	aptitude = {
+		value = 15
+		add = {
+			value = learning
+			multiply = 2.5
+			max = 50
+			desc = court_position_skill_learning
+		}
+		add = {
+			value = stewardship
+			multiply = 1.0
+			max = 20
+			desc = court_position_skill_stewardship
+		}
+		if = {
+			limit = { has_trait = scholar }
+			add = { value = 15 desc = court_position_scholar_trait }
+		}
+		if = {
+			limit = { has_trait = diligent }
+			add = { value = 10 desc = court_position_diligent_trait }
+		}
+		if = {
+			limit = { culture ?= { has_cultural_pillar = heritage_valyrian } }
+			add = { value = 10 desc = jen_dragon_court_aptitude_valyrian }
+		}
+		if = {
+			limit = { jen_has_education_dragon_trigger = yes }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragon_education }
+		}
+		if = {
+			limit = { has_trait = dragonrider }
+			add = { value = 20 desc = jen_dragon_court_aptitude_dragonrider }
+		}
+		if = {
+			limit = { has_character_flag = historical_dragonseed }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragonseed }
+		}
+		add = court_position_aptitude_high_penalty_value
+		add = general_aptitude_bonus
+	}
+
+	is_shown = { jen_dragon_court_can_employ_trigger = yes }
+	valid_position = {
+		jen_dragon_court_can_employ_trigger = yes
+		highest_held_title_tier >= tier_county
+	}
+
+	is_shown_character = {
+		scope:employee = { jen_dragon_court_employee_base_trigger = yes }
+	}
+	valid_character = {
+		scope:employee = {
+			jen_dragon_court_employee_base_trigger = yes
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+
+	revoke_cost = {
+		prestige = {
+			value = minor_court_position_prestige_revoke_cost
+			if = {
+				limit = { exists = this is_ai = yes }
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+	received_salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { monthly_prestige = 0.1 monthly_dynasty_prestige_mult = 0.02 }
+		poor = { monthly_prestige = 0.15 monthly_dynasty_prestige_mult = 0.03 }
+		average = { monthly_prestige = 0.2 monthly_dynasty_prestige_mult = 0.04 }
+		good = { monthly_prestige = 0.25 monthly_dynasty_prestige_mult = 0.05 }
+		excellent = { monthly_prestige = 0.3 monthly_dynasty_prestige_mult = 0.06 }
+	}
+	custom_employer_modifier_description = jen_dragon_scale_scribe_employer_custom_effect_description
+	modifier = {
+		monthly_learning_lifestyle_xp_gain_mult = 0.1
+		learning = 1
+	}
+}
+
+jen_dragon_cradle_nurse_court_position = {
+	sort_order = 984
+	max_available_positions = 1
+	minimum_rank = county
+	skill = diplomacy
+
+	court_position_asset = {
+		animation = personality_compassionate
+		background = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_cradle_nurse.dds"
+	}
+
+	opinion = { value = regular_court_position_opinion }
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	aptitude = {
+		value = 15
+		add = {
+			value = diplomacy
+			multiply = 2.5
+			max = 50
+			desc = court_position_skill_diplomacy
+		}
+		add = {
+			value = learning
+			multiply = 1.0
+			max = 20
+			desc = court_position_skill_learning
+		}
+		if = {
+			limit = { has_trait = compassionate }
+			add = { value = 15 desc = court_position_compassionate_trait }
+		}
+		if = {
+			limit = { has_trait = generous }
+			add = { value = 10 desc = court_position_generous_trait }
+		}
+		if = {
+			limit = { culture ?= { has_cultural_pillar = heritage_valyrian } }
+			add = { value = 10 desc = jen_dragon_court_aptitude_valyrian }
+		}
+		if = {
+			limit = { jen_has_education_dragon_trigger = yes }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragon_education }
+		}
+		if = {
+			limit = { has_trait = dragonrider }
+			add = { value = 20 desc = jen_dragon_court_aptitude_dragonrider }
+		}
+		if = {
+			limit = { has_character_flag = historical_dragonseed }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragonseed }
+		}
+		add = court_position_aptitude_high_penalty_value
+		add = general_aptitude_bonus
+	}
+
+	is_shown = { jen_dragon_court_can_employ_trigger = yes }
+	valid_position = {
+		jen_dragon_court_can_employ_trigger = yes
+		highest_held_title_tier >= tier_county
+	}
+
+	is_shown_character = {
+		scope:employee = { jen_dragon_court_employee_base_trigger = yes }
+	}
+	valid_character = {
+		scope:employee = {
+			jen_dragon_court_employee_base_trigger = yes
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+
+	revoke_cost = {
+		prestige = {
+			value = minor_court_position_prestige_revoke_cost
+			if = {
+				limit = { exists = this is_ai = yes }
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+	received_salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { courtier_and_guest_opinion = 1 stress_loss_mult = 0.03 }
+		poor = { courtier_and_guest_opinion = 2 stress_loss_mult = 0.05 }
+		average = { courtier_and_guest_opinion = 3 stress_loss_mult = 0.07 }
+		good = { courtier_and_guest_opinion = 4 stress_loss_mult = 0.09 }
+		excellent = { courtier_and_guest_opinion = 5 stress_loss_mult = 0.12 }
+	}
+	custom_employer_modifier_description = jen_dragon_cradle_nurse_employer_custom_effect_description
+	modifier = {
+		monthly_diplomacy_lifestyle_xp_gain_mult = 0.1
+		diplomacy = 1
+	}
+}
+
+jen_dragon_blood_sire_court_position = {
+	sort_order = 983
+	max_available_positions = 1
+	minimum_rank = county
+	skill = diplomacy
+
+	court_position_asset = {
+		animation = personality_bold
+		background = "gfx/interface/illustrations/event_scenes/jen_dragon_cp_bloodbinder.dds"
+	}
+
+	opinion = { value = regular_court_position_opinion }
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	aptitude = {
+		value = 10
+		add = {
+			value = fertility
+			multiply = 40
+			max = 40
+		}
+		add = {
+			value = num_of_good_genetic_traits
+			multiply = 8
+			max = 24
+		}
+		if = {
+			limit = { has_trait = dragonrider }
+			add = { value = 15 desc = jen_dragon_court_aptitude_dragonrider }
+		}
+		if = {
+			limit = { has_character_flag = historical_dragonseed }
+			add = { value = 10 desc = jen_dragon_court_aptitude_dragonseed }
+		}
+		add = court_position_aptitude_high_penalty_value
+		add = general_aptitude_bonus
+	}
+
+	is_shown = {
+		is_human = yes
+		NOT = { has_character_flag = dragon_by_horn }
+		dragonblood_percent >= 100
+	}
+	valid_position = {
+		is_human = yes
+		NOT = { has_character_flag = dragon_by_horn }
+		dragonblood_percent >= 100
+		highest_held_title_tier >= tier_county
+	}
+
+	is_shown_character = {
+		scope:employee = {
+			jen_dragon_court_employee_base_trigger = yes
+			is_male = yes
+			is_adult = yes
+		}
+	}
+	valid_character = {
+		scope:employee = {
+			jen_dragon_court_employee_base_trigger = yes
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+			is_adult = yes
+			custom_tooltip = {
+				text = jen_blood_sire_need_male_tt
+				is_male = yes
+			}
+			custom_tooltip = {
+				text = jen_blood_sire_need_blood_tt
+				dragonblood_percent >= 100
+			}
+			custom_tooltip = {
+				text = jen_blood_sire_need_clean_flesh_tt
+				num_of_bad_genetic_traits = 0
+			}
+			OR = {
+				has_trait = physique_good_1
+				has_trait = physique_good_2
+				has_trait = physique_good_3
+				has_trait = beauty_good_1
+				has_trait = beauty_good_2
+				has_trait = beauty_good_3
+				has_trait = fecund
+				has_trait = strong
+			}
+		}
+	}
+
+	revoke_cost = {
+		prestige = {
+			value = minor_court_position_prestige_revoke_cost
+			if = {
+				limit = { exists = this is_ai = yes }
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+	received_salary = {
+		prestige = { value = minor_court_position_prestige_salary }
+		round = no
+	}
+
+	scaling_employer_modifiers = {
+		terrible = { monthly_prestige = 0.05 }
+		poor = { monthly_prestige = 0.1 }
+		average = { monthly_prestige = 0.15 }
+		good = { monthly_prestige = 0.2 }
+		excellent = { monthly_prestige = 0.25 }
+	}
+	custom_employer_modifier_description = jen_dragon_blood_sire_employer_custom_effect_description
+}

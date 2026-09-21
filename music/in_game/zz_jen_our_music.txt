@@ -1,0 +1,92 @@
+# BotD Not Our Music - CoS pattern (OGG via file:/ paths).
+
+group_jen_our_music_moodtrack = {
+	can_be_interrupted = yes
+	mood = yes
+	is_valid = { always = yes }
+}
+
+jen_mx_breathe = {
+	music = "file:/music/jen_our_music/jen_mx_breathe.ogg"
+	name = jen_mx_breathe
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_doom_and_gloom = {
+	music = "file:/music/jen_our_music/jen_mx_doom_and_gloom.ogg"
+	name = jen_mx_doom_and_gloom
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_fourteen_are_one = {
+	music = "file:/music/jen_our_music/jen_mx_fourteen_are_one.ogg"
+	name = jen_mx_fourteen_are_one
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_hymn_of_the_fourteen = {
+	music = "file:/music/jen_our_music/jen_mx_hymn_of_the_fourteen.ogg"
+	name = jen_mx_hymn_of_the_fourteen
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_one_cup_two_knives = {
+	music = "file:/music/jen_our_music/jen_mx_one_cup_two_knives.ogg"
+	name = jen_mx_one_cup_two_knives
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_silk_and_the_chamber = {
+	music = "file:/music/jen_our_music/jen_mx_silk_and_the_chamber.ogg"
+	name = jen_mx_silk_and_the_chamber
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_the_blood_night = {
+	music = "file:/music/jen_our_music/jen_mx_the_blood_night.ogg"
+	name = jen_mx_the_blood_night
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_the_blood_rite = {
+	music = "file:/music/jen_our_music/jen_mx_the_blood_rite.ogg"
+	name = jen_mx_the_blood_rite
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_the_flame_in_the_glass = {
+	music = "file:/music/jen_our_music/jen_mx_the_flame_in_the_glass.ogg"
+	name = jen_mx_the_flame_in_the_glass
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_the_flame_licks = {
+	music = "file:/music/jen_our_music/jen_mx_the_flame_licks.ogg"
+	name = jen_mx_the_flame_licks
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_two_cups_one_knife = {
+	music = "file:/music/jen_our_music/jen_mx_two_cups_one_knife.ogg"
+	name = jen_mx_two_cups_one_knife
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+
+jen_mx_where_the_doom_still_sits = {
+	music = "file:/music/jen_our_music/jen_mx_where_the_doom_still_sits.ogg"
+	name = jen_mx_where_the_doom_still_sits
+	group = group_jen_our_music_moodtrack
+	pause_factor = 18
+}
+

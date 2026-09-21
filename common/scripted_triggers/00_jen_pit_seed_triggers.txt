@@ -1,0 +1,6 @@
+﻿jen_pit_is_seed_task_trigger = {
+	exists = cp:jen_dragon_councillor_lord_of_the_pit
+	cp:jen_dragon_councillor_lord_of_the_pit = {
+		is_performing_council_task = task_jen_dragon_pit_seed_freehold
+	}
+}

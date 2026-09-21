@@ -1,0 +1,140 @@
+﻿jen_valyrian_refresh_sister_wife_effect = {
+	if = {
+		limit = {
+			faith = { has_doctrine = tenet_jen_sister_wife }
+			jen_has_two_close_kin_spouses_trigger = yes
+		}
+		if = {
+			limit = { NOT = { has_character_modifier = jen_sister_wife_active } }
+			add_character_modifier = { modifier = jen_sister_wife_active }
+		}
+	}
+	else = {
+		remove_character_modifier = jen_sister_wife_active
+	}
+}
+
+jen_valyrian_refresh_gods_that_walk_effect = {
+	if = {
+		limit = {
+			faith = { has_doctrine = tenet_jen_gods_that_walk }
+			jen_gods_that_walk_has_living_god_trigger = yes
+		}
+		if = {
+			limit = { NOT = { has_character_modifier = jen_gods_that_walk_active } }
+			add_character_modifier = { modifier = jen_gods_that_walk_active }
+		}
+	}
+	else = {
+		remove_character_modifier = jen_gods_that_walk_active
+	}
+}
+
+jen_valyrian_refresh_rider_sacrament_effect = {
+	if = {
+		limit = {
+			faith = { has_doctrine = tenet_jen_riders_sacrament }
+			has_trait = dragonrider
+		}
+		if = {
+			limit = { NOT = { has_character_modifier = jen_rider_sacrament_active } }
+			add_character_modifier = { modifier = jen_rider_sacrament_active }
+		}
+	}
+	else = {
+		remove_character_modifier = jen_rider_sacrament_active
+	}
+}
+
+jen_valyrian_kin_marriage_piety_effect = {
+	if = {
+		limit = {
+			faith = { has_doctrine_parameter = jen_kin_marriage_piety }
+			scope:spouse = {
+				OR = {
+					is_close_family_of = root
+					is_extended_family_of = root
+				}
+			}
+		}
+		add_piety = major_piety_gain
+		scope:spouse = {
+			if = {
+				limit = { faith = { has_doctrine_parameter = jen_kin_marriage_piety } }
+				add_piety = major_piety_gain
+			}
+		}
+	}
+}
+
+jen_valyrian_unmixed_blood_piety_effect = {
+	if = {
+		limit = {
+			faith = { has_doctrine = tenet_jen_unmixed_blood }
+			exists = dynasty
+			scope:spouse.dynasty ?= dynasty
+		}
+		add_piety = major_piety_gain
+	}
+}
+
+jen_valyrian_flesh_of_the_flames_birth_effect = {
+	if = {
+		limit = {
+			OR = {
+				real_mother.faith ?= { has_doctrine = tenet_jen_flesh_of_the_flames }
+				real_father.faith ?= { has_doctrine = tenet_jen_flesh_of_the_flames }
+			}
+			exists = real_mother
+			exists = real_father
+			real_mother = { is_close_family_of = root.real_father }
+		}
+		random_list = {
+			10 = {
+				# CK3 1.19: no trait IDs beautiful / hale (PostValidate false)
+				# if = {
+				# 	limit = { NOT = { has_trait = beautiful } }
+				# 	add_trait = beautiful
+				# }
+			}
+			10 = {
+				# CK3 1.19: no trait IDs beautiful / hale (PostValidate false)
+				# if = {
+				# 	limit = { NOT = { has_trait = hale } }
+				# 	add_trait = hale
+				# }
+			}
+			10 = {
+				if = {
+					limit = { NOT = { has_trait = pure_blooded } }
+					add_trait = pure_blooded
+				}
+			}
+			70 = { }
+		}
+	}
+}
+
+# AGOT dragonblood is house-modifier based. Copy it if a dragonblood parent
+# would otherwise leave a concubine-born child short.
+jen_valyrian_ensure_dragonblood_inheritance_effect = {
+	if = {
+		limit = {
+			is_human = yes
+			exists = house
+			NOT = { house = { has_house_modifier = dragonrider_house_modifier } }
+			OR = {
+				real_father ?= { agot_is_dragonblood_character = yes }
+				real_mother ?= { agot_is_dragonblood_character = yes }
+			}
+		}
+		if = {
+			limit = { real_father.house ?= { has_house_modifier = dragonrider_house_modifier } }
+			house = { add_house_modifier = dragonrider_house_modifier }
+		}
+		else_if = {
+			limit = { real_mother.house ?= { has_house_modifier = dragonrider_house_modifier } }
+			house = { add_house_modifier = dragonrider_house_modifier }
+		}
+	}
+}

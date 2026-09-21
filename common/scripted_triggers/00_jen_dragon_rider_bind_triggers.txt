@@ -1,0 +1,20 @@
+﻿# Bloodbinder rider-binding. Root is the would-be rider.
+
+jen_has_living_bound_dragon_trigger = {
+	any_relation = {
+		type = agot_dragon
+		is_alive = yes
+		has_trait = dragon
+	}
+}
+
+jen_can_bind_rider_trigger = {
+	is_ai = no
+	is_available = yes
+	has_trait = dragonrider
+	jen_has_living_bound_dragon_trigger = yes
+	employs_court_position = jen_dragon_bloodbinder_court_position
+	jen_dragon_court_can_employ_trigger = yes
+	NOT = { has_character_flag = jen_recent_rider_bind }
+	NOT = { has_variable = jen_bind_dragon }
+}

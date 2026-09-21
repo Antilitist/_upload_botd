@@ -1,0 +1,186 @@
+# Pick a living dragon in the player's yard for court-position events.
+
+jen_dragon_save_young_yard_dragon_effect = {
+	if = {
+		limit = {
+			any_relation = {
+				type = agot_dragon
+				jen_dragon_is_young_yard_dragon_trigger = yes
+			}
+		}
+		random_relation = {
+			type = agot_dragon
+			limit = { jen_dragon_is_young_yard_dragon_trigger = yes }
+			save_scope_as = dragon
+		}
+	}
+	else_if = {
+		limit = {
+			any_courtier = { jen_dragon_is_young_yard_dragon_trigger = yes }
+		}
+		random_courtier = {
+			limit = { jen_dragon_is_young_yard_dragon_trigger = yes }
+			save_scope_as = dragon
+		}
+	}
+}
+
+jen_dragon_save_growing_yard_dragon_effect = {
+	if = {
+		limit = {
+			any_relation = {
+				type = agot_dragon
+				jen_dragon_is_growing_yard_dragon_trigger = yes
+			}
+		}
+		random_relation = {
+			type = agot_dragon
+			limit = { jen_dragon_is_growing_yard_dragon_trigger = yes }
+			save_scope_as = dragon
+		}
+	}
+	else_if = {
+		limit = {
+			any_courtier = { jen_dragon_is_growing_yard_dragon_trigger = yes }
+		}
+		random_courtier = {
+			limit = { jen_dragon_is_growing_yard_dragon_trigger = yes }
+			save_scope_as = dragon
+		}
+	}
+}
+
+jen_dragon_fire_yard_pit_debate_effect = {
+	if = {
+		limit = {
+			exists = scope:dragon
+			scope:dragon = {
+				is_alive = yes
+				has_trait = dragon
+			}
+			any_player = {
+				is_ai = no
+				is_available = yes
+				jen_dragon_belongs_in_shaper_yard_trigger = { DRAGON = scope:dragon }
+				OR = {
+					employs_court_position = jen_dragon_yard_keeper_court_position
+					employs_court_position = jen_dragon_pitmaster_court_position
+				}
+				NOT = { has_character_flag = jen_recent_yard_pit_debate }
+			}
+		}
+		random_player = {
+			limit = {
+				is_ai = no
+				is_available = yes
+				jen_dragon_belongs_in_shaper_yard_trigger = { DRAGON = scope:dragon }
+				OR = {
+					employs_court_position = jen_dragon_yard_keeper_court_position
+					employs_court_position = jen_dragon_pitmaster_court_position
+				}
+				NOT = { has_character_flag = jen_recent_yard_pit_debate }
+			}
+			trigger_event = {
+				id = jen_dragon_court.2000
+				days = { 18 28 }
+			}
+		}
+	}
+}
+
+jen_dragon_save_grown_yard_dragon_effect = {
+	if = {
+		limit = {
+			any_relation = {
+				type = agot_dragon
+				jen_dragon_is_grown_yard_dragon_trigger = yes
+			}
+		}
+		random_relation = {
+			type = agot_dragon
+			limit = { jen_dragon_is_grown_yard_dragon_trigger = yes }
+			save_scope_as = dragon
+		}
+	}
+	else_if = {
+		limit = {
+			any_courtier = { jen_dragon_is_grown_yard_dragon_trigger = yes }
+		}
+		random_courtier = {
+			limit = { jen_dragon_is_grown_yard_dragon_trigger = yes }
+			save_scope_as = dragon
+		}
+	}
+}
+
+jen_dragon_save_any_yard_dragon_effect = {
+	jen_dragon_save_young_yard_dragon_effect = yes
+	if = {
+		limit = { NOT = { exists = scope:dragon } }
+		jen_dragon_save_growing_yard_dragon_effect = yes
+	}
+	if = {
+		limit = { NOT = { exists = scope:dragon } }
+		jen_dragon_save_grown_yard_dragon_effect = yes
+	}
+}
+
+jen_dragon_court_debug_log_eligibility_effect = {
+	debug_log = "BotD court debug eligibility dump"
+	if = {
+		limit = { employs_court_position = jen_dragon_egg_watcher_court_position }
+		debug_log = "BotD has Egg Watcher"
+	}
+	if = {
+		limit = { employs_court_position = jen_dragon_yard_keeper_court_position }
+		debug_log = "BotD has Yard Keeper"
+	}
+	if = {
+		limit = { employs_court_position = jen_dragon_pitmaster_court_position }
+		debug_log = "BotD has Pitmaster"
+	}
+	if = {
+		limit = { employs_court_position = jen_dragon_wingmaster_court_position }
+		debug_log = "BotD has Wingmaster"
+	}
+	if = {
+		limit = { employs_court_position = jen_dragon_bloodbinder_court_position }
+		debug_log = "BotD has Bloodbinder"
+	}
+	if = {
+		limit = { employs_court_position = jen_dragon_scale_scribe_court_position }
+		debug_log = "BotD has Scale-scribe"
+	}
+	if = {
+		limit = { employs_court_position = jen_dragon_cradle_nurse_court_position }
+		debug_log = "BotD has Cradle Nurse"
+	}
+	if = {
+		limit = { exists = cp:jen_dragon_councillor_master_of_dragons }
+		debug_log = "BotD has Master of Dragons"
+	}
+	if = {
+		limit = { exists = cp:jen_dragon_councillor_lord_of_the_pit }
+		debug_log = "BotD has Lord of the Pit"
+	}
+	if = {
+		limit = { exists = cp:jen_dragon_councillor_blood_chamberlain }
+		debug_log = "BotD has Blood Chamberlain"
+	}
+	if = {
+		limit = { jen_dragon_has_egg_artifact_trigger = yes }
+		debug_log = "BotD has egg artifact"
+	}
+	if = {
+		limit = { jen_dragon_has_young_yard_dragon_trigger = yes }
+		debug_log = "BotD has young yard dragon"
+	}
+	if = {
+		limit = { jen_dragon_has_growing_yard_dragon_trigger = yes }
+		debug_log = "BotD has growing yard dragon"
+	}
+	if = {
+		limit = { jen_dragon_has_grown_yard_dragon_trigger = yes }
+		debug_log = "BotD has grown yard dragon"
+	}
+}

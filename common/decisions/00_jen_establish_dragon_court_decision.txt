@@ -1,0 +1,52 @@
+﻿# Found the Dragon Court for your house. Jobs stay hidden until this is done.
+
+jen_establish_dragon_court_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/jen_decision_establish_dragon_court.dds"
+	}
+	desc = jen_establish_dragon_court_decision_desc
+	selection_tooltip = jen_establish_dragon_court_decision_tooltip
+	confirm_text = jen_establish_dragon_court_decision_confirm
+	decision_group_type = jen_blood_of_the_dragon
+	ai_check_interval = 24
+	sort_order = 70
+
+	is_shown = {
+		jen_can_see_establish_dragon_court_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = jen_must_be_available_tt
+			is_available = yes
+		}
+		custom_description = {
+			text = jen_establish_need_blood_tt
+			agot_is_dragonblood_character = yes
+		}
+		custom_description = {
+			text = jen_establish_need_dragon_or_egg_tt
+			jen_has_live_egg_or_dragon_trigger = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = jen_establish_dragon_court_decision_effect_tt
+		trigger_event = jen_dragon_court.1440
+	}
+
+	ai_potential = {
+		OR = {
+			culture = culture:jen_true_valyrian
+			jen_culture_has_dragon_court_tradition_trigger = yes
+		}
+		agot_is_dragonblood_character = yes
+	}
+	ai_will_do = {
+		base = 80
+		modifier = {
+			add = 40
+			has_trait = dragonrider
+		}
+	}
+}

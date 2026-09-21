@@ -1,0 +1,72 @@
+﻿jen_dragon_add_perk_if_missing_effect = {
+	if = {
+		limit = { NOT = { has_perk = $PERK$ } }
+		add_perk = $PERK$
+	}
+}
+
+jen_dragon_fill_bonding_tree_effect = {
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_blood_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_valyrian_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_claim_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_seed_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_pulse_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_house_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_flesh_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragonlord_perk }
+}
+
+jen_dragon_fill_raising_tree_effect = {
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_clutch_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_warmth_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_hatchling_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_pitmaster_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_scale_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_keepers_eye_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_brood_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_keeper_perk }
+}
+
+jen_dragon_fill_riding_tree_effect = {
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_saddle_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_skyward_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_reins_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_scout_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_dracarys_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_stormrider_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_dragon_terror_perk }
+	jen_dragon_add_perk_if_missing_effect = { PERK = jen_wyrmrider_perk }
+}
+
+jen_dragon_cc_fill_capstone_trees_effect = {
+	if = {
+		limit = {
+			OR = {
+				has_trait = jen_dragonlord
+				has_perk = jen_dragonlord_perk
+			}
+		}
+		debug_log = "BotD CC fill bonding tree"
+		jen_dragon_fill_bonding_tree_effect = yes
+	}
+	if = {
+		limit = {
+			OR = {
+				has_trait = jen_dragon_keeper
+				has_perk = jen_dragon_keeper_perk
+			}
+		}
+		debug_log = "BotD CC fill raising tree"
+		jen_dragon_fill_raising_tree_effect = yes
+	}
+	if = {
+		limit = {
+			OR = {
+				has_trait = jen_wyrmrider
+				has_perk = jen_wyrmrider_perk
+			}
+		}
+		debug_log = "BotD CC fill riding tree"
+		jen_dragon_fill_riding_tree_effect = yes
+	}
+}

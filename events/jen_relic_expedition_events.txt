@@ -1,0 +1,245 @@
+﻿namespace = jen_relic_expedition
+
+jen_relic_expedition.0001 = {
+	type = character_event
+	title = jen_relic_expedition.0001.t
+	desc = jen_relic_expedition.0001.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_hall }
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		debug_log = "BotD relic expedition 0001 pick site"
+	}
+
+	option = {
+		name = jen_relic_expedition.0001.a
+		custom_tooltip = jen_relic_expedition.0001.a.tt
+		set_variable = { name = jen_relic_site value = 1 }
+		trigger_event = {
+			id = jen_relic_expedition.0010
+			days = { 5 12 }
+		}
+	}
+	option = {
+		name = jen_relic_expedition.0001.b
+		custom_tooltip = jen_relic_expedition.0001.b.tt
+		set_variable = { name = jen_relic_site value = 2 }
+		trigger_event = {
+			id = jen_relic_expedition.0011
+			days = { 5 12 }
+		}
+	}
+	option = {
+		name = jen_relic_expedition.0001.c
+		custom_tooltip = jen_relic_expedition.0001.c.tt
+		set_variable = { name = jen_relic_site value = 3 }
+		trigger_event = {
+			id = jen_relic_expedition.0012
+			days = { 8 16 }
+		}
+	}
+	option = {
+		name = jen_relic_expedition.0001.d
+		custom_tooltip = jen_relic_expedition.0001.d.tt
+		set_variable = { name = jen_relic_site value = 4 }
+		trigger_event = {
+			id = jen_relic_expedition.0013
+			days = { 4 10 }
+		}
+	}
+}
+
+jen_relic_expedition.0010 = {
+	type = character_event
+	title = jen_relic_expedition.0010.t
+	desc = jen_relic_expedition.0010.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_vault }
+
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	immediate = { debug_log = "BotD relic site wreck" }
+
+	option = {
+		name = jen_relic_expedition.0010.a
+		jen_relic_open_result_event_effect = yes
+	}
+}
+
+jen_relic_expedition.0011 = {
+	type = character_event
+	title = jen_relic_expedition.0011.t
+	desc = jen_relic_expedition.0011.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_oath }
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	immediate = { debug_log = "BotD relic site manse" }
+
+	option = {
+		name = jen_relic_expedition.0011.a
+		jen_relic_open_result_event_effect = yes
+	}
+}
+
+jen_relic_expedition.0012 = {
+	type = character_event
+	title = jen_relic_expedition.0012.t
+	desc = jen_relic_expedition.0012.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_old_words }
+
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	immediate = { debug_log = "BotD relic site shrine" }
+
+	option = {
+		name = jen_relic_expedition.0012.a
+		jen_relic_open_result_event_effect = yes
+	}
+}
+
+jen_relic_expedition.0013 = {
+	type = character_event
+	title = jen_relic_expedition.0013.t
+	desc = jen_relic_expedition.0013.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_scriptorium }
+
+	left_portrait = {
+		character = root
+		animation = scheme
+	}
+
+	immediate = { debug_log = "BotD relic site vault" }
+
+	option = {
+		name = jen_relic_expedition.0013.a
+		jen_relic_open_result_event_effect = yes
+	}
+}
+
+jen_relic_expedition.0020 = {
+	type = character_event
+	title = jen_relic_expedition.0020.t
+	desc = jen_relic_expedition.0020.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_hall }
+
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+
+	artifact = {
+		trigger = { exists = scope:jen_new_relic }
+		target = scope:jen_new_relic
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		debug_log = "BotD relic expedition 0020 success"
+	}
+
+	option = {
+		name = jen_relic_expedition.0020.a
+		remove_variable = jen_relic_got_real
+		remove_variable = jen_relic_got_junk
+		remove_variable = jen_relic_fail_kind
+	}
+}
+
+jen_relic_expedition.0021 = {
+	type = character_event
+	title = jen_relic_expedition.0021.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_variable = jen_relic_fail_kind
+					var:jen_relic_fail_kind = flag:junk_fake
+				}
+				desc = jen_relic_expedition.0021.fake
+			}
+			triggered_desc = {
+				trigger = {
+					has_variable = jen_relic_fail_kind
+					var:jen_relic_fail_kind = flag:junk_shell
+				}
+				desc = jen_relic_expedition.0021.shell
+			}
+			triggered_desc = {
+				trigger = {
+					has_variable = jen_relic_fail_kind
+					var:jen_relic_fail_kind = flag:companion
+					exists = scope:jen_dead_companion
+				}
+				desc = jen_relic_expedition.0021.companion
+			}
+			triggered_desc = {
+				trigger = {
+					has_variable = jen_relic_fail_kind
+					var:jen_relic_fail_kind = flag:companion
+				}
+				desc = jen_relic_expedition.0021.companion_generic
+			}
+			triggered_desc = {
+				trigger = {
+					has_variable = jen_relic_fail_kind
+					var:jen_relic_fail_kind = flag:wound
+				}
+				desc = jen_relic_expedition.0021.wound
+			}
+			triggered_desc = {
+				trigger = {
+					has_variable = jen_relic_fail_kind
+					var:jen_relic_fail_kind = flag:curse
+				}
+				desc = jen_relic_expedition.0021.curse
+			}
+			desc = jen_relic_expedition.0021.nothing
+		}
+	}
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_hall }
+
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	artifact = {
+		trigger = {
+			exists = scope:jen_new_relic
+			has_variable = jen_relic_got_junk
+		}
+		target = scope:jen_new_relic
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		debug_log = "BotD relic expedition 0021 fail"
+	}
+
+	option = {
+		name = jen_relic_expedition.0021.a
+		remove_variable = jen_relic_got_real
+		remove_variable = jen_relic_got_junk
+		remove_variable = jen_relic_fail_kind
+	}
+}

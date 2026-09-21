@@ -1,0 +1,33 @@
+﻿jen_wear_valyrian_dress_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	auto_accept = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+
+	desc = jen_wear_valyrian_dress_interaction_desc
+
+	is_shown = {
+		scope:actor = { is_ai = no }
+		scope:recipient = {
+			is_female = yes
+			is_adult = yes
+			is_alive = yes
+			culture = culture:jen_true_valyrian
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			if = {
+				limit = { has_character_flag = jen_no_valyrian_clothes }
+				remove_character_flag = jen_no_valyrian_clothes
+			}
+			else = {
+				add_character_flag = jen_no_valyrian_clothes
+			}
+		}
+	}
+
+	ai_will_do = { base = 0 }
+}

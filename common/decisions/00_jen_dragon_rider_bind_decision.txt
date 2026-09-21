@@ -1,0 +1,41 @@
+﻿# Bloodbinder rite: bind rider and dragon with blood.
+
+jen_bind_dragon_rider_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/jen_decision_bind_rider.dds"
+	}
+	desc = jen_bind_dragon_rider_decision_desc
+	selection_tooltip = jen_bind_dragon_rider_decision_tooltip
+	confirm_text = jen_bind_dragon_rider_decision_confirm
+	decision_group_type = jen_blood_of_the_dragon
+	ai_check_interval = 0
+	cooldown = { years = 8 }
+	sort_order = 81
+
+	is_shown = {
+		is_ai = no
+		employs_court_position = jen_dragon_bloodbinder_court_position
+		jen_dragon_court_can_employ_trigger = yes
+		has_trait = dragonrider
+		jen_has_living_bound_dragon_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = jen_must_be_available_tt
+			is_available = yes
+		}
+		custom_description = {
+			text = jen_bind_rider_need_pair_tt
+			jen_has_living_bound_dragon_trigger = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = jen_bind_dragon_rider_decision_effect_tt
+		trigger_event = jen_dragon_court.1420
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}

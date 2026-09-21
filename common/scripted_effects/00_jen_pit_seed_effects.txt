@@ -1,0 +1,39 @@
+﻿jen_pit_seed_freehold_yearly_effect = {
+	random_sub_realm_county = {
+		limit = {
+			NOT = { culture = culture:jen_true_valyrian }
+		}
+		save_scope_as = seeded_county
+	}
+	if = {
+		limit = { exists = scope:seeded_county }
+		scope:seeded_county = {
+			set_county_culture = culture:jen_true_valyrian
+		}
+	}
+	random_courtier_or_guest = {
+		limit = {
+			is_human = yes
+			is_alive = yes
+			is_adult = yes
+			is_ai = yes
+			NOT = { this = root }
+			NOT = { culture = culture:jen_true_valyrian }
+		}
+		set_culture = culture:jen_true_valyrian
+	}
+	if = {
+		limit = {
+			exists = scope:seeded_county
+			is_ai = no
+		}
+		trigger_event = jen_pit.0001
+	}
+}
+
+jen_pit_yearly_effect = {
+	if = {
+		limit = { jen_pit_is_seed_task_trigger = yes }
+		jen_pit_seed_freehold_yearly_effect = yes
+	}
+}

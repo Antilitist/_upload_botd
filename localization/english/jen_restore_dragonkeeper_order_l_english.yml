@@ -1,0 +1,6 @@
+﻿l_english:
+ jen_restore_dragonkeeper_order_decision:0 "Restore Order of the Dragonkeepers"
+ jen_restore_dragonkeeper_order_decision_desc:0 "Your capital has a [dragonpit|E], but the Order was never marked on the county. Without that, Head Dragonkeeper stays hidden and Dragonpit [court_amenities|E] cannot rise past Minimal."
+ jen_restore_dragonkeeper_order_decision_tooltip:0 "Fix missing Dragonkeeper Order on your pit counties"
+ jen_restore_dragonkeeper_order_decision_confirm:0 "Restore the Order"
+ jen_restore_dragonkeeper_order_decision_effect_tt:0 "Pit counties gain the Dragonkeeper Order. If you have no Head Dragonkeeper, the appoint event fires."

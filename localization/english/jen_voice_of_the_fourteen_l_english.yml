@@ -1,0 +1,12 @@
+﻿l_english:
+ jen_voice.0001.t: "Kindled County"
+ jen_voice.0001.desc: "The Voice of the Fourteen has kindled [kindled_county.GetName] in the old flame. Valyrian rites take the county."
+ jen_voice.0001.a: "The Fourteen see it done."
+ jen_voice.0002.t: "Kindling Pair"
+ jen_voice.0002.desc: "The Voice names [kindling_man.GetTitledFirstName] and [kindling_woman.GetTitledFirstName] to bring forth a child of the blood. At least one already carries dragonblood."
+ jen_voice.0002.a: "Let the blood continue."
+
+ jen_pit.0001.t: "Seeded County"
+ jen_pit.0001.desc: "The Lord of the Pit has stamped True Valyrian ways on [seeded_county.GetName]. The Freehold grows."
+ jen_pit.0001.a: "Let the yards speak Valyrian."
+

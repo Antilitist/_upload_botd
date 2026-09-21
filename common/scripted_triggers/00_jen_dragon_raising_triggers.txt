@@ -1,0 +1,68 @@
+﻿# ROOT = possible shaper. Hatchling "belongs" to you, a courtier of yours, or a direct vassal.
+jen_dragon_belongs_in_shaper_yard_trigger = {
+	exists = $DRAGON$
+	$DRAGON$ = {
+		is_alive = yes
+		has_trait = dragon
+		has_character_flag = owned_dragon
+	}
+	OR = {
+		has_relation_agot_dragon = $DRAGON$
+		$DRAGON$ = { is_courtier_of = root }
+		AND = {
+			exists = $DRAGON$.court_owner
+			OR = {
+				$DRAGON$.court_owner = root
+				$DRAGON$.court_owner = { is_courtier_of = root }
+				$DRAGON$.court_owner = { is_vassal_of = root }
+			}
+		}
+		$DRAGON$ = {
+			any_relation = {
+				type = agot_dragon
+				is_alive = yes
+				is_human = yes
+				OR = {
+					this = root
+					is_courtier_of = root
+					is_vassal_of = root
+				}
+			}
+		}
+	}
+}
+
+jen_character_can_shape_dragon_trigger = {
+	is_alive = yes
+	is_ai = no
+	OR = {
+		jen_dragon_raising_perk_count >= 1
+		has_trait = jen_dragon_keeper
+	}
+	jen_dragon_belongs_in_shaper_yard_trigger = { DRAGON = $DRAGON$ }
+}
+
+jen_dragon_needs_hatch_shaping_trigger = {
+	is_alive = yes
+	has_trait = dragon
+	has_character_flag = owned_dragon
+	age < 2
+	NOT = { has_variable = jen_shaped_at_hatch }
+}
+
+jen_dragon_needs_growth_shaping_trigger = {
+	is_alive = yes
+	has_trait = dragon
+	has_character_flag = owned_dragon
+	age >= 3
+	age <= 6
+	NOT = { has_variable = jen_shaped_at_growth }
+}
+
+# Mastered Keeper of Dragons: the trait outlives Raising focus.
+jen_has_keeper_of_dragons_trigger = {
+	OR = {
+		has_trait = jen_dragon_keeper
+		has_perk = jen_dragon_keeper_perk
+	}
+}

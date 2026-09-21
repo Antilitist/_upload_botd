@@ -1,0 +1,224 @@
+﻿# Bloodbinder kin-oath. scope:oath_kin is the other blood.
+
+jen_save_oath_kin_candidates_effect = {
+	if = {
+		limit = {
+			NOT = { exists = scope:oath_kin_1 }
+			any_close_family_member = { jen_is_valid_kin_oath_partner_trigger = yes }
+		}
+		random_close_family_member = {
+			limit = { jen_is_valid_kin_oath_partner_trigger = yes }
+			save_scope_as = oath_kin_1
+		}
+	}
+	if = {
+		limit = {
+			NOT = { exists = scope:oath_kin_2 }
+			any_courtier_or_guest = {
+				jen_is_valid_kin_oath_partner_trigger = yes
+				NOT = { this = scope:oath_kin_1 }
+			}
+		}
+		random_courtier_or_guest = {
+			limit = {
+				jen_is_valid_kin_oath_partner_trigger = yes
+				NOT = { this = scope:oath_kin_1 }
+			}
+			save_scope_as = oath_kin_2
+		}
+	}
+	if = {
+		limit = {
+			NOT = { exists = scope:oath_kin_3 }
+			any_courtier_or_guest = {
+				jen_is_valid_kin_oath_partner_trigger = yes
+				NOT = { this = scope:oath_kin_1 }
+				NOT = { this = scope:oath_kin_2 }
+			}
+		}
+		random_courtier_or_guest = {
+			limit = {
+				jen_is_valid_kin_oath_partner_trigger = yes
+				NOT = { this = scope:oath_kin_1 }
+				NOT = { this = scope:oath_kin_2 }
+			}
+			save_scope_as = oath_kin_3
+		}
+	}
+}
+
+jen_kin_oath_pay_effect = {
+	remove_short_term_gold = medium_gold_value
+	add_prestige = medium_prestige_loss
+	add_stress = medium_stress_gain
+}
+
+jen_kin_oath_success_effect = {
+	debug_log = "BotD kin-oath succeeded"
+	add_character_flag = {
+		flag = jen_recent_kin_oath
+		years = 10
+	}
+	set_variable = {
+		name = jen_oath_kin
+		value = scope:oath_kin
+	}
+	add_character_modifier = {
+		modifier = jen_kin_oath_bound
+		years = 10
+	}
+	scope:oath_kin = {
+		set_variable = {
+			name = jen_oath_kin
+			value = root
+		}
+		add_character_modifier = {
+			modifier = jen_kin_oath_bound
+			years = 10
+		}
+		add_character_flag = {
+			flag = jen_recent_kin_oath
+			years = 10
+		}
+	}
+	random = {
+		chance = 12
+		add_trait = scarred
+	}
+	custom_tooltip = jen_kin_oath_success_tt
+}
+
+jen_kin_oath_fail_effect = {
+	debug_log = "BotD kin-oath failed"
+	add_character_flag = {
+		flag = jen_recent_kin_oath
+		years = 10
+	}
+	add_character_modifier = {
+		modifier = jen_blood_fever
+		years = 2
+	}
+	if = {
+		limit = { NOT = { has_trait = ill } }
+		add_trait = ill
+	}
+	custom_tooltip = jen_kin_oath_fail_tt
+}
+
+jen_kin_oath_cut_effect = {
+	jen_kin_oath_pay_effect = yes
+	random_list = {
+		70 = {
+			modifier = {
+				factor = 0.2
+				NOT = { jen_world_has_living_dragon_trigger = yes }
+			}
+			modifier = {
+				add = 15
+				employs_court_position = jen_dragon_bloodbinder_court_position
+				court_position:jen_dragon_bloodbinder_court_position = {
+					jen_dragon_court_holder_is_capable_trigger = yes
+				}
+			}
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = jen_dragon_court.1430.success_toast
+				left_icon = root
+				right_icon = scope:oath_kin
+				custom_tooltip = jen_dragon_court.1430.success_toast_desc
+			}
+			jen_kin_oath_success_effect = yes
+		}
+		30 = {
+			modifier = {
+				add = 50
+				NOT = { jen_world_has_living_dragon_trigger = yes }
+			}
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = jen_dragon_court.1430.fail_toast
+				left_icon = root
+				custom_tooltip = jen_dragon_court.1430.fail_toast_desc
+			}
+			jen_kin_oath_fail_effect = yes
+		}
+	}
+}
+
+jen_kin_oath_widow_effect = {
+	debug_log = "BotD kin-oath widow"
+	add_stress = major_stress_gain
+	add_character_modifier = {
+		modifier = jen_oath_widow
+		years = 3
+	}
+	add_character_flag = {
+		flag = jen_oath_kin_dead
+		years = 10
+	}
+	if = {
+		limit = { exists = var:jen_oath_kin }
+		remove_variable = jen_oath_kin
+	}
+	if = {
+		limit = { has_character_modifier = jen_kin_oath_bound }
+		remove_character_modifier = jen_kin_oath_bound
+	}
+}
+
+jen_kin_oath_break_effect = {
+	debug_log = "BotD kin-oath broken"
+	add_stress = major_stress_gain
+	add_character_modifier = {
+		modifier = jen_oath_broken
+		years = 5
+	}
+	save_scope_as = breaker
+	if = {
+		limit = { employs_court_position = jen_dragon_bloodbinder_court_position }
+		court_position:jen_dragon_bloodbinder_court_position = {
+			add_character_modifier = {
+				modifier = jen_binder_sickens
+				years = 3
+			}
+			if = {
+				limit = { NOT = { has_trait = ill } }
+				add_trait = ill
+			}
+		}
+	}
+	if = {
+		limit = {
+			exists = var:jen_oath_kin
+			var:jen_oath_kin = { is_alive = yes }
+		}
+		var:jen_oath_kin = {
+			save_scope_as = oath_kin
+			if = {
+				limit = { has_character_modifier = jen_kin_oath_bound }
+				remove_character_modifier = jen_kin_oath_bound
+			}
+			if = {
+				limit = { exists = var:jen_oath_kin }
+				remove_variable = jen_oath_kin
+			}
+			add_character_modifier = {
+				modifier = jen_oath_broken
+				years = 5
+			}
+			if = {
+				limit = { is_ai = no }
+				trigger_event = jen_dragon_court.1433
+			}
+		}
+	}
+	if = {
+		limit = { exists = var:jen_oath_kin }
+		remove_variable = jen_oath_kin
+	}
+	if = {
+		limit = { has_character_modifier = jen_kin_oath_bound }
+		remove_character_modifier = jen_kin_oath_bound
+	}
+	custom_tooltip = jen_kin_oath_break_tt
+}

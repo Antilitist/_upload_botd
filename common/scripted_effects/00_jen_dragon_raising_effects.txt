@@ -1,0 +1,144 @@
+﻿jen_dragon_grant_all_raising_perks_effect = {
+	add_perk = jen_dragon_clutch_perk
+	add_perk = jen_dragon_warmth_perk
+	add_perk = jen_dragon_hatchling_perk
+	add_perk = jen_dragon_pitmaster_perk
+	add_perk = jen_dragon_scale_perk
+	add_perk = jen_dragon_keepers_eye_perk
+	add_perk = jen_dragon_brood_perk
+	add_perk = jen_dragon_keeper_perk
+}
+
+jen_dragon_grant_mid_raising_perks_effect = {
+	add_perk = jen_dragon_clutch_perk
+	add_perk = jen_dragon_warmth_perk
+	add_perk = jen_dragon_hatchling_perk
+}
+
+# Hide the removal so the option tooltip never says only "Remove X".
+# add_trait_force_tooltip is what the player should see: the trait it becomes.
+jen_dragon_set_dragon_pair_effect = {
+	$DRAGON$ = {
+		hidden_effect = {
+			if = {
+				limit = { has_trait = $REMOVE$ }
+				remove_trait = $REMOVE$
+			}
+		}
+		add_trait_force_tooltip = $ADD$
+	}
+}
+
+# Pick the player who should get a shaping event. Bonded owner wins in MP if they qualify.
+jen_fire_shaping_for_eligible_player_effect = {
+	if = {
+		limit = {
+			exists = scope:dragon
+			scope:dragon = {
+				is_alive = yes
+				NOT = { has_variable = $SHAPED_VAR$ }
+			}
+			any_player = {
+				jen_character_can_shape_dragon_trigger = { DRAGON = scope:dragon }
+			}
+		}
+		if = {
+			limit = {
+				scope:dragon = {
+					any_relation = {
+						type = agot_dragon
+						jen_character_can_shape_dragon_trigger = { DRAGON = scope:dragon }
+					}
+				}
+			}
+			scope:dragon = {
+				random_relation = {
+					type = agot_dragon
+					limit = {
+						jen_character_can_shape_dragon_trigger = { DRAGON = scope:dragon }
+					}
+					save_scope_as = shaper
+				}
+			}
+		}
+		else = {
+			random_player = {
+				limit = {
+					jen_character_can_shape_dragon_trigger = { DRAGON = scope:dragon }
+				}
+				save_scope_as = shaper
+			}
+		}
+		scope:dragon = { set_variable = $SHAPED_VAR$ }
+		scope:shaper = { trigger_event = $EVENT$ }
+	}
+}
+
+jen_try_hatch_and_growth_for_dragon_effect = {
+	$DRAGON$ = { save_scope_as = dragon }
+	if = {
+		limit = { scope:dragon = { jen_dragon_needs_hatch_shaping_trigger = yes } }
+		jen_fire_shaping_for_eligible_player_effect = {
+			EVENT = jen_dragon_raising.1000
+			SHAPED_VAR = jen_shaped_at_hatch
+		}
+	}
+	if = {
+		limit = { scope:dragon = { jen_dragon_needs_growth_shaping_trigger = yes } }
+		jen_fire_shaping_for_eligible_player_effect = {
+			EVENT = jen_dragon_raising.1010
+			SHAPED_VAR = jen_shaped_at_growth
+		}
+	}
+}
+
+# Yearly catch-up if birth/birthday pulses missed a hatchling (pits, delayed ownership).
+jen_dragon_raising_scan_yard_effect = {
+	every_relation = {
+		type = agot_dragon
+		limit = {
+			is_alive = yes
+			has_trait = dragon
+		}
+		jen_try_hatch_and_growth_for_dragon_effect = { DRAGON = this }
+	}
+	every_courtier = {
+		limit = {
+			is_alive = yes
+			has_trait = dragon
+		}
+		jen_try_hatch_and_growth_for_dragon_effect = { DRAGON = this }
+	}
+	every_courtier = {
+		limit = {
+			is_alive = yes
+			NOT = { has_trait = dragon }
+		}
+		every_relation = {
+			type = agot_dragon
+			limit = {
+				is_alive = yes
+				has_trait = dragon
+			}
+			jen_try_hatch_and_growth_for_dragon_effect = { DRAGON = this }
+		}
+	}
+	every_vassal = {
+		limit = { is_alive = yes }
+		every_relation = {
+			type = agot_dragon
+			limit = {
+				is_alive = yes
+				has_trait = dragon
+			}
+			jen_try_hatch_and_growth_for_dragon_effect = { DRAGON = this }
+		}
+		every_courtier = {
+			limit = {
+				is_alive = yes
+				has_trait = dragon
+			}
+			jen_try_hatch_and_growth_for_dragon_effect = { DRAGON = this }
+		}
+	}
+}

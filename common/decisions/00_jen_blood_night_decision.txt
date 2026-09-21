@@ -1,0 +1,53 @@
+# The Blood Night. Pairing chain. Loc is stub — Beth writes the prose.
+
+jen_blood_night_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/jen_decision_blood_night.dds"
+	}
+	desc = jen_blood_night_decision_desc
+	selection_tooltip = jen_blood_night_decision_tooltip
+	confirm_text = jen_blood_night_decision_confirm
+	decision_group_type = jen_blood_of_the_dragon
+	ai_check_interval = 0
+	cooldown = { years = 3 }
+	sort_order = 75
+
+	is_shown = {
+		is_playable_character = yes
+		is_ai = no
+		is_adult = yes
+		is_landed = yes
+		jen_blood_night_host_culture_or_faith_trigger = yes
+		NOT = { has_character_flag = jen_blood_night_active }
+	}
+
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = jen_must_be_available_tt
+			is_available = yes
+		}
+		is_imprisoned = no
+		is_at_war = no
+		is_travelling = no
+		custom_description = {
+			text = jen_blood_night_need_partner_tt
+			jen_blood_night_has_adult_partner_trigger = yes
+		}
+		custom_description = {
+			text = jen_blood_night_cooldown_tt
+			NOT = { has_character_flag = jen_blood_night_cooldown }
+		}
+	}
+
+	cost = {
+		prestige = medium_prestige_value
+	}
+
+	effect = {
+		custom_tooltip = jen_blood_night_decision_effect_tt
+		trigger_event = jen_blood_night.0001
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}

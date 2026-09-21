@@ -1,0 +1,25 @@
+﻿jen_relic_unique_template = {
+	can_equip = { always = yes }
+	can_benefit = { is_capable_adult = yes }
+	fallback = {}
+	unique = yes
+}
+
+jen_relic_circlet_template = {
+	can_equip = {
+		custom_tooltip = {
+			text = jen_art_circlet_need_court_tt
+			jen_dragon_court_is_established_trigger = yes
+		}
+	}
+	can_benefit = { is_capable_adult = yes }
+	fallback = {}
+	unique = yes
+}
+
+jen_relic_common_template = {
+	can_equip = { always = yes }
+	can_benefit = { always = yes }
+	fallback = {}
+	unique = no
+}

@@ -1,0 +1,184 @@
+﻿jen_voice_kindle_one_county_effect = {
+	random_sub_realm_county = {
+		limit = {
+			NOT = { faith = faith:jen_valyrian }
+		}
+		set_county_faith = faith:jen_valyrian
+	}
+}
+
+jen_voice_kindle_realm_yearly_effect = {
+	# ROOT is the playable liege (yearly_playable_pulse). 1 county, +1 at Learning 12, +1 at 20.
+	random_sub_realm_county = {
+		limit = {
+			NOT = { faith = faith:jen_valyrian }
+		}
+		save_scope_as = kindled_county
+		set_county_faith = faith:jen_valyrian
+	}
+	if = {
+		limit = {
+			exists = cp:jen_dragon_councillor_voice_of_the_fourteen
+			cp:jen_dragon_councillor_voice_of_the_fourteen = { learning >= 12 }
+		}
+		jen_voice_kindle_one_county_effect = yes
+	}
+	if = {
+		limit = {
+			exists = cp:jen_dragon_councillor_voice_of_the_fourteen
+			cp:jen_dragon_councillor_voice_of_the_fourteen = { learning >= 20 }
+		}
+		jen_voice_kindle_one_county_effect = yes
+	}
+	random_courtier_or_guest = {
+		limit = {
+			is_human = yes
+			is_alive = yes
+			is_adult = yes
+			is_ai = yes
+			NOT = { this = root }
+			NOT = { jen_faith_is_valyrian_trigger = yes }
+		}
+		set_character_faith = faith:jen_valyrian
+	}
+	if = {
+		limit = {
+			exists = scope:kindled_county
+			is_ai = no
+		}
+		trigger_event = jen_voice.0001
+	}
+}
+
+jen_voice_pick_kindling_pair_effect = {
+	# Prefer a dragonblood woman, then any adult man. Fall back the other way.
+	random_courtier_or_guest = {
+		limit = {
+			jen_voice_kindling_woman_trigger = yes
+			jen_voice_has_dragonblood_trigger = yes
+		}
+		save_scope_as = kindling_woman
+	}
+	if = {
+		limit = { NOT = { exists = scope:kindling_woman } }
+		random_close_family_member = {
+			limit = {
+				jen_voice_kindling_woman_trigger = yes
+				jen_voice_has_dragonblood_trigger = yes
+			}
+			save_scope_as = kindling_woman
+		}
+	}
+	if = {
+		limit = { NOT = { exists = scope:kindling_woman } }
+		random_courtier_or_guest = {
+			limit = { jen_voice_kindling_woman_trigger = yes }
+			save_scope_as = kindling_woman
+		}
+	}
+	if = {
+		limit = { NOT = { exists = scope:kindling_woman } }
+		random_close_family_member = {
+			limit = { jen_voice_kindling_woman_trigger = yes }
+			save_scope_as = kindling_woman
+		}
+	}
+	random_courtier_or_guest = {
+		limit = {
+			jen_voice_kindling_man_trigger = yes
+			NAND = {
+				exists = scope:kindling_woman
+				this = scope:kindling_woman
+			}
+			OR = {
+				jen_voice_has_dragonblood_trigger = yes
+				AND = {
+					exists = scope:kindling_woman
+					scope:kindling_woman = { jen_voice_has_dragonblood_trigger = yes }
+				}
+			}
+		}
+		save_scope_as = kindling_man
+	}
+	if = {
+		limit = { NOT = { exists = scope:kindling_man } }
+		random_close_family_member = {
+			limit = {
+				jen_voice_kindling_man_trigger = yes
+				NAND = {
+					exists = scope:kindling_woman
+					this = scope:kindling_woman
+				}
+				OR = {
+					jen_voice_has_dragonblood_trigger = yes
+					AND = {
+						exists = scope:kindling_woman
+						scope:kindling_woman = { jen_voice_has_dragonblood_trigger = yes }
+					}
+				}
+			}
+			save_scope_as = kindling_man
+		}
+	}
+}
+
+jen_voice_seek_kindling_yearly_effect = {
+	jen_voice_pick_kindling_pair_effect = yes
+	if = {
+		limit = {
+			exists = scope:kindling_man
+			exists = scope:kindling_woman
+			OR = {
+				scope:kindling_man = { jen_voice_has_dragonblood_trigger = yes }
+				scope:kindling_woman = { jen_voice_has_dragonblood_trigger = yes }
+			}
+		}
+		scope:kindling_woman = {
+			had_sex_with_effect = {
+				CHARACTER = scope:kindling_man
+				PREGNANCY_CHANCE = pregnancy_chance
+			}
+			if = {
+				limit = { NOT = { has_relation_lover = scope:kindling_man } }
+				set_relation_lover = scope:kindling_man
+			}
+		}
+		if = {
+			limit = { is_ai = no }
+			trigger_event = jen_voice.0002
+		}
+	}
+}
+
+jen_voice_wake_candles_yearly_effect = {
+	add_learning_lifestyle_xp = 40
+	if = {
+		limit = {
+			exists = cp:jen_dragon_councillor_voice_of_the_fourteen
+			cp:jen_dragon_councillor_voice_of_the_fourteen = { learning >= 12 }
+		}
+		add_learning_lifestyle_xp = 20
+	}
+	if = {
+		limit = {
+			exists = cp:jen_dragon_councillor_voice_of_the_fourteen
+			cp:jen_dragon_councillor_voice_of_the_fourteen = { learning >= 20 }
+		}
+		add_learning_lifestyle_xp = 20
+	}
+}
+
+jen_voice_yearly_effect = {
+	if = {
+		limit = { jen_voice_is_kindle_task_trigger = yes }
+		jen_voice_kindle_realm_yearly_effect = yes
+	}
+	else_if = {
+		limit = { jen_voice_is_kindling_task_trigger = yes }
+		jen_voice_seek_kindling_yearly_effect = yes
+	}
+	else_if = {
+		limit = { jen_voice_is_candles_task_trigger = yes }
+		jen_voice_wake_candles_yearly_effect = yes
+	}
+}

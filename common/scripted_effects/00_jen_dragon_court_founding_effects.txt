@@ -1,0 +1,127 @@
+﻿# Seed The Dragon Court tradition onto Valyrian cultures (new games and existing saves).
+
+jen_seed_dragon_court_tradition_effect = {
+	if = {
+		limit = { NOT = { has_global_variable = jen_dragon_court_traditions_seeded } }
+		set_global_variable = {
+			name = jen_dragon_court_traditions_seeded
+			value = yes
+		}
+		every_culture_global = {
+			limit = {
+				has_cultural_pillar = heritage_valyrian
+				NOT = { this = culture:jen_true_valyrian }
+				NOT = { has_cultural_tradition = tradition_jen_dragon_court }
+			}
+			add_culture_tradition = tradition_jen_dragon_court
+		}
+		debug_log = "BotD seeded The Dragon Court tradition on Valyrian cultures"
+	}
+}
+
+jen_stamp_true_valyrian_traditions_effect = {
+	if = {
+		limit = {
+			exists = culture:jen_true_valyrian
+			NOT = { has_global_variable = jen_true_valyrian_traditions_stamped }
+		}
+		set_global_variable = {
+			name = jen_true_valyrian_traditions_stamped
+			value = yes
+		}
+		culture:jen_true_valyrian = {
+			if = {
+				limit = { NOT = { has_innovation = innovation_jen_agot_tradition_slots } }
+				add_innovation = innovation_jen_agot_tradition_slots
+			}
+			jen_true_valyrian_add_botd_traditions_effect = yes
+		}
+	}
+}
+
+jen_establish_dragon_court_effect = {
+	custom_tooltip = jen_establish_dragon_court_effect_tt
+	custom_tooltip = jen_establish_become_true_valyrian_tt
+	if = {
+		limit = { NOT = { jen_dragon_court_is_established_trigger = yes } }
+		debug_log = "BotD established Dragon Court"
+		house = {
+			add_house_modifier = {
+				modifier = jen_dragon_court_established
+			}
+		}
+		add_prestige = major_prestige_loss
+	}
+	jen_convert_to_true_valyrian_effect = yes
+}
+
+# You and capital only. Skip if already. Used by Establish and debug.
+jen_convert_to_true_valyrian_effect = {
+	if = {
+		limit = { exists = culture:jen_true_valyrian }
+		debug_log = "BotD convert: culture:jen_true_valyrian exists=yes"
+		culture:jen_true_valyrian = {
+			if = {
+				limit = { NOT = { has_innovation = innovation_jen_agot_tradition_slots } }
+				add_innovation = innovation_jen_agot_tradition_slots
+			}
+		}
+	}
+	else = {
+		debug_log = "BotD convert: culture:jen_true_valyrian exists=no"
+	}
+	if = {
+		limit = { NOT = { faith = faith:jen_valyrian } }
+		set_character_faith = faith:jen_valyrian
+	}
+	if = {
+		limit = { exists = culture:jen_true_valyrian }
+		if = {
+			limit = { NOT = { culture = culture:jen_true_valyrian } }
+			set_culture = culture:jen_true_valyrian
+		}
+		if = {
+			limit = { exists = capital_county }
+			capital_county = {
+				if = {
+					limit = { NOT = { faith = faith:jen_valyrian } }
+					set_county_faith = faith:jen_valyrian
+				}
+				if = {
+					limit = { NOT = { culture = culture:jen_true_valyrian } }
+					set_county_culture = culture:jen_true_valyrian
+				}
+			}
+		}
+		culture:jen_true_valyrian = {
+			jen_true_valyrian_add_botd_traditions_effect = yes
+		}
+	}
+	if = {
+		limit = { culture = culture:jen_true_valyrian }
+		debug_log = "BotD convert: current culture key=jen_true_valyrian"
+	}
+	else_if = {
+		limit = { culture = culture:sd_demon }
+		debug_log = "BotD convert: current culture key=sd_demon"
+	}
+	else = {
+		debug_log = "BotD convert: current culture key=other"
+	}
+}
+
+jen_true_valyrian_add_botd_traditions_effect = {
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_keepers_of_the_yard } } add_culture_tradition = tradition_jen_keepers_of_the_yard }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_dragonlords_peace } } add_culture_tradition = tradition_jen_dragonlords_peace }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_fire_made_flesh } } add_culture_tradition = tradition_jen_fire_made_flesh }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_fourteen_flames } } add_culture_tradition = tradition_jen_fourteen_flames }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_wings_over_the_wall } } add_culture_tradition = tradition_jen_wings_over_the_wall }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_dracarys } } add_culture_tradition = tradition_jen_dracarys }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_blood_binds_blood } } add_culture_tradition = tradition_jen_blood_binds_blood }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_dragonseeds_place } } add_culture_tradition = tradition_jen_dragonseeds_place }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_children_of_the_fourteen } } add_culture_tradition = tradition_jen_children_of_the_fourteen }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_salt_smoke_and_tide } } add_culture_tradition = tradition_jen_salt_smoke_and_tide }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_lustful_dragonblood } } add_culture_tradition = tradition_jen_lustful_dragonblood }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_dragon_court } } add_culture_tradition = tradition_jen_dragon_court }
+	if = { limit = { NOT = { has_cultural_tradition = tradition_jen_freehold_domain } } add_culture_tradition = tradition_jen_freehold_domain }
+}

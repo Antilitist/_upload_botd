@@ -1,0 +1,140 @@
+# BotD dragon court / council gates. Shared by court positions and extra council seats.
+
+jen_dragon_court_employee_base_trigger = {
+	is_human = yes
+	dragonblood_percent >= 25
+	NOT = { has_character_flag = dragon_by_horn }
+}
+jen_dragon_council_blood_trigger = {
+	is_human = yes
+	NOT = { has_character_flag = dragon_by_horn }
+	dragonblood_percent >= 50
+}
+
+
+jen_dragon_court_is_established_trigger = {
+	exists = house
+	house = { has_house_modifier = jen_dragon_court_established }
+}
+
+jen_has_live_egg_or_dragon_trigger = {
+	OR = {
+		any_relation = {
+			type = agot_dragon
+			is_alive = yes
+			has_trait = dragon
+		}
+		any_character_artifact = {
+			has_variable = dragon_egg
+			NOT = { has_variable = dud_egg }
+		}
+	}
+}
+
+jen_culture_has_dragon_court_tradition_trigger = {
+	culture = { has_cultural_tradition = tradition_jen_dragon_court }
+}
+
+# Establish decision: True Valyrian starters, or anyone with The Dragon Court tradition.
+# Hide only when the court is named and you plus capital are already Valyrian / True Valyrian.
+jen_can_see_establish_dragon_court_trigger = {
+	exists = house
+	is_landed = yes
+	highest_held_title_tier >= tier_county
+	OR = {
+		culture = culture:jen_true_valyrian
+		jen_culture_has_dragon_court_tradition_trigger = yes
+	}
+	NOT = {
+		AND = {
+			jen_dragon_court_is_established_trigger = yes
+			faith = faith:jen_valyrian
+			culture = culture:jen_true_valyrian
+			exists = capital_county
+			capital_county = {
+				faith = faith:jen_valyrian
+				culture = culture:jen_true_valyrian
+			}
+		}
+	}
+}
+
+jen_dragon_court_can_employ_trigger = {
+	jen_dragon_court_employee_base_trigger = yes
+}
+
+
+jen_dragon_has_egg_artifact_trigger = {
+	any_character_artifact = { agot_is_dragon_egg_artifact = yes }
+}
+
+jen_dragon_court_holder_is_capable_trigger = {
+	OR = {
+		stewardship >= 10
+		learning >= 10
+		prowess >= 12
+		has_trait = diligent
+		has_trait = administrator
+		has_trait = paranoid
+		has_trait = dragonrider
+		jen_has_education_dragon_trigger = yes
+	}
+}
+
+jen_dragon_is_young_yard_dragon_trigger = {
+	is_alive = yes
+	has_trait = dragon
+	has_character_flag = owned_dragon
+	age < 3
+}
+
+jen_dragon_is_growing_yard_dragon_trigger = {
+	is_alive = yes
+	has_trait = dragon
+	has_character_flag = owned_dragon
+	age >= 3
+	age <= 8
+}
+
+jen_dragon_has_young_yard_dragon_trigger = {
+	OR = {
+		any_relation = {
+			type = agot_dragon
+			jen_dragon_is_young_yard_dragon_trigger = yes
+		}
+		any_courtier = {
+			jen_dragon_is_young_yard_dragon_trigger = yes
+		}
+	}
+}
+
+jen_dragon_has_growing_yard_dragon_trigger = {
+	OR = {
+		any_relation = {
+			type = agot_dragon
+			jen_dragon_is_growing_yard_dragon_trigger = yes
+		}
+		any_courtier = {
+			jen_dragon_is_growing_yard_dragon_trigger = yes
+		}
+	}
+}
+
+jen_dragon_is_grown_yard_dragon_trigger = {
+	is_alive = yes
+	has_trait = dragon
+	has_character_flag = owned_dragon
+	age >= 4
+}
+
+jen_dragon_has_grown_yard_dragon_trigger = {
+	OR = {
+		any_relation = {
+			type = agot_dragon
+			jen_dragon_is_grown_yard_dragon_trigger = yes
+		}
+		any_courtier = {
+			jen_dragon_is_grown_yard_dragon_trigger = yes
+		}
+	}
+}

@@ -1,0 +1,6 @@
+﻿l_english:
+ jen_valyrian_funeral.0001.t:0 "A Pyre for [dead_kin.GetFirstName]"
+ jen_valyrian_funeral.0001.desc:0 "[dead_kin.GetShortUIName|U] is gone. The old rite is fire. How shall we send them?"
+ jen_valyrian_funeral.0001.a:0 "Dragonfire Pyre"
+ jen_valyrian_funeral.0001.a.need_dragon:0 "You need a living dragon"
+ jen_valyrian_funeral.0001.b:0 "A Common Pyre"

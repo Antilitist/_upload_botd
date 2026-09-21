@@ -1,0 +1,15 @@
+﻿# Ugly year after a rider-binding, and the long sour if it fails.
+
+jen_blood_bound = {
+	icon = stressed
+	stress_gain_mult = 0.25
+	health = -0.25
+	monthly_prestige = -0.1
+}
+
+jen_dragon_spurned = {
+	icon = stressed
+	stress_gain_mult = 0.1
+	dread_decay_mult = -0.1
+	monthly_prestige = -0.15
+}

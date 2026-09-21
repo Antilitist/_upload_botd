@@ -1,0 +1,49 @@
+jen_send_to_blood_sire_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/jen_decision_dragonseed_rite.dds"
+	}
+	desc = jen_send_to_blood_sire_decision_desc
+	selection_tooltip = jen_send_to_blood_sire_decision_tooltip
+	confirm_text = jen_send_to_blood_sire_decision_confirm
+	decision_group_type = jen_blood_of_the_dragon
+	ai_check_interval = 0
+	cooldown = { days = 90 }
+	sort_order = 78
+
+	is_shown = {
+		is_playable_character = yes
+		is_ai = no
+		is_adult = yes
+		jen_blood_sire_employs_sire_trigger = yes
+		jen_blood_sire_has_eligible_woman_trigger = yes
+	}
+
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = jen_must_be_available_tt
+			is_available = yes
+		}
+		custom_description = {
+			text = jen_send_to_blood_sire_need_sire_tt
+			jen_blood_sire_employs_sire_trigger = yes
+		}
+		custom_description = {
+			text = jen_send_to_blood_sire_need_woman_tt
+			jen_blood_sire_has_eligible_woman_trigger = yes
+		}
+	}
+
+	cost = {
+		prestige = minor_prestige_value
+	}
+
+	effect = {
+		custom_tooltip = jen_send_to_blood_sire_decision_effect_tt
+		jen_blood_sire_load_sire_effect = yes
+		jen_blood_sire_pick_woman_effect = yes
+		trigger_event = jen_blood_sire.0001
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}

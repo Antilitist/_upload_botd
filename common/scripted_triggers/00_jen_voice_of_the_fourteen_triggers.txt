@@ -1,0 +1,49 @@
+﻿# Voice of the Fourteen pairing gates. Adults only. Not Blood-Sire (that job stays).
+
+jen_voice_kindling_man_trigger = {
+	is_male = yes
+	is_adult = yes
+	is_alive = yes
+	is_human = yes
+	is_available = yes
+	is_ai = yes
+	NOT = { this = root }
+	NOT = { has_trait = dragon }
+}
+
+jen_voice_kindling_woman_trigger = {
+	is_female = yes
+	is_adult = yes
+	is_alive = yes
+	is_human = yes
+	is_pregnant = no
+	is_available = yes
+	is_ai = yes
+	NOT = { this = root }
+	NOT = { has_trait = dragon }
+}
+
+jen_voice_has_dragonblood_trigger = {
+	dragonblood_percent >= 1
+}
+
+jen_voice_is_kindle_task_trigger = {
+	exists = cp:jen_dragon_councillor_voice_of_the_fourteen
+	cp:jen_dragon_councillor_voice_of_the_fourteen = {
+		is_performing_council_task = task_jen_dragon_voice_kindle_realm
+	}
+}
+
+jen_voice_is_kindling_task_trigger = {
+	exists = cp:jen_dragon_councillor_voice_of_the_fourteen
+	cp:jen_dragon_councillor_voice_of_the_fourteen = {
+		is_performing_council_task = task_jen_dragon_voice_seek_kindling
+	}
+}
+
+jen_voice_is_candles_task_trigger = {
+	exists = cp:jen_dragon_councillor_voice_of_the_fourteen
+	cp:jen_dragon_councillor_voice_of_the_fourteen = {
+		is_performing_council_task = task_jen_dragon_voice_wake_candles
+	}
+}

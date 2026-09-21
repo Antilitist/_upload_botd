@@ -1,0 +1,77 @@
+﻿jen_restore_dragonkeeper_order_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	desc = jen_restore_dragonkeeper_order_decision_desc
+	selection_tooltip = jen_restore_dragonkeeper_order_decision_tooltip
+	confirm_text = jen_restore_dragonkeeper_order_decision_confirm
+	decision_group_type = jen_blood_of_the_dragon
+	ai_check_interval = 0
+	sort_order = 90
+
+	is_shown = {
+		is_playable_character = yes
+		is_ai = no
+		is_adult = yes
+		is_landed = yes
+		any_held_county = {
+			OR = {
+				any_county_province = {
+					has_holding_type = castle_holding
+					has_building_or_higher = generic_dragon_pit_01
+				}
+				any_county_province = {
+					OR = {
+						has_building_or_higher = dragonpit_01
+						has_building = dragonpit_ruins_03
+						has_building = agot_dragonmont_01
+					}
+				}
+			}
+			NOT = { has_variable = has_dragonkeeper_order }
+		}
+	}
+
+	effect = {
+		custom_tooltip = jen_restore_dragonkeeper_order_decision_effect_tt
+		if = {
+			limit = { any_held_county = { has_variable = has_dragonkeeper_order } }
+			add_character_flag = jen_had_dragonkeeper_order_elsewhere
+		}
+		every_held_county = {
+			limit = {
+				OR = {
+					any_county_province = {
+						has_holding_type = castle_holding
+						has_building_or_higher = generic_dragon_pit_01
+					}
+					any_county_province = {
+						OR = {
+							has_building_or_higher = dragonpit_01
+							has_building = dragonpit_ruins_03
+							has_building = agot_dragonmont_01
+						}
+					}
+				}
+				NOT = { has_variable = has_dragonkeeper_order }
+			}
+			set_variable = { name = has_dragonkeeper_order }
+		}
+		if = {
+			limit = {
+				NOT = { employs_court_position = head_dragonkeeper_court_position }
+			}
+			if = {
+				limit = { has_character_flag = jen_had_dragonkeeper_order_elsewhere }
+				trigger_event = agot_dragonkeepers.0002
+			}
+			else = {
+				trigger_event = agot_dragonkeepers.0001
+			}
+		}
+		remove_character_flag = jen_had_dragonkeeper_order_elsewhere
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}

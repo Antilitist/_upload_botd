@@ -1,0 +1,79 @@
+﻿# Bloodbinder rite: two dragonbloods swear. Break it and the binder sickens.
+
+jen_kin_oath_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/jen_decision_kin_oath.dds"
+	}
+	desc = jen_kin_oath_decision_desc
+	selection_tooltip = jen_kin_oath_decision_tooltip
+	confirm_text = jen_kin_oath_decision_confirm
+	decision_group_type = jen_blood_of_the_dragon
+	ai_check_interval = 0
+	cooldown = { years = 10 }
+	sort_order = 82
+
+	is_shown = {
+		is_ai = no
+		employs_court_position = jen_dragon_bloodbinder_court_position
+		jen_dragon_court_can_employ_trigger = yes
+		jen_can_swear_kin_oath_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = jen_must_be_available_tt
+			is_available = yes
+		}
+		custom_description = {
+			text = jen_kin_oath_need_kin_tt
+			jen_has_kin_oath_partner_trigger = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = jen_kin_oath_decision_effect_tt
+		trigger_event = jen_dragon_court.1430
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
+jen_break_kin_oath_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/jen_decision_break_oath.dds"
+	}
+	desc = jen_break_kin_oath_decision_desc
+	selection_tooltip = jen_break_kin_oath_decision_tooltip
+	confirm_text = jen_break_kin_oath_decision_confirm
+	decision_group_type = jen_blood_of_the_dragon
+	ai_check_interval = 0
+	cooldown = { years = 5 }
+	sort_order = 83
+
+	is_shown = {
+		is_ai = no
+		employs_court_position = jen_dragon_bloodbinder_court_position
+		jen_dragon_court_can_employ_trigger = yes
+		jen_has_kin_oath_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = jen_must_be_available_tt
+			is_available = yes
+		}
+		custom_description = {
+			text = jen_break_kin_oath_need_tt
+			jen_has_kin_oath_trigger = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = jen_break_kin_oath_decision_effect_tt
+		trigger_event = jen_dragon_court.1432
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}

@@ -1,0 +1,55 @@
+﻿# Bloodbinder egg-seeding. An egg remembers the house that bled on it.
+
+jen_artifact_is_live_egg_trigger = {
+	has_variable = dragon_egg
+	NOT = { has_variable = dud_egg }
+}
+
+jen_artifact_is_unseeded_live_egg_trigger = {
+	jen_artifact_is_live_egg_trigger = yes
+	NOT = { has_variable = jen_blood_seeded }
+}
+
+jen_egg_seed_matches_owner_trigger = {
+	has_variable = jen_blood_seeded
+	OR = {
+		AND = {
+			exists = var:jen_seeded_house
+			exists = artifact_owner.house
+			var:jen_seeded_house = artifact_owner.house
+		}
+		AND = {
+			exists = var:jen_seeded_seeder
+			exists = artifact_owner.dynasty
+			exists = var:jen_seeded_seeder.dynasty
+			var:jen_seeded_seeder.dynasty = artifact_owner.dynasty
+		}
+	}
+}
+
+jen_is_valid_egg_seeder_trigger = {
+	is_alive = yes
+	is_human = yes
+	agot_is_dragonblood_character = yes
+}
+
+jen_has_unseeded_live_egg_trigger = {
+	any_character_artifact = {
+		jen_artifact_is_unseeded_live_egg_trigger = yes
+	}
+}
+
+jen_has_court_dragonblood_kin_trigger = {
+	any_courtier = {
+		jen_is_valid_egg_seeder_trigger = yes
+		NOT = { this = root }
+		OR = {
+			is_close_family_of = root
+			AND = {
+				exists = dynasty
+				exists = root.dynasty
+				dynasty = root.dynasty
+			}
+		}
+	}
+}

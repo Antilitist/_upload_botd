@@ -1,0 +1,35 @@
+﻿namespace = jen_voice
+
+jen_voice.0001 = {
+	type = character_event
+	title = jen_voice.0001.t
+	desc = jen_voice.0001.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+
+	option = {
+		name = jen_voice.0001.a
+	}
+}
+
+jen_voice.0002 = {
+	type = character_event
+	title = jen_voice.0002.t
+	desc = jen_voice.0002.desc
+	theme = dynasty
+	left_portrait = {
+		character = scope:kindling_man
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:kindling_woman
+		animation = happiness
+	}
+
+	option = {
+		name = jen_voice.0002.a
+	}
+}

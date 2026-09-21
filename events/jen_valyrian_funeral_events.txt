@@ -1,0 +1,60 @@
+namespace = jen_valyrian_funeral
+
+# Family funeral after a close kin dies. Root is the living player.
+jen_valyrian_funeral.0001 = {
+	type = character_event
+	title = jen_valyrian_funeral.0001.t
+	desc = jen_valyrian_funeral.0001.desc
+	theme = death
+	override_background = { reference = jen_valyrian_funeral_dragonfire }
+
+	left_portrait = {
+		character = scope:dead_kin
+		animation = idle
+	}
+
+	trigger = {
+		is_ai = no
+		is_alive = yes
+		exists = scope:dead_kin
+		is_close_family_of = scope:dead_kin
+		jen_faith_is_valyrian_trigger = yes
+		scope:dead_kin = { NOT = { has_trait = dragon } }
+	}
+
+	immediate = {
+		scope:dead_kin = { save_scope_as = dead_kin }
+	}
+
+	option = {
+		name = jen_valyrian_funeral.0001.a
+		trigger = {
+			custom_tooltip = {
+				text = jen_valyrian_funeral.0001.a.need_dragon
+				jen_valyrian_player_has_living_dragon_trigger = yes
+			}
+		}
+
+		add_piety = medium_piety_gain
+		add_prestige = miniscule_prestige_gain
+		add_dread = minor_dread_gain
+		scope:dead_kin = {
+			every_close_family_member = {
+				limit = {
+					is_alive = yes
+					this != root
+				}
+				add_opinion = {
+					target = root
+					modifier = pleased_opinion
+					opinion = 20
+				}
+			}
+		}
+	}
+
+	option = {
+		name = jen_valyrian_funeral.0001.b
+		add_piety = minor_piety_gain
+	}
+}

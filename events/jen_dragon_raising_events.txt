@@ -1,0 +1,202 @@
+﻿namespace = jen_dragon_raising
+
+# Delayed hatch dispatcher. Root is the hatchling; finds a qualifying player.
+jen_dragon_raising.0001 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		has_trait = dragon
+		has_character_flag = owned_dragon
+		NOT = { has_variable = jen_shaped_at_hatch }
+	}
+
+	immediate = {
+		save_scope_as = dragon
+		jen_fire_shaping_for_eligible_player_effect = {
+			EVENT = jen_dragon_raising.1000
+			SHAPED_VAR = jen_shaped_at_hatch
+		}
+	}
+}
+
+# Hatch-day shaping. Fire with scope:dragon set.
+jen_dragon_raising.1000 = {
+	type = character_event
+	title = jen_dragon_raising.1000.t
+	desc = jen_dragon_raising.1000.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_first_fire }
+	left_portrait = {
+		character = scope:dragon
+		animation = personality_bold
+	}
+
+	trigger = {
+		exists = scope:dragon
+		scope:dragon = { has_trait = dragon }
+	}
+
+	immediate = {
+		scope:dragon = {
+			set_variable = jen_shaped_at_hatch
+		}
+	}
+
+	option = {
+		name = jen_dragon_raising.1000.a
+		custom_tooltip = jen_dragon_raising.1000.a.tt
+		if = {
+			limit = { jen_dragon_raising_perk_count >= 6 }
+			custom_tooltip = jen_dragon_raising.next_choice_tt
+			trigger_event = jen_dragon_raising.1001
+		}
+	}
+
+	option = {
+		name = jen_dragon_raising.1000.b
+		trigger = { jen_dragon_raising_perk_count >= 3 }
+		custom_tooltip = jen_dragon_raising.1000.b.tt
+		jen_dragon_set_dragon_pair_effect = {
+			DRAGON = scope:dragon
+			REMOVE = dragon_aggressive
+			ADD = dragon_friendly
+		}
+		if = {
+			limit = { jen_dragon_raising_perk_count >= 6 }
+			custom_tooltip = jen_dragon_raising.next_choice_tt
+			trigger_event = jen_dragon_raising.1001
+		}
+	}
+
+	option = {
+		name = jen_dragon_raising.1000.c
+		trigger = { jen_dragon_raising_perk_count >= 3 }
+		custom_tooltip = jen_dragon_raising.1000.c.tt
+		jen_dragon_set_dragon_pair_effect = {
+			DRAGON = scope:dragon
+			REMOVE = dragon_friendly
+			ADD = dragon_aggressive
+		}
+		if = {
+			limit = { jen_dragon_raising_perk_count >= 6 }
+			custom_tooltip = jen_dragon_raising.next_choice_tt
+			trigger_event = jen_dragon_raising.1001
+		}
+	}
+}
+
+# Second hatch-day axis if Raising is deep.
+jen_dragon_raising.1001 = {
+	type = character_event
+	title = jen_dragon_raising.1001.t
+	desc = jen_dragon_raising.1001.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_raising_yard }
+	left_portrait = {
+		character = scope:dragon
+		animation = personality_rational
+	}
+
+	option = {
+		name = jen_dragon_raising.1001.a
+		custom_tooltip = jen_dragon_raising.1001.a.tt
+	}
+
+	option = {
+		name = jen_dragon_raising.1001.b
+		custom_tooltip = jen_dragon_raising.1001.b.tt
+		jen_dragon_set_dragon_pair_effect = {
+			DRAGON = scope:dragon
+			REMOVE = dragon_solitary
+			ADD = dragon_cooperative
+		}
+	}
+
+	option = {
+		name = jen_dragon_raising.1001.c
+		custom_tooltip = jen_dragon_raising.1001.c.tt
+		jen_dragon_set_dragon_pair_effect = {
+			DRAGON = scope:dragon
+			REMOVE = dragon_cooperative
+			ADD = dragon_solitary
+		}
+	}
+
+	option = {
+		name = jen_dragon_raising.1001.d
+		trigger = { jen_has_keeper_of_dragons_trigger = yes }
+		custom_tooltip = jen_dragon_raising.1001.d.tt
+		jen_dragon_set_dragon_pair_effect = {
+			DRAGON = scope:dragon
+			REMOVE = dragon_physique_bad_1
+			ADD = dragon_physique_good_1
+		}
+	}
+}
+
+# Growth shaping. Fire with scope:dragon set.
+jen_dragon_raising.1010 = {
+	type = character_event
+	title = jen_dragon_raising.1010.t
+	desc = jen_dragon_raising.1010.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_growing }
+	left_portrait = {
+		character = scope:dragon
+		animation = idle
+	}
+
+	trigger = {
+		exists = scope:dragon
+		scope:dragon = { has_trait = dragon }
+	}
+
+	immediate = {
+		scope:dragon = {
+			set_variable = jen_shaped_at_growth
+		}
+	}
+
+	option = {
+		name = jen_dragon_raising.1010.a
+		custom_tooltip = jen_dragon_raising.1010.a.tt
+	}
+
+	option = {
+		name = jen_dragon_raising.1010.b
+		trigger = { jen_dragon_raising_perk_count >= 5 }
+		custom_tooltip = jen_dragon_raising.1010.b.tt
+		jen_dragon_set_dragon_pair_effect = {
+			DRAGON = scope:dragon
+			REMOVE = dragon_voracious
+			ADD = dragon_restrained
+		}
+	}
+
+	option = {
+		name = jen_dragon_raising.1010.c
+		trigger = { jen_dragon_raising_perk_count >= 5 }
+		custom_tooltip = jen_dragon_raising.1010.c.tt
+		jen_dragon_set_dragon_pair_effect = {
+			DRAGON = scope:dragon
+			REMOVE = dragon_restrained
+			ADD = dragon_voracious
+		}
+	}
+
+	option = {
+		name = jen_dragon_raising.1010.d
+		trigger = {
+			OR = {
+				jen_has_keeper_of_dragons_trigger = yes
+			}
+		}
+		custom_tooltip = jen_dragon_raising.1010.d.tt
+		jen_dragon_set_dragon_pair_effect = {
+			DRAGON = scope:dragon
+			REMOVE = dragon_ugly
+			ADD = dragon_majestic
+		}
+	}
+}

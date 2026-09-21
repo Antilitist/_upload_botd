@@ -1,0 +1,131 @@
+﻿# Visible Old Blood laws. Not tenets.
+
+doctrine_jen_blood_wives = {
+	icon = jen_doctrine_blood_wives
+
+	is_shown = {
+		OR = {
+			religion_tag = jen_valyrian_religion
+			has_doctrine = doctrine_jen_blood_wives
+		}
+	}
+
+	can_pick = {
+		custom_tooltip = {
+			text = doctrine_jen_blood_wives_religion_tt
+			OR = {
+				religion_tag = jen_valyrian_religion
+				has_doctrine = doctrine_jen_blood_wives
+			}
+		}
+	}
+
+	piety_cost = {
+		value = faith_doctrine_cost_mid
+		if = {
+			limit = { has_doctrine = doctrine_jen_blood_wives }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		# Mirror doctrine_polygamy keys the engine reads for GetMaxSpouses / allowed_more_spouses
+		number_of_spouses = 40
+		spouse_piety_loss = yes
+		number_of_consorts = 40
+		men_can_have_multiple_spouses = yes
+		women_can_have_multiple_spouses = yes
+		men_can_have_consorts = yes
+		women_can_have_consorts = yes
+		jen_blood_wives_law = yes
+	}
+}
+
+doctrine_jen_valyrian_supremacy = {
+	icon = jen_doctrine_group_valyrian_supremacy
+
+	piety_cost = {
+		value = faith_doctrine_cost_high
+		if = {
+			limit = { has_doctrine = doctrine_jen_valyrian_supremacy }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		jen_valyrian_supremacy = yes
+	}
+
+	character_modifier = {
+		same_culture_opinion = 15
+		different_culture_opinion = -20
+		tolerance_advantage_mod = 4
+		dread_baseline_add = 5
+	}
+
+	traits = {
+		virtues = { arrogant }
+		sins = { humble }
+	}
+}
+
+doctrine_jen_sorcerous_arts = {
+	icon = jen_doctrine_group_sorcerous_arts
+
+	piety_cost = {
+		value = faith_doctrine_cost_high
+		if = {
+			limit = { has_doctrine = doctrine_jen_sorcerous_arts }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		jen_sorcerous_arts = yes
+		jen_true_magic_eligible = yes
+		jen_blood_magic_permitted = yes
+		tenet_esotericism_mystic_education = yes
+	}
+
+	character_modifier = {
+		learning = 2
+		owned_personal_scheme_success_chance_add = 5
+	}
+
+	traits = {
+		virtues = {
+			witch = 2
+			lifestyle_mystic
+		}
+	}
+}
+
+doctrine_jen_fire_and_blood = {
+	icon = jen_doctrine_group_fire_and_blood
+
+	piety_cost = {
+		value = faith_doctrine_cost_high
+		if = {
+			limit = { has_doctrine = doctrine_jen_fire_and_blood }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		jen_fire_and_blood = yes
+		clergy_can_fight = yes
+		conquest_cb_enabled = yes
+	}
+
+	character_modifier = {
+		martial = 1
+		prowess = 2
+		ai_war_chance = 0.25
+		accolade_glory_gain_mult = 0.1
+	}
+
+	traits = {
+		virtues = { wrathful }
+		sins = { craven }
+	}
+}

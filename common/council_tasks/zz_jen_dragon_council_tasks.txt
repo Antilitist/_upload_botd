@@ -1,0 +1,310 @@
+﻿# BotD dragon council tasks. At least two tasks per seat (game crashes if a council type has 0 tasks).
+
+task_jen_dragon_master_drill_wings = {
+	default_task = yes
+	position = jen_dragon_councillor_master_of_dragons
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_master_drill_wings.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_master_drill_wings_effect_desc
+	}
+
+	council_owner_modifier = {
+		knight_effectiveness_mult = 0.05
+		knight_limit = 1
+		prowess = 1
+	}
+
+	ai_will_do = {
+		value = 120
+	}
+}
+
+task_jen_dragon_master_ward_skies = {
+	position = jen_dragon_councillor_master_of_dragons
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_master_ward_skies.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_master_ward_skies_effect_desc
+	}
+
+	council_owner_modifier = {
+		defender_advantage = 5
+		dread_baseline_add = 3
+		army_maintenance_mult = -0.03
+	}
+
+	ai_will_do = {
+		value = 90
+	}
+}
+
+
+task_jen_dragon_master_overawe_realm = {
+	position = jen_dragon_councillor_master_of_dragons
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_master_overawe_realm.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_master_overawe_realm_effect_desc
+	}
+
+	council_owner_modifier = {
+		monthly_county_control_growth_add = 0.4
+		dread_baseline_add = 5
+		knight_limit = 1
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+}
+task_jen_dragon_pit_keep_vaults = {
+	default_task = yes
+	position = jen_dragon_councillor_lord_of_the_pit
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_pit_keep_vaults.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_pit_keep_vaults_effect_desc
+	}
+
+	council_owner_modifier = {
+		domain_tax_mult = 0.03
+		build_gold_cost = -0.04
+	}
+
+	ai_will_do = {
+		value = 110
+	}
+}
+
+task_jen_dragon_pit_expand_yards = {
+	position = jen_dragon_councillor_lord_of_the_pit
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_pit_expand_yards.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_pit_expand_yards_effect_desc
+	}
+
+	council_owner_modifier = {
+		county_opinion_add = 5
+		court_grandeur_baseline_add = 2
+		development_growth_factor = 0.05
+	}
+
+	ai_will_do = {
+		value = 80
+	}
+}
+
+
+task_jen_dragon_pit_seed_freehold = {
+	position = jen_dragon_councillor_lord_of_the_pit
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_pit_seed_freehold.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_pit_seed_freehold_effect_desc
+	}
+
+	council_owner_modifier = {
+		same_culture_opinion = 5
+		domain_tax_mult = 0.04
+		monthly_stewardship_lifestyle_xp_gain_mult = 0.1
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+}
+
+task_jen_dragon_chamberlain_host_blood = {
+	default_task = yes
+	position = jen_dragon_councillor_blood_chamberlain
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_chamberlain_host_blood.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_chamberlain_host_blood_effect_desc
+	}
+
+	council_owner_modifier = {
+		vassal_opinion = 5
+		court_grandeur_baseline_add = 2
+		monthly_prestige = 0.15
+	}
+
+	ai_will_do = {
+		value = 110
+	}
+}
+
+task_jen_dragon_chamberlain_bind_houses = {
+	position = jen_dragon_councillor_blood_chamberlain
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_chamberlain_bind_houses.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_chamberlain_bind_houses_effect_desc
+	}
+
+	council_owner_modifier = {
+		general_opinion = 5
+		owned_personal_scheme_success_chance_add = 5
+		monthly_diplomacy_lifestyle_xp_gain_mult = 0.1
+	}
+
+	ai_will_do = {
+		value = 80
+	}
+}
+
+task_jen_dragon_voice_kindle_realm = {
+	default_task = yes
+	position = jen_dragon_councillor_voice_of_the_fourteen
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_voice_kindle_realm.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_voice_kindle_realm_effect_desc
+	}
+
+	council_owner_modifier = {
+		monthly_piety = 0.4
+		same_faith_opinion = 5
+	}
+
+	ai_will_do = {
+		value = 120
+	}
+}
+
+task_jen_dragon_voice_seek_kindling = {
+	position = jen_dragon_councillor_voice_of_the_fourteen
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_voice_seek_kindling.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_voice_seek_kindling_effect_desc
+	}
+
+	council_owner_modifier = {
+		fertility = 0.15
+		attraction_opinion = 5
+	}
+
+	ai_will_do = {
+		value = 90
+	}
+}
+
+task_jen_dragon_voice_wake_candles = {
+	position = jen_dragon_councillor_voice_of_the_fourteen
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_jen_dragon_voice_wake_candles.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
+	effect_desc = {
+		desc = task_jen_dragon_voice_wake_candles_effect_desc
+	}
+
+	council_owner_modifier = {
+		monthly_learning_lifestyle_xp_gain_mult = 0.15
+		learning = 2
+	}
+
+	ai_will_do = {
+		value = 80
+	}
+}

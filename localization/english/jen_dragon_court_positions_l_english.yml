@@ -1,0 +1,80 @@
+﻿l_english:
+ jen_dragon_yard_keeper_court_position: "Keeper of the Yard"
+ jen_dragon_yard_keeper_court_position_desc: "The $jen_dragon_yard_keeper_court_position$ keeps the dragon yard in order: pens, ramps, and the daily feed that keeps living fire from turning on its keepers."
+ jen_dragon_yard_keeper_employer_custom_effect_description: "$BULLET$Keeps the dragon yard in working order\n$BULLET$Modest savings on construction"
+
+ jen_dragon_pitmaster_court_position: "Pitmaster"
+ jen_dragon_pitmaster_court_position_desc: "The $jen_dragon_pitmaster_court_position$ commands the handlers, chains, and pit-crews who stand between a court and a loose dragon."
+ jen_dragon_pitmaster_employer_custom_effect_description: "$BULLET$Drills dragonpit handlers and knights\n$BULLET$Steadies dread and the defense of the pit"
+
+ jen_dragon_egg_watcher_court_position: "Egg Watcher"
+ jen_dragon_egg_watcher_court_position_desc: "The $jen_dragon_egg_watcher_court_position$ keeps the clutch. Heat, quiet, and a patient hand have hatched more dragons than any sermon."
+ jen_dragon_egg_watcher_employer_custom_effect_description: "$BULLET$Watches eggs and hatchlings with a scholar's patience\n$BULLET$Eases the court's stress"
+
+ jen_dragon_wingmaster_court_position: "Wingmaster"
+ jen_dragon_wingmaster_court_position_desc: "The $jen_dragon_wingmaster_court_position$ trains riders and wings for war and travel, judging seat, spear, and sky alike."
+ jen_dragon_wingmaster_employer_custom_effect_description: "$BULLET$Trains wings and escorts\n$BULLET$Improves travel safety for the court"
+
+ jen_dragon_bloodbinder_court_position: "Bloodbinder"
+ jen_dragon_bloodbinder_court_position_desc: "The $jen_dragon_bloodbinder_court_position$ speaks for dragonlord kin: oaths, marriages, and the quiet work of keeping Valyrian houses from one another's throats."
+ jen_dragon_bloodbinder_employer_custom_effect_description: "$BULLET$Weaves oaths among dragonlord kin\n$BULLET$Bolsters vassal opinion"
+
+ jen_dragon_scale_scribe_court_position: "Scale-scribe"
+ jen_dragon_scale_scribe_court_position_desc: "The $jen_dragon_scale_scribe_court_position$ keeps the annals of fire: pedigrees, hatchings, and the names of every rider who ever sat a saddle."
+ jen_dragon_scale_scribe_employer_custom_effect_description: "$BULLET$Keeps dragon pedigrees and court annals\n$BULLET$Adds prestige to the dynasty"
+
+ jen_dragon_cradle_nurse_court_position: "Cradle Nurse"
+ jen_dragon_cradle_nurse_court_position_desc: "The $jen_dragon_cradle_nurse_court_position$ tends dragonlord children and the cradles beside the eggs, teaching hush, heat, and a gentle hand."
+ jen_dragon_cradle_nurse_employer_custom_effect_description: "$BULLET$Tends the hearth and the young of the court\n$BULLET$Soothes courtiers and guests"
+
+ jen_dragon_court_aptitude_valyrian: "Valyrian heritage"
+ jen_dragon_court_aptitude_dragon_education: "Dragon education"
+ jen_dragon_court_aptitude_dragonrider: "Dragonrider"
+ jen_dragon_court_aptitude_dragonseed: "Historical dragonseed"
+ court_position_blademaster_trait: "Blademaster"
+
+ jen_dragon_yard_keep_grounds_task: "Keep the Grounds"
+ jen_dragon_yard_keep_grounds_task_desc: "Repair ramps, clear dung, and keep the yard fit for living dragons."
+ jen_dragon_yard_keep_grounds_task_tt: "The Keeper of the Yard will maintain pens and ramps."
+ jen_dragon_yard_stock_pens_task: "Stock the Pens"
+ jen_dragon_yard_stock_pens_task_desc: "See that feed, chains, and coin reach the yard before the dragons notice the lack."
+ jen_dragon_yard_stock_pens_task_tt: "The Keeper of the Yard will keep the pens supplied."
+
+ jen_dragon_pitmaster_drill_handlers_task: "Drill the Handlers"
+ jen_dragon_pitmaster_drill_handlers_task_desc: "Train pit-crews and knights to work beside fire without flinching."
+ jen_dragon_pitmaster_drill_handlers_task_tt: "The Pitmaster will drill handlers and knights."
+ jen_dragon_pitmaster_ward_chains_task: "Ward the Chains"
+ jen_dragon_pitmaster_ward_chains_task_desc: "Inspect chains, gates, and the watch that keeps a dragon in its pit."
+ jen_dragon_pitmaster_ward_chains_task_tt: "The Pitmaster will ward the pit's chains and gates."
+
+ jen_dragon_egg_watch_clutch_task: "Watch the Clutch"
+ jen_dragon_egg_watch_clutch_task_desc: "Keep the eggs warm, counted, and unstolen."
+ jen_dragon_egg_watch_clutch_task_tt: "The Egg Watcher will tend the clutch."
+
+ jen_dragon_wingmaster_train_wings_task: "Train the Wings"
+ jen_dragon_wingmaster_train_wings_task_desc: "School riders and dragons to rise, turn, and strike as one."
+ jen_dragon_wingmaster_train_wings_task_tt: "The Wingmaster will train wings for war."
+ jen_dragon_wingmaster_escort_flights_task: "Escort Flights"
+ jen_dragon_wingmaster_escort_flights_task_desc: "Put a wing over the court's road and sky."
+ jen_dragon_wingmaster_escort_flights_task_tt: "The Wingmaster will escort the court's travel."
+
+ jen_dragon_bloodbinder_weave_oaths_task: "Weave Oaths"
+ jen_dragon_bloodbinder_weave_oaths_task_desc: "Bind vassals and kin with words older than the Conquest."
+ jen_dragon_bloodbinder_weave_oaths_task_tt: "The Bloodbinder will weave oaths among the dragonlord houses."
+ jen_dragon_bloodbinder_host_kin_task: "Host the Kin"
+ jen_dragon_bloodbinder_host_kin_task_desc: "Receive dragonlord guests with the honors their blood expects."
+ jen_dragon_bloodbinder_host_kin_task_tt: "The Bloodbinder will host dragonlord kin."
+
+ jen_dragon_scale_scribe_annals_task: "Keep the Annals"
+ jen_dragon_scale_scribe_annals_task_desc: "Record hatchings, deaths, and every rider named in the yard."
+ jen_dragon_scale_scribe_annals_task_tt: "The Scale-scribe will keep the dragon annals."
+ jen_dragon_scale_scribe_pedigree_task: "Trace the Pedigree"
+ jen_dragon_scale_scribe_pedigree_task_desc: "Follow bloodlines of rider and dragon so no claim is lost to rumor."
+ jen_dragon_scale_scribe_pedigree_task_tt: "The Scale-scribe will trace dragonlord pedigrees."
+
+ jen_dragon_cradle_nurse_tend_hearth_task: "Tend the Hearth"
+ jen_dragon_cradle_nurse_tend_hearth_task_desc: "Keep children, guests, and cradles in good order beside the eggs."
+ jen_dragon_cradle_nurse_tend_hearth_task_tt: "The Cradle Nurse will tend the hearth and the young."
+ jen_dragon_cradle_nurse_soothe_court_task: "Soothe the Court"
+ jen_dragon_cradle_nurse_soothe_court_task_desc: "Quiet fear in a court that lives beside fire."
+ jen_dragon_cradle_nurse_soothe_court_task_tt: "The Cradle Nurse will soothe courtiers and guests."

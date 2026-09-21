@@ -1,0 +1,5 @@
+﻿jen_lustful_vital_fertility = {
+	icon = fertility_positive
+	years_of_fertility = 40
+	fertility = 0.25
+}

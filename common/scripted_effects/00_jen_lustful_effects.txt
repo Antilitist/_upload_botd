@@ -1,0 +1,24 @@
+﻿# Age does not close the door while Lustful Dragonblood health is Good or better.
+# Does not cure infertile / eunuch.
+
+jen_lustful_refresh_vital_fertility_effect = {
+	if = {
+		limit = {
+			health >= good_health
+			NOR = {
+				has_trait = infertile
+				has_trait = eunuch
+			}
+		}
+		if = {
+			limit = { NOT = { has_character_modifier = jen_lustful_vital_fertility } }
+			add_character_modifier = {
+				modifier = jen_lustful_vital_fertility
+			}
+		}
+	}
+	else_if = {
+		limit = { has_character_modifier = jen_lustful_vital_fertility }
+		remove_character_modifier = jen_lustful_vital_fertility
+	}
+}

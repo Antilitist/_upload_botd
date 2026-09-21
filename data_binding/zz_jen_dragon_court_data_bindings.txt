@@ -1,0 +1,5 @@
+macro = {
+	description = "Can the council owner employ BotD dragon court and dragon council?"
+	definition = "JenDragonCourtCanEmploy"
+	replace_with = "GreaterThanZero_CFixedPoint( CalculateScriptValue( CouncilWindow.GetCharacter, 'jen_dragon_court_can_employ_value' ) )"
+}

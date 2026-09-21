@@ -1,0 +1,232 @@
+﻿# BotD extra dragon council seats. zz_ load order. CoS council pattern (auto_fill no, fire/reassign, got/fired effects).
+
+jen_dragon_councillor_master_of_dragons = {
+	skill = martial
+	auto_fill = no
+	can_fire = yes
+	can_reassign = yes
+
+	name = jen_dragon_councillor_master_of_dragons
+	tooltip = jen_dragon_councillor_master_of_dragons_desc
+
+	valid_position = {
+		jen_dragon_council_blood_trigger = yes
+	}
+
+	valid_character = {
+		exists = root.liege_or_court_owner
+		jen_dragon_council_blood_trigger = yes
+		trigger_if = {
+			limit = { NOT = { has_council_position = jen_dragon_councillor_master_of_dragons } }
+			NOR = {
+				has_council_position = jen_dragon_councillor_lord_of_the_pit
+				has_council_position = jen_dragon_councillor_blood_chamberlain
+				has_council_position = jen_dragon_councillor_voice_of_the_fourteen
+			}
+		}
+	}
+
+	modifier = {
+		name = jen_dragon_councillor_master_of_dragons_modifier
+		monthly_martial_lifestyle_xp_gain_mult = 0.1
+		prowess = 1
+		scale = council_scaled_by_liege_tier
+	}
+
+	council_owner_modifier = {
+		name = jen_dragon_councillor_master_of_dragons_owner_modifier
+		knight_effectiveness_mult = 0.05
+		dread_baseline_add = 2
+		scale = council_scaled_by_liege_tier
+	}
+
+	on_get_position = {
+		got_council_position_effect = yes
+	}
+
+	on_fired_from_position = {
+		fired_from_council_position_effect = yes
+	}
+
+	portrait_animation = marshal
+
+	barbershop_data = {
+		position = { 80.0 520.0 }
+		click_to_front = no
+	}
+}
+
+jen_dragon_councillor_lord_of_the_pit = {
+	skill = stewardship
+	auto_fill = no
+	can_fire = yes
+	can_reassign = yes
+
+	name = jen_dragon_councillor_lord_of_the_pit
+	tooltip = jen_dragon_councillor_lord_of_the_pit_desc
+
+	valid_position = {
+		jen_dragon_council_blood_trigger = yes
+	}
+
+	valid_character = {
+		exists = root.liege_or_court_owner
+		jen_dragon_council_blood_trigger = yes
+		trigger_if = {
+			limit = { NOT = { has_council_position = jen_dragon_councillor_lord_of_the_pit } }
+			NOR = {
+				has_council_position = jen_dragon_councillor_master_of_dragons
+				has_council_position = jen_dragon_councillor_blood_chamberlain
+				has_council_position = jen_dragon_councillor_voice_of_the_fourteen
+			}
+		}
+	}
+
+	modifier = {
+		name = jen_dragon_councillor_lord_of_the_pit_modifier
+		monthly_stewardship_lifestyle_xp_gain_mult = 0.1
+		stewardship = 1
+		scale = council_scaled_by_liege_tier
+	}
+
+	council_owner_modifier = {
+		name = jen_dragon_councillor_lord_of_the_pit_owner_modifier
+		build_gold_cost = -0.03
+		court_grandeur_baseline_add = 1
+		scale = council_scaled_by_liege_tier
+	}
+
+	on_get_position = {
+		got_council_position_effect = yes
+	}
+
+	on_fired_from_position = {
+		fired_from_council_position_effect = yes
+	}
+
+	portrait_animation = steward
+
+	barbershop_data = {
+		position = { 320.0 520.0 }
+		click_to_front = no
+	}
+}
+
+jen_dragon_councillor_blood_chamberlain = {
+	skill = diplomacy
+	auto_fill = no
+	can_fire = yes
+	can_reassign = yes
+
+	name = jen_dragon_councillor_blood_chamberlain
+	tooltip = jen_dragon_councillor_blood_chamberlain_desc
+
+	valid_position = {
+		jen_dragon_council_blood_trigger = yes
+	}
+
+	valid_character = {
+		exists = root.liege_or_court_owner
+		jen_dragon_council_blood_trigger = yes
+		trigger_if = {
+			limit = { NOT = { has_council_position = jen_dragon_councillor_blood_chamberlain } }
+			NOR = {
+				has_council_position = jen_dragon_councillor_master_of_dragons
+				has_council_position = jen_dragon_councillor_lord_of_the_pit
+				has_council_position = jen_dragon_councillor_voice_of_the_fourteen
+			}
+		}
+	}
+
+	modifier = {
+		name = jen_dragon_councillor_blood_chamberlain_modifier
+		monthly_diplomacy_lifestyle_xp_gain_mult = 0.1
+		diplomacy = 1
+		scale = council_scaled_by_liege_tier
+	}
+
+	council_owner_modifier = {
+		name = jen_dragon_councillor_blood_chamberlain_owner_modifier
+		vassal_opinion = 3
+		monthly_prestige = 0.1
+		scale = council_scaled_by_liege_tier
+	}
+
+	on_get_position = {
+		got_council_position_effect = yes
+	}
+
+	on_fired_from_position = {
+		fired_from_council_position_effect = yes
+	}
+
+	portrait_animation = chancellor
+
+	barbershop_data = {
+		position = { 520.0 520.0 }
+		click_to_front = no
+	}
+}
+
+jen_dragon_councillor_voice_of_the_fourteen = {
+	skill = learning
+	auto_fill = no
+	can_fire = yes
+	can_reassign = yes
+
+	name = jen_dragon_councillor_voice_of_the_fourteen
+	tooltip = jen_dragon_councillor_voice_of_the_fourteen_desc
+
+	valid_position = {
+		jen_dragon_council_blood_trigger = yes
+	}
+
+	valid_character = {
+		exists = root.liege_or_court_owner
+		is_human = yes
+		NOT = { has_trait = dragon }
+		NOT = { has_character_flag = dragon_by_horn }
+		OR = {
+			jen_dragon_council_blood_trigger = yes
+			jen_dragon_court_employee_base_trigger = yes
+			jen_faith_is_valyrian_trigger = yes
+		}
+		trigger_if = {
+			limit = { NOT = { has_council_position = jen_dragon_councillor_voice_of_the_fourteen } }
+			NOR = {
+				has_council_position = jen_dragon_councillor_master_of_dragons
+				has_council_position = jen_dragon_councillor_lord_of_the_pit
+				has_council_position = jen_dragon_councillor_blood_chamberlain
+			}
+		}
+	}
+
+	modifier = {
+		name = jen_dragon_councillor_voice_of_the_fourteen_modifier
+		monthly_learning_lifestyle_xp_gain_mult = 0.1
+		learning = 1
+		scale = council_scaled_by_liege_tier
+	}
+
+	council_owner_modifier = {
+		name = jen_dragon_councillor_voice_of_the_fourteen_owner_modifier
+		monthly_piety = 0.15
+		learning = 1
+		scale = council_scaled_by_liege_tier
+	}
+
+	on_get_position = {
+		got_council_position_effect = yes
+	}
+
+	on_fired_from_position = {
+		fired_from_council_position_effect = yes
+	}
+
+	portrait_animation = chaplain
+
+	barbershop_data = {
+		position = { 720.0 520.0 }
+		click_to_front = no
+	}
+}

@@ -1,0 +1,242 @@
+﻿# Valyrian Blood Army cultural MaA. Unlock via tradition_jen_valyrian_blood_army.
+# Costs use AGOT cultural tiers. Terrain is mild AGOT-like (base + road copies), not a full dump.
+
+@cultural_maa_extra_ai_score = 80
+
+@provisions_cost_infantry_moderate = 7
+@provisions_cost_infantry_expensive = 12
+@provisions_cost_cavalry_moderate = 15
+@provisions_cost_cavalry_expensive = 21
+
+jen_dragon_knights = {
+	type = heavy_cavalry
+
+	buy_cost = { gold = heavy_cavalry_recruitment_cost_expensive }
+	low_maintenance_cost = { gold = heavy_cavalry_low_maint_cost_expensive }
+	high_maintenance_cost = { gold = heavy_cavalry_high_maint_cost_expensive }
+	provision_cost = @provisions_cost_cavalry_expensive
+	stack = 40
+
+	damage = 135
+	toughness = 48
+	pursuit = 35
+	screen = 8
+
+	counters = {
+		archers = 1
+		skirmishers = 1
+		heavy_infantry = 1
+	}
+
+	can_recruit = {
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_jen_dragon_knights }
+		NOT = { government_has_flag = government_is_nw }
+		NOT = {
+			culture = { has_cultural_parameter = strength_in_numbers_heavy_maa_ban }
+		}
+	}
+
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = jen_dragon_knights
+
+	terrain_bonus = {
+		plains = { damage = 8  toughness = 4  pursuit = 6 screen = 4 }
+		farmlands = { damage = 6  toughness = 4  pursuit = 4 screen = 4 }
+		drylands = { damage = 6  toughness = 2  pursuit = 6 screen = 2 }
+		hills = { damage = -4  toughness = -2  pursuit = -4 screen = -2 }
+		forest = { damage = -6  toughness = -4  pursuit = -6 screen = -4 }
+		wetlands = { damage = -8  toughness = -6  pursuit = -8 screen = -6 }
+		mountains = { damage = -8  toughness = -6  pursuit = -8 screen = -4 }
+		urban = { damage = -6  toughness = -4  pursuit = -6 screen = -2 }
+		the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+		majorroad_plains = { damage = 8  toughness = 4  pursuit = 6 screen = 4 }
+		majorroad_farmlands = { damage = 6  toughness = 4  pursuit = 4 screen = 4 }
+		majorroad_drylands = { damage = 6  toughness = 2  pursuit = 6 screen = 2 }
+		majorroad_hills = { damage = -4  toughness = -2  pursuit = -4 screen = -2 }
+		majorroad_forest = { damage = -6  toughness = -4  pursuit = -6 screen = -4 }
+		majorroad_wetlands = { damage = -8  toughness = -6  pursuit = -8 screen = -6 }
+		majorroad_mountains = { damage = -8  toughness = -6  pursuit = -8 screen = -4 }
+		majorroad_urban = { damage = -6  toughness = -4  pursuit = -6 screen = -2 }
+		majorroad_the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+		minorroad_plains = { damage = 8  toughness = 4  pursuit = 6 screen = 4 }
+		minorroad_farmlands = { damage = 6  toughness = 4  pursuit = 4 screen = 4 }
+		minorroad_drylands = { damage = 6  toughness = 2  pursuit = 6 screen = 2 }
+		minorroad_hills = { damage = -4  toughness = -2  pursuit = -4 screen = -2 }
+		minorroad_forest = { damage = -6  toughness = -4  pursuit = -6 screen = -4 }
+		minorroad_wetlands = { damage = -8  toughness = -6  pursuit = -8 screen = -6 }
+		minorroad_mountains = { damage = -8  toughness = -6  pursuit = -8 screen = -4 }
+		minorroad_urban = { damage = -6  toughness = -4  pursuit = -6 screen = -2 }
+		minorroad_the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+	}
+}
+
+jen_valyrian_horsemen = {
+	type = light_cavalry
+
+	buy_cost = { gold = light_cavalry_recruitment_cost_expensive }
+	low_maintenance_cost = { gold = light_cavalry_low_maint_cost_normal }
+	high_maintenance_cost = { gold = light_cavalry_high_maint_cost_expensive }
+	provision_cost = @provisions_cost_cavalry_moderate
+	stack = 50
+
+	damage = 55
+	toughness = 28
+	pursuit = 55
+	screen = 30
+
+	counters = {
+		archers = 1
+		heavy_infantry = 1
+	}
+
+	can_recruit = {
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_jen_valyrian_horsemen }
+		NOT = { government_has_flag = government_is_nw }
+	}
+
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = jen_valyrian_horsemen
+
+	terrain_bonus = {
+		plains = { damage = 8  toughness = 4  pursuit = 6 screen = 4 }
+		farmlands = { damage = 6  toughness = 4  pursuit = 4 screen = 4 }
+		drylands = { damage = 6  toughness = 2  pursuit = 6 screen = 2 }
+		hills = { damage = -4  toughness = -2  pursuit = -4 screen = -2 }
+		forest = { damage = -6  toughness = -4  pursuit = -6 screen = -4 }
+		wetlands = { damage = -8  toughness = -6  pursuit = -8 screen = -6 }
+		mountains = { damage = -8  toughness = -6  pursuit = -8 screen = -4 }
+		urban = { damage = -6  toughness = -4  pursuit = -6 screen = -2 }
+		the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+		majorroad_plains = { damage = 8  toughness = 4  pursuit = 6 screen = 4 }
+		majorroad_farmlands = { damage = 6  toughness = 4  pursuit = 4 screen = 4 }
+		majorroad_drylands = { damage = 6  toughness = 2  pursuit = 6 screen = 2 }
+		majorroad_hills = { damage = -4  toughness = -2  pursuit = -4 screen = -2 }
+		majorroad_forest = { damage = -6  toughness = -4  pursuit = -6 screen = -4 }
+		majorroad_wetlands = { damage = -8  toughness = -6  pursuit = -8 screen = -6 }
+		majorroad_mountains = { damage = -8  toughness = -6  pursuit = -8 screen = -4 }
+		majorroad_urban = { damage = -6  toughness = -4  pursuit = -6 screen = -2 }
+		majorroad_the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+		minorroad_plains = { damage = 8  toughness = 4  pursuit = 6 screen = 4 }
+		minorroad_farmlands = { damage = 6  toughness = 4  pursuit = 4 screen = 4 }
+		minorroad_drylands = { damage = 6  toughness = 2  pursuit = 6 screen = 2 }
+		minorroad_hills = { damage = -4  toughness = -2  pursuit = -4 screen = -2 }
+		minorroad_forest = { damage = -6  toughness = -4  pursuit = -6 screen = -4 }
+		minorroad_wetlands = { damage = -8  toughness = -6  pursuit = -8 screen = -6 }
+		minorroad_mountains = { damage = -8  toughness = -6  pursuit = -8 screen = -4 }
+		minorroad_urban = { damage = -6  toughness = -4  pursuit = -6 screen = -2 }
+		minorroad_the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+	}
+}
+
+jen_valyrian_archers = {
+	type = archers
+
+	buy_cost = { gold = archers_recruitment_cost_normal }
+	low_maintenance_cost = { gold = archers_low_maint_cost_normal }
+	high_maintenance_cost = { gold = archers_high_maint_cost_normal }
+	provision_cost = @provisions_cost_infantry_moderate
+	stack = 100
+
+	damage = 42
+	toughness = 16
+	pursuit = 8
+	screen = 12
+
+	counters = {
+		heavy_infantry = 1
+		skirmishers = 1
+	}
+
+	can_recruit = {
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_jen_valyrian_archers }
+		NOT = { government_has_flag = government_is_nw }
+	}
+
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = jen_valyrian_archers
+
+	terrain_bonus = {
+		hills = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		urban = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		farmlands = { damage = 4  toughness = 4  pursuit = 0 screen = 2 }
+		forest = { damage = 4  toughness = 2  pursuit = 0 screen = 2 }
+		plains = { damage = 2  toughness = 2  pursuit = 0 screen = 0 }
+		wetlands = { damage = -4  toughness = -4  pursuit = -2 screen = -2 }
+		drylands = { damage = -4  toughness = -2  pursuit = -2 screen = -2 }
+		the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+		majorroad_hills = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		majorroad_urban = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		majorroad_farmlands = { damage = 4  toughness = 4  pursuit = 0 screen = 2 }
+		majorroad_forest = { damage = 4  toughness = 2  pursuit = 0 screen = 2 }
+		majorroad_plains = { damage = 2  toughness = 2  pursuit = 0 screen = 0 }
+		majorroad_wetlands = { damage = -4  toughness = -4  pursuit = -2 screen = -2 }
+		majorroad_drylands = { damage = -4  toughness = -2  pursuit = -2 screen = -2 }
+		majorroad_the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+		minorroad_hills = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		minorroad_urban = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		minorroad_farmlands = { damage = 4  toughness = 4  pursuit = 0 screen = 2 }
+		minorroad_forest = { damage = 4  toughness = 2  pursuit = 0 screen = 2 }
+		minorroad_plains = { damage = 2  toughness = 2  pursuit = 0 screen = 0 }
+		minorroad_wetlands = { damage = -4  toughness = -4  pursuit = -2 screen = -2 }
+		minorroad_drylands = { damage = -4  toughness = -2  pursuit = -2 screen = -2 }
+		minorroad_the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+	}
+}
+
+jen_dragon_footmen = {
+	type = heavy_infantry
+
+	buy_cost = { gold = heavy_infantry_recruitment_cost_expensive }
+	low_maintenance_cost = { gold = heavy_infantry_low_maint_cost_normal }
+	high_maintenance_cost = { gold = heavy_infantry_high_maint_cost_expensive }
+	provision_cost = @provisions_cost_infantry_expensive
+	stack = 100
+
+	damage = 42
+	toughness = 34
+	pursuit = 8
+	screen = 8
+
+	counters = {
+		light_cavalry = 1
+		archers = 1
+	}
+
+	can_recruit = {
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_jen_dragon_footmen }
+		NOT = { government_has_flag = government_is_nw }
+		NOT = {
+			culture = { has_cultural_parameter = strength_in_numbers_heavy_maa_ban }
+		}
+	}
+
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = jen_dragon_footmen
+
+	terrain_bonus = {
+		hills = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		urban = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		farmlands = { damage = 4  toughness = 4  pursuit = 0 screen = 2 }
+		forest = { damage = 4  toughness = 2  pursuit = 0 screen = 2 }
+		plains = { damage = 2  toughness = 2  pursuit = 0 screen = 0 }
+		wetlands = { damage = -4  toughness = -4  pursuit = -2 screen = -2 }
+		drylands = { damage = -4  toughness = -2  pursuit = -2 screen = -2 }
+		the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+		majorroad_hills = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		majorroad_urban = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		majorroad_farmlands = { damage = 4  toughness = 4  pursuit = 0 screen = 2 }
+		majorroad_forest = { damage = 4  toughness = 2  pursuit = 0 screen = 2 }
+		majorroad_plains = { damage = 2  toughness = 2  pursuit = 0 screen = 0 }
+		majorroad_wetlands = { damage = -4  toughness = -4  pursuit = -2 screen = -2 }
+		majorroad_drylands = { damage = -4  toughness = -2  pursuit = -2 screen = -2 }
+		majorroad_the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+		minorroad_hills = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		minorroad_urban = { damage = 8  toughness = 6  pursuit = 2 screen = 4 }
+		minorroad_farmlands = { damage = 4  toughness = 4  pursuit = 0 screen = 2 }
+		minorroad_forest = { damage = 4  toughness = 2  pursuit = 0 screen = 2 }
+		minorroad_plains = { damage = 2  toughness = 2  pursuit = 0 screen = 0 }
+		minorroad_wetlands = { damage = -4  toughness = -4  pursuit = -2 screen = -2 }
+		minorroad_drylands = { damage = -4  toughness = -2  pursuit = -2 screen = -2 }
+		minorroad_the_bog = { damage = -20  toughness = -20  pursuit = -20 screen = -20 }
+	}
+}

@@ -1,0 +1,76 @@
+﻿jen_has_education_dragon_trigger = {
+	OR = {
+		has_trait = education_dragon_1
+		has_trait = education_dragon_2
+		has_trait = education_dragon_3
+		has_trait = education_dragon_4
+		has_trait = education_dragon_5
+	}
+}
+
+jen_agot_can_use_dragon_lifestyle_trigger = {
+	is_human = yes
+	agot_is_dragonblood_character = yes
+}
+
+jen_agot_keeps_dragon_lifestyle_trigger = {
+	OR = {
+		jen_agot_can_use_dragon_lifestyle_trigger = yes
+		has_lifestyle = jen_dragon_lifestyle
+		has_trait = jen_wyrmrider
+		has_trait = jen_dragon_keeper
+		has_trait = jen_dragonlord
+	}
+}
+
+# Culture being reformed is ROOT. Reformer is scope:character when picking.
+jen_culture_can_pick_dragon_tradition_trigger = {
+	OR = {
+		has_cultural_pillar = heritage_valyrian
+		any_parent_culture_or_above = {
+			has_cultural_pillar = heritage_valyrian
+		}
+		scope:character ?= {
+			OR = {
+				agot_is_dragonblood_character = yes
+				has_trait = dragonrider
+				any_relation = {
+					type = agot_dragon
+					is_alive = yes
+				}
+			}
+		}
+	}
+}
+
+jen_culture_in_fourteen_flames_region_trigger = {
+	any_culture_county = {
+		title_province = {
+			OR = {
+				geographical_region = world_westeros_dragonstone_kingdom
+				geographical_region = world_westeros_the_crownlands_valyrian
+				geographical_region = world_essos_valyria
+			}
+		}
+	}
+}
+
+jen_culture_in_salt_smoke_region_trigger = {
+	any_culture_county = {
+		title_province = {
+			OR = {
+				geographical_region = world_stepstones
+				geographical_region = world_westeros_the_crownlands_valyrian
+				geographical_region = world_westeros_dragonstone_kingdom
+			}
+		}
+	}
+}
+
+has_focus_jen_dragon = {
+	OR = {
+		has_focus = jen_dragon_riding_focus
+		has_focus = jen_dragon_raising_focus
+		has_focus = jen_dragon_bonding_focus
+	}
+}

@@ -1,0 +1,170 @@
+﻿# vgl. game > common religion > doctrine_group_types > _doctrine_group_types.info
+# vgl. game > common religion > doctrine_group_types > 00_doctrine_group_types.txt
+# vgl. 1158310 > 2962333032 > common > religion > doctrines_group_types > 00_doctrines_group_types.txt
+
+# Modified version of the 'doctrine_core_tenets' group from 'A Game of Thrones' total conversion mod (2962333032)
+# As the Faith and the Faith Creation window are wide enough for displaying 7 tenets in a row, I decided to set the maximum for tenets to pick up to 21.
+# Therefore 18 Empty Core Tenets are added
+
+doctrine_core_tenets = {
+	category = "core_tenets"
+
+	# Hide vanilla tenet row when creating an Old Blood faith. Valyrian uses doctrine_jen_valyrian_tenets only.
+	is_available_on_create = {
+		NOT = { religion_tag = jen_valyrian_religion }
+	}
+
+	# Enhanced from 3 to 21 by Holger
+	number_of_picks = 21
+
+	doctrine_types = {
+		# Empty Tenets (added by Holger)
+		tenet_zz_empty_1
+		tenet_zz_empty_2
+		tenet_zz_empty_3
+		tenet_zz_empty_4
+		tenet_zz_empty_5
+		tenet_zz_empty_6
+		tenet_zz_empty_7
+		tenet_zz_empty_8
+		tenet_zz_empty_9
+		tenet_zz_empty_10
+		tenet_zz_empty_11
+		tenet_zz_empty_12
+		tenet_zz_empty_13
+		tenet_zz_empty_14
+		tenet_zz_empty_15
+		tenet_zz_empty_16
+		tenet_zz_empty_17
+		tenet_zz_empty_18
+		# Christian Faith Tenets
+		tenet_aniconism
+		tenet_alexandrian_catechism
+		tenet_armed_pilgrimages
+		tenet_carnal_exaltation
+		tenet_communal_identity
+		tenet_communion
+		tenet_consolamentum
+		tenet_divine_marriage
+		tenet_gnosticism
+		tenet_mendicant_preachers
+		tenet_monasticism
+		tenet_pacifism
+		tenet_pentarchy
+		tenet_unrelenting_faith
+		tenet_vows_of_poverty
+		tenet_pastoral_isolation
+		tenet_rite
+		# Muslim Faith Tenets
+		tenet_adaptive
+		tenet_esotericism
+		tenet_legalism
+		tenet_literalism
+		tenet_reincarnation
+		tenet_religious_legal_pronouncements
+		tenet_struggle_submission
+		tenet_false_conversion_sanction
+		tenet_tax_nonbelievers
+		# Eastern Faith Tenets
+		tenet_asceticism
+		#AGOT Disabled
+		# tenet_bhakti
+		tenet_dharmic_pacifism
+		tenet_inner_journey
+		tenet_ritual_hospitality
+		# Pagan Faith Tenets
+		tenet_adorcism
+		tenet_ancestor_worship
+		tenet_astrology
+		tenet_hedonistic
+		tenet_human_sacrifice
+		tenet_mystical_birthright
+		tenet_ritual_celebrations
+		tenet_sacred_childbirth
+		tenet_sanctity_of_nature
+		tenet_sun_worship
+		tenet_warmonger
+		tenet_gruesome_festivals
+		tenet_cthonic_redoubts
+		#AGOT Disabled
+		# tenet_household_gods
+		# Syncretic Faith Tenets
+		#AGOT Disabled
+		# tenet_sinitic_syncretism
+		# tenet_eastern_syncretism
+		# tenet_unreformed_syncretism
+		# tenet_christian_syncretism
+		# tenet_islamic_syncretism
+		# tenet_jewish_syncretism
+		# Custom Faith Tenets
+		tenet_exaltation_of_pain
+		tenet_natural_primitivism
+		tenet_pursuit_of_power
+		tenet_ritual_cannibalism
+		tenet_sacred_shadows
+		tenet_polyamory
+		tenet_sacrificial_ceremonies
+		tenet_megaliths
+		# FP3 Tenets
+		tenet_fp3_fedayeen
+		tenet_communal_possessions
+		# TGP Tenets
+		tenet_pure_land
+		tenet_no_mind
+		tenet_mountain_worship
+		#AGOT Disabled
+		# tenet_extinction_of_dharma
+		tenet_cranial_trophies
+		tenet_pursuit_of_knowledge
+		tenet_benevolent_governance
+		tenet_filial_piety
+		tenet_harmonious_society
+		tenet_sacred_destruction
+		tenet_preservation
+		tenet_takamin
+		#AGOT Added
+		tenet_weirwoods
+		tenet_god_kings
+		tenet_greensight
+		tenet_always_winter
+		tenet_ever_growing_armies
+		tenet_knighthood
+		tenet_the_most_devout
+		tenet_the_mark
+		tenet_oily_black_stone
+		tenet_scourge_of_the_seas
+		tenet_the_old_way
+		tenet_stars_and_axes
+		tenet_black_barked_trees
+		tenet_heart_of_fire
+		tenet_shadowbinding
+		tenet_healing_flames
+		tenet_life_givers_life_takers
+		tenet_pequod
+		tenet_sanctity_of_life
+		tenet_wrath_of_the_storm
+		tenet_chains_and_whips
+		tenet_many_faces
+		tenet_shield_of_the_seas
+		tenet_bounties_of_the_river
+		tenet_ritual_wars
+		tenet_blood_magic_steel
+		tenet_holy_hair
+		tenet_holy_water
+		tenet_secret_tongue
+		tenet_holy_bonds
+		tenet_peace_of_the_butterflies
+		tenet_holiness_through_commerce
+		tenet_divine_plots
+		tenet_opening_the_third_eye
+		tenet_blasphemous_sacrifice
+		tenet_blood_is_the_life
+		tenet_imperial_records
+		tenet_deep_jungles
+		tenet_terror_of_the_plains
+		tenet_blood_oaths
+		tenet_eternal_shields
+		tenet_divine_presence
+		tenet_crooks_and_ploughs
+	}
+}

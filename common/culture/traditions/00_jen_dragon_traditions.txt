@@ -1,0 +1,573 @@
+﻿# Pickable dragonblood traditions. Same reform list as Insular Marriage.
+# High Valyrian already has a unique regional named Blood of the Dragon — do not reuse that name.
+
+##############################
+# REALM
+##############################
+
+tradition_jen_keepers_of_the_yard = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = jen_keepers_of_the_yard.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_keepers_of_the_yard = yes
+	}
+	character_modifier = {
+		castle_holding_build_gold_cost = -0.1
+		castle_holding_holding_build_gold_cost = -0.1
+		monthly_county_control_growth_add = 0.3
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 80 }
+	}
+}
+
+tradition_jen_dragonlords_peace = {
+	category = realm
+
+	layers = {
+		0 = intrigue
+		1 = western
+		4 = jen_dragonlords_peace.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_dragonlords_peace = yes
+	}
+	character_modifier = {
+		dread_baseline_add = 10
+		intimidated_vassal_tax_contribution_mult = 0.1
+		vassal_opinion = 5
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 80 }
+	}
+}
+
+##############################
+# RITUAL
+##############################
+
+tradition_jen_fire_made_flesh = {
+	category = ritual
+
+	layers = {
+		0 = learning
+		1 = western
+		4 = jen_fire_made_flesh.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_fire_made_flesh = yes
+	}
+	character_modifier = {
+		monthly_piety_gain_per_dread_mult = 0.002
+		stress_loss_mult = 0.1
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 80 }
+	}
+}
+
+tradition_jen_fourteen_flames = {
+	category = ritual
+
+	layers = {
+		0 = learning
+		1 = western
+		4 = jen_fourteen_flames.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_fourteen_flames = yes
+	}
+	character_modifier = {
+		stress_loss_mult = 0.1
+		dread_decay_mult = -0.15
+		short_reign_duration_mult = -0.1
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 70 }
+	}
+}
+
+##############################
+# COMBAT (warfare)
+##############################
+
+tradition_jen_wings_over_the_wall = {
+	category = combat
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = jen_wings_over_the_wall.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_wings_over_the_wall = yes
+	}
+	character_modifier = {
+		siege_phase_time = -0.1
+		movement_speed = 0.1
+		character_travel_speed_mult = 0.15
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 80 }
+	}
+}
+
+tradition_jen_dracarys = {
+	category = combat
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = jen_dracarys.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_dracarys = yes
+	}
+	character_modifier = {
+		dread_baseline_add = 5
+		knight_effectiveness_mult = 0.1
+		hard_casualty_modifier = 0.1
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 80 }
+	}
+}
+
+##############################
+# SOCIETAL (social)
+##############################
+
+tradition_jen_blood_binds_blood = {
+	category = societal
+
+	layers = {
+		0 = diplo
+		1 = western
+		4 = jen_blood_binds_blood.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_blood_binds_blood = yes
+		dislikes_marrying_outside_of_culture = yes
+		ai_doesnt_marry_outside_culture = yes
+	}
+	character_modifier = {
+		close_relative_opinion = 10
+		dynasty_opinion = 10
+		inbreeding_chance = -0.25
+		different_culture_opinion = -5
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 90 }
+	}
+}
+
+tradition_jen_dragonseeds_place = {
+	category = societal
+
+	layers = {
+		0 = intrigue
+		1 = western
+		4 = jen_dragonseeds_place.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_dragonseeds_place = yes
+	}
+	character_modifier = {
+		dynasty_opinion = 5
+		attraction_opinion = 5
+		diplomacy = 1
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 70 }
+	}
+}
+
+##############################
+# REGIONAL
+##############################
+
+tradition_jen_children_of_the_fourteen = {
+	category = regional
+
+	layers = {
+		0 = learning
+		1 = western
+		4 = jen_children_of_the_fourteen.dds
+	}
+
+	is_shown = {
+		OR = {
+			has_cultural_tradition = tradition_jen_children_of_the_fourteen
+			jen_culture_in_fourteen_flames_region_trigger = yes
+		}
+	}
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_fourteen_region_tt
+			jen_culture_in_fourteen_flames_region_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+		jen_culture_in_fourteen_flames_region_trigger = yes
+	}
+
+	parameters = {
+		jen_children_of_the_fourteen = yes
+	}
+	character_modifier = {
+		build_gold_cost = -0.05
+		monthly_prestige_gain_mult = 0.05
+		monthly_county_control_growth_add = 0.2
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 100 }
+	}
+}
+
+tradition_jen_salt_smoke_and_tide = {
+	category = regional
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = jen_salt_smoke_and_tide.dds
+	}
+
+	is_shown = {
+		OR = {
+			has_cultural_tradition = tradition_jen_salt_smoke_and_tide
+			jen_culture_in_salt_smoke_region_trigger = yes
+		}
+	}
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_salt_region_tt
+			jen_culture_in_salt_smoke_region_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+		jen_culture_in_salt_smoke_region_trigger = yes
+	}
+
+	parameters = {
+		jen_salt_smoke_and_tide = yes
+	}
+	character_modifier = {
+		coastal_advantage = 5
+		embarkation_cost_mult = -0.2
+		diplomatic_range_mult = 0.25
+		character_travel_speed_mult = 0.1
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 90 }
+	}
+}
+
+tradition_jen_lustful_dragonblood = {
+	category = ritual
+
+	layers = {
+		0 = intrigue
+		1 = western
+		4 = jen_lustful_dragonblood.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+		custom_tooltip = {
+			text = jen_lustful_cannot_have_other_marriage_tt
+			NOR = {
+				culture_tradition:tradition_monogamous = { is_in_list = traits }
+				culture_tradition:tradition_polygamous = { is_in_list = traits }
+				culture_tradition:tradition_concubines = { is_in_list = traits }
+			}
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+		NOR = {
+			culture_tradition:tradition_monogamous = { is_in_list = traits }
+			culture_tradition:tradition_polygamous = { is_in_list = traits }
+			culture_tradition:tradition_concubines = { is_in_list = traits }
+		}
+	}
+
+	parameters = {
+		jen_lustful_dragonblood = yes
+		number_of_spouses = 100
+		number_of_consorts = 100
+		number_of_consorts_hegemony = 100
+	}
+	character_modifier = {
+		health = 0.25
+		fertility = 0.5
+		positive_inactive_inheritance_chance = 0.4
+		positive_random_genetic_chance = 4
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 40 }
+	}
+}
+##############################
+# DRAGON COURT (realm)
+##############################
+
+tradition_jen_dragon_court = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = jen_dragon_court.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_dragon_court = yes
+	}
+	character_modifier = {
+		monthly_prestige = 0.1
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 120 }
+	}
+}
+
+tradition_jen_freehold_domain = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = jen_freehold_domain.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_freehold_domain = yes
+	}
+	character_modifier = {
+		domain_limit = 20
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 80 }
+	}
+}
+
+##############################
+# COMBAT
+##############################
+
+tradition_jen_valyrian_blood_army = {
+	category = combat
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = jen_valyrian_blood_army.dds
+	}
+
+	is_shown = { jen_culture_can_pick_dragon_tradition_trigger = yes }
+	can_pick = {
+		custom_tooltip = {
+			text = jen_dragon_tradition_requires_blood_tt
+			jen_culture_can_pick_dragon_tradition_trigger = yes
+		}
+	}
+	can_pick_for_hybridization = {
+		jen_culture_can_pick_dragon_tradition_trigger = yes
+	}
+
+	parameters = {
+		jen_valyrian_blood_army = yes
+		unlock_maa_jen_dragon_knights = yes
+		unlock_maa_jen_valyrian_horsemen = yes
+		unlock_maa_jen_valyrian_archers = yes
+		unlock_maa_jen_dragon_footmen = yes
+	}
+	character_modifier = {
+		knight_effectiveness_mult = 0.1
+		men_at_arms_maintenance = -0.05
+		army_damage_mult = 0.05
+	}
+
+	cost = { prestige = { add = { value = tradition_base_cost desc = BASE format = "BASE_VALUE_FORMAT" } multiply = tradition_replacement_cost_if_relevant } }
+	ai_will_do = {
+		value = 0
+		if = { limit = { has_cultural_pillar = heritage_valyrian } add = 70 }
+	}
+}

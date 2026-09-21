@@ -1,0 +1,285 @@
+﻿# New religion type — AGOT replace_path's religion_types, so a faith cannot be
+# appended to the_flames_religion from this mod without overwriting AGOT's file.
+# Family stays rf_western_essos (same hostility as the Fourteen Flames).
+
+jen_valyrian_religion = {
+	family = rf_western_essos
+	doctrine = western_essosi_hostility_doctrine
+	graphical_faith = dawnbringer_god_gfx
+
+	traits = {
+		virtues = {
+			ambitious
+			arrogant
+			vengeful
+		}
+		sins = {
+			content
+			humble
+			forgiving
+			dragonslayer
+		}
+	}
+
+	custom_faith_icons = {
+		valyrian
+		dragon_painted
+		fots_dragon
+		fots_extra_1
+		fots_extra_2
+		fots_extra_3
+		fots_extra_4
+		fots_extra_5
+		fotswarringstar
+		veneration_red
+		veneration_gold
+		church_goldpurple
+		church_bronze
+		yiti_purple
+		yiti_bronze
+		moonsingers_red
+		shanty_blue
+	}
+
+	doctrine = special_doctrine_agot_is_any_faith
+	doctrine = special_doctrine_jen_is_valyrian_faith
+
+	localization = {
+		HighGodName = jen_valyrian_high_god_name
+		HighGodName2 = jen_valyrian_high_god_name_2
+		HighGodNamePossessive = jen_valyrian_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = jen_valyrian_high_god_name_alternate
+		HighGodNameAlternatePossessive = jen_valyrian_high_god_name_alternate_possessive
+
+		CreatorName = jen_valyrian_creator_name
+		CreatorNamePossessive = jen_valyrian_creator_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_THEY
+		CreatorHerHis = CHARACTER_HERHIS_THEIR
+		CreatorHerHim = CHARACTER_HERHIM_THEM
+
+		HealthGodName = jen_valyrian_health_god_name
+		HealthGodNamePossessive = jen_valyrian_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_SHE
+		HealthGodHerHis = CHARACTER_HERHIS_HER
+		HealthGodHerHim = CHARACTER_HERHIM_HER
+
+		FertilityGodName = jen_valyrian_fertility_god_name
+		FertilityGodNamePossessive = jen_valyrian_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_SHE
+		FertilityGodHerHis = CHARACTER_HERHIS_HER
+		FertilityGodHerHim = CHARACTER_HERHIM_HER
+
+		WealthGodName = jen_valyrian_wealth_god_name
+		WealthGodNamePossessive = jen_valyrian_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		HouseholdGodName = jen_valyrian_household_god_name
+		HouseholdGodNamePossessive = jen_valyrian_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_SHE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HER
+		HouseholdGodHerHim = CHARACTER_HERHIM_HER
+
+		FateGodName = jen_valyrian_fate_god_name
+		FateGodNamePossessive = jen_valyrian_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+
+		KnowledgeGodName = jen_valyrian_knowledge_god_name
+		KnowledgeGodNamePossessive = jen_valyrian_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+		WarGodName = jen_valyrian_war_god_name
+		WarGodNamePossessive = jen_valyrian_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_SHE
+		WarGodHerHis = CHARACTER_HERHIS_HER
+		WarGodHerHim = CHARACTER_HERHIM_HER
+
+		TricksterGodName = jen_valyrian_trickster_god_name
+		TricksterGodNamePossessive = jen_valyrian_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		NightGodName = jen_valyrian_night_god_name
+		NightGodNamePossessive = jen_valyrian_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_SHE
+		NightGodHerHis = CHARACTER_HERHIS_HER
+		NightGodHerHim = CHARACTER_HERHIM_HER
+
+		WaterGodName = jen_valyrian_water_god_name
+		WaterGodNamePossessive = jen_valyrian_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+		DeathDeityName = jen_valyrian_death_deity_name
+		DeathDeityNamePossessive = jen_valyrian_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		DeathDeityHerHim = CHARACTER_HERHIM_HIM
+
+		WitchGodName = jen_valyrian_witch_god_name
+		WitchGodNamePossessive = jen_valyrian_witch_god_name_possessive
+		WitchGodHerHis = CHARACTER_HERHIS_HER
+		WitchGodSheHe = CHARACTER_SHEHE_SHE
+		WitchGodHerHim = CHARACTER_HERHIM_HER
+		WitchGodMistressMaster = mistress
+		WitchGodMotherFather = mother
+
+		PantheonTerm = jen_valyrian_pantheon_term
+		PantheonTerm2 = jen_valyrian_pantheon_term_2
+		PantheonTerm3 = jen_valyrian_pantheon_term_3
+		PantheonTermHasHave = pantheon_term_have
+		GoodGodNames = {
+			jen_valyrian_high_god_name
+			jen_valyrian_war_god_name
+			jen_valyrian_night_god_name
+			jen_valyrian_fertility_god_name
+			jen_valyrian_creator_name
+			jen_valyrian_health_god_name
+			jen_valyrian_wealth_god_name
+			jen_valyrian_household_god_name
+			jen_valyrian_fate_god_name
+			jen_valyrian_knowledge_god_name
+			jen_valyrian_trickster_god_name
+			jen_valyrian_water_god_name
+			jen_valyrian_death_deity_name
+			jen_valyrian_witch_god_name
+		}
+
+		DevilName = jen_valyrian_devil_name
+		DevilNamePossessive = jen_valyrian_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_IT
+		DevilHerHis = CHARACTER_HERHIS_ITS
+		DevilHerselfHimself = itself
+		EvilGodNames = { jen_valyrian_devil_name }
+
+		HouseOfWorship = jen_valyrian_house_of_worship
+		HouseOfWorship2 = jen_valyrian_house_of_worship_2
+		HouseOfWorship3 = jen_valyrian_house_of_worship_3
+		HouseOfWorshipPlural = jen_valyrian_house_of_worship_plural
+
+		ReligiousSymbol = jen_valyrian_religious_symbol
+		ReligiousSymbol2 = jen_valyrian_religious_symbol_2
+		ReligiousSymbol3 = jen_valyrian_religious_symbol_3
+		ReligiousText = jen_valyrian_religious_text
+		ReligiousText2 = jen_valyrian_religious_text_2
+		ReligiousText3 = jen_valyrian_religious_text_3
+
+		ReligiousHeadName = jen_valyrian_religious_head
+		ReligiousHeadTitleName = jen_valyrian_religious_head_title_name
+
+		DevoteeMale = jen_valyrian_devotee_male
+		DevoteeMalePlural = jen_valyrian_devotee_male_plural
+		DevoteeFemale = jen_valyrian_devotee_female
+		DevoteeFemalePlural = jen_valyrian_devotee_female_plural
+		DevoteeNeuter = jen_valyrian_devotee_neutral
+		DevoteeNeuterPlural = jen_valyrian_devotee_neutral_plural
+
+		PriestMale = jen_valyrian_priest_male
+		PriestMalePlural = jen_valyrian_priest_male_plural
+		PriestFemale = jen_valyrian_priest_female
+		PriestFemalePlural = jen_valyrian_priest_female_plural
+		PriestNeuter = jen_valyrian_priest_neutral
+		PriestNeuterPlural = jen_valyrian_priest_neutral_plural
+		AltPriestTermPlural = jen_valyrian_priest_alternate_plural
+		BishopMale = jen_valyrian_bishop_male
+		BishopMalePlural = jen_valyrian_bishop_male_plural
+		BishopFemale = jen_valyrian_bishop_female
+		BishopFemalePlural = jen_valyrian_bishop_female_plural
+		BishopNeuter = jen_valyrian_bishop_neutral
+		BishopNeuterPlural = jen_valyrian_bishop_neutral_plural
+
+		DivineRealm = jen_valyrian_divine_realm
+		DivineRealm2 = jen_valyrian_divine_realm_2
+		DivineRealm3 = jen_valyrian_divine_realm_3
+		PositiveAfterLife = jen_valyrian_afterlife_positive
+		PositiveAfterLife2 = jen_valyrian_afterlife_positive_2
+		PositiveAfterLife3 = jen_valyrian_afterlife_positive_3
+		NegativeAfterLife = jen_valyrian_afterlife_negative
+		NegativeAfterLife2 = jen_valyrian_afterlife_negative_2
+		NegativeAfterLife3 = jen_valyrian_afterlife_negative_3
+
+		GHWName = jen_valyrian_ghw_great_holy_war
+		GHWNamePlural = jen_valyrian_ghw_great_holy_wars
+	}
+
+	faiths = {
+		jen_valyrian = {
+			icon = jen_valyrian
+			color = { 72 4 12 }
+
+			# Twenty tenets (Extra Tenets slots)
+			doctrine = tenet_jen_dragon_worship
+			doctrine = tenet_jen_blood_of_the_fourteen
+			doctrine = tenet_jen_kin_of_fire
+			doctrine = tenet_jen_unmixed_blood
+			doctrine = tenet_jen_sister_wife
+			doctrine = tenet_jen_blood_wives
+			doctrine = tenet_jen_fourteen_mines
+			doctrine = tenet_jen_blood_forged
+			doctrine = tenet_jen_flesh_of_the_flames
+			doctrine = tenet_jen_riders_sacrament
+			doctrine = tenet_jen_no_soft_gods
+			doctrine = tenet_jen_the_forty
+			doctrine = tenet_jen_stone_shapers
+			doctrine = tenet_jen_high_speech
+			doctrine = tenet_jen_blood_remembers
+			doctrine = tenet_jen_gods_that_walk
+			doctrine = tenet_jen_unsoftened_flame
+			doctrine = tenet_jen_nightfires
+			doctrine = tenet_jen_only_flame
+			doctrine = tenet_jen_dragonlord_kings
+
+			# Old Blood laws (not tenet slots)
+			doctrine = doctrine_jen_valyrian_supremacy
+			doctrine = doctrine_jen_sorcerous_arts
+			doctrine = doctrine_jen_fire_and_blood
+
+			# Main doctrines
+			doctrine = doctrine_gender_equal
+			doctrine = doctrine_pluralism_fundamentalist
+			doctrine = doctrine_theocracy_lay_clergy
+			doctrine = doctrine_temporal_head
+			doctrine = doctrine_valyrian_pantheon
+			doctrine = doctrine_pilgrimage_encouraged
+			doctrine = doctrine_no_syncretism
+
+			# Marriage
+			doctrine = doctrine_polygamy
+			doctrine = doctrine_divorce_approval
+			doctrine = doctrine_bastardry_none
+			doctrine = doctrine_consanguinity_unrestricted
+
+			# Crimes
+			doctrine = doctrine_homosexuality_accepted
+			doctrine = doctrine_deviancy_accepted
+			doctrine = doctrine_adultery_men_accepted
+			doctrine = doctrine_adultery_women_accepted
+			doctrine = doctrine_kinslaying_shunned
+			doctrine = doctrine_witchcraft_virtuous
+			doctrine = doctrine_slavery_accepted
+
+			# Clergy
+			doctrine = doctrine_clerical_function_taxation
+			doctrine = doctrine_clerical_gender_either
+			doctrine = doctrine_clerical_marriage_allowed
+			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
+			doctrine = doctrine_funeral_cremation
+
+			holy_site = dragonstone
+			holy_site = lys_temple
+			holy_site = magisters_palace
+			holy_site = adahurys
+		}
+	}
+}

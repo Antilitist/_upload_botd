@@ -1,0 +1,610 @@
+﻿jen_relic_prepare_illustrious_effect = {
+	# Illustrious = wealth/quality 100
+	set_artifact_rarity_illustrious = yes
+}
+
+jen_relic_finalize_unique_effect = {
+	if = {
+		limit = { exists = scope:jen_new_relic }
+		scope:jen_new_relic = {
+			set_artifact_name = $KEY$
+			set_artifact_description = $DESC$
+		}
+	}
+}
+
+jen_relic_mark_created_effect = {
+	set_global_variable = {
+		name = $KEY$
+		value = yes
+	}
+	set_variable = { name = jen_relic_got_real value = yes }
+}
+
+jen_relic_note_junk_find_effect = {
+	if = {
+		limit = { exists = scope:jen_new_relic }
+		scope:jen_new_relic = {
+			set_variable = { name = jen_relic_junk value = yes }
+		}
+	}
+	set_variable = { name = jen_relic_got_junk value = yes }
+	set_variable = { name = jen_relic_fail_kind value = $KIND$ }
+}
+
+jen_relic_create_dragonbone_spear_effect = {
+	jen_relic_prepare_illustrious_effect = yes
+	create_artifact = {
+		name = jen_art_dragonbone_spear
+		description = jen_art_dragonbone_spear_desc
+		type = spear
+		visuals = jen_art_dragonbone_spear
+		template = jen_relic_unique_template
+		modifier = jen_art_dragonbone_spear_modifier
+		wealth = 100
+		quality = 100
+		decaying = no
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_dragonbone_spear DESC = jen_art_dragonbone_spear_desc }
+	jen_relic_mark_created_effect = { KEY = jen_relic_jen_art_dragonbone_spear }
+}
+
+jen_relic_create_bloodknife_effect = {
+	jen_relic_prepare_illustrious_effect = yes
+	create_artifact = {
+		name = jen_art_bloodknife
+		description = jen_art_bloodknife_desc
+		type = dagger
+		visuals = jen_art_bloodknife
+		template = jen_relic_unique_template
+		modifier = jen_art_bloodknife_modifier
+		wealth = 100
+		quality = 100
+		decaying = no
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_bloodknife DESC = jen_art_bloodknife_desc }
+	jen_relic_mark_created_effect = { KEY = jen_relic_jen_art_bloodknife }
+}
+
+jen_relic_create_ash_scale_cloak_effect = {
+	jen_relic_prepare_illustrious_effect = yes
+	create_artifact = {
+		name = jen_art_ash_scale_cloak
+		description = jen_art_ash_scale_cloak_desc
+		type = miscellaneous
+		visuals = jen_art_ash_scale_cloak
+		template = jen_relic_unique_template
+		modifier = jen_art_ash_scale_cloak_modifier
+		wealth = 100
+		quality = 100
+		decaying = no
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_ash_scale_cloak DESC = jen_art_ash_scale_cloak_desc }
+	jen_relic_mark_created_effect = { KEY = jen_relic_jen_art_ash_scale_cloak }
+}
+
+jen_relic_create_fused_bracers_effect = {
+	jen_relic_prepare_illustrious_effect = yes
+	create_artifact = {
+		name = jen_art_fused_bracers
+		description = jen_art_fused_bracers_desc
+		type = miscellaneous
+		visuals = jen_art_fused_bracers
+		template = jen_relic_unique_template
+		modifier = jen_art_fused_bracers_modifier
+		wealth = 100
+		quality = 100
+		decaying = no
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_fused_bracers DESC = jen_art_fused_bracers_desc }
+	jen_relic_mark_created_effect = { KEY = jen_relic_jen_art_fused_bracers }
+}
+
+jen_relic_create_circlet_effect = {
+	jen_relic_prepare_illustrious_effect = yes
+	create_artifact = {
+		name = jen_art_circlet_of_the_forty
+		description = jen_art_circlet_of_the_forty_desc
+		type = helmet_simple
+		visuals = jen_art_circlet_forty
+		template = jen_relic_circlet_template
+		modifier = jen_art_circlet_of_the_forty_modifier
+		wealth = 100
+		quality = 100
+		decaying = no
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_circlet_of_the_forty DESC = jen_art_circlet_of_the_forty_desc }
+	jen_relic_mark_created_effect = { KEY = jen_relic_jen_art_circlet_of_the_forty }
+}
+
+jen_relic_create_ash_crown_effect = {
+	jen_relic_prepare_illustrious_effect = yes
+	create_artifact = {
+		name = jen_art_ash_crown
+		description = jen_art_ash_crown_desc
+		type = helmet_simple
+		visuals = jen_art_ash_crown
+		template = jen_relic_unique_template
+		modifier = jen_art_ash_crown_modifier
+		wealth = 100
+		quality = 100
+		decaying = no
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_ash_crown DESC = jen_art_ash_crown_desc }
+	jen_relic_mark_created_effect = { KEY = jen_relic_jen_art_ash_crown }
+}
+
+jen_relic_create_songs_effect = {
+	jen_relic_prepare_illustrious_effect = yes
+	create_artifact = {
+		name = jen_art_book_songs_of_the_fourteen
+		description = jen_art_book_songs_of_the_fourteen_desc
+		type = journal
+		visuals = jen_art_songs_fourteen
+		template = jen_relic_unique_template
+		modifier = jen_art_book_songs_modifier
+		wealth = 100
+		quality = 100
+		decaying = no
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_book_songs_of_the_fourteen DESC = jen_art_book_songs_of_the_fourteen_desc }
+	jen_relic_mark_created_effect = { KEY = jen_relic_jen_art_book_songs_of_the_fourteen }
+}
+
+jen_relic_create_treatise_effect = {
+	jen_relic_prepare_illustrious_effect = yes
+	create_artifact = {
+		name = jen_art_book_glass_treatise
+		description = jen_art_book_glass_treatise_desc
+		type = journal
+		visuals = jen_art_glass_treatise
+		template = jen_relic_unique_template
+		modifier = jen_art_book_treatise_modifier
+		wealth = 100
+		quality = 100
+		decaying = no
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_book_glass_treatise DESC = jen_art_book_glass_treatise_desc }
+	jen_relic_mark_created_effect = { KEY = jen_relic_jen_art_book_glass_treatise }
+}
+
+jen_relic_create_ledger_effect = {
+	jen_relic_prepare_illustrious_effect = yes
+	create_artifact = {
+		name = jen_art_book_blood_ledger
+		description = jen_art_book_blood_ledger_desc
+		type = journal
+		visuals = jen_art_blood_ledger
+		template = jen_relic_unique_template
+		modifier = jen_art_book_ledger_modifier
+		wealth = 100
+		quality = 100
+		decaying = no
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_book_blood_ledger DESC = jen_art_book_blood_ledger_desc }
+	jen_relic_mark_created_effect = { KEY = jen_relic_jen_art_book_blood_ledger }
+}
+
+jen_relic_create_glass_candle_effect = {
+	save_scope_value_as = { name = candle_color value = flag:black }
+	jen_relic_prepare_illustrious_effect = yes
+	create_artifact = {
+		name = jen_art_glass_candle
+		description = jen_art_glass_candle_desc
+		type = glass_candle
+		visuals = glass_candle
+		template = jen_relic_unique_template
+		modifier = jen_art_glass_candle_modifier
+		wealth = 100
+		quality = 100
+		decaying = no
+		save_scope_as = jen_new_relic
+	}
+	scope:jen_new_relic = {
+		set_variable = {
+			name = jen_is_glass_candle
+			value = yes
+		}
+		set_artifact_feature_group = glass_candle_color
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_glass_candle DESC = jen_art_glass_candle_desc }
+	jen_relic_mark_created_effect = { KEY = jen_relic_jen_art_glass_candle }
+}
+
+jen_relic_fix_book_candle_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				any_character_artifact = {
+					OR = {
+						has_variable = jen_is_glass_candle
+						has_artifact_modifier = jen_art_glass_candle_modifier
+					}
+					NOT = { artifact_type = glass_candle }
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					OR = {
+						has_variable = jen_is_glass_candle
+						has_artifact_modifier = jen_art_glass_candle_modifier
+					}
+					NOT = { artifact_type = glass_candle }
+				}
+				save_scope_as = old_candle
+			}
+			if = {
+				limit = { exists = scope:old_candle }
+				debug_log = "BotD converting book glass candle to AGOT candle visual"
+				destroy_artifact = scope:old_candle
+				jen_relic_create_glass_candle_effect = yes
+			}
+		}
+	}
+}
+
+jen_relic_fix_book_candles_world_effect = {
+	every_player = {
+		jen_relic_fix_book_candle_effect = yes
+	}
+}
+
+jen_relic_create_empty_shell_effect = {
+	create_artifact = {
+		name = jen_art_empty_shell
+		description = jen_art_empty_shell_desc
+		type = miscellaneous
+		visuals = jen_art_empty_shell
+		template = jen_relic_common_template
+		modifier = jen_art_empty_shell_modifier
+		wealth = 5
+		quality = 10
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_empty_shell DESC = jen_art_empty_shell_desc }
+	jen_relic_note_junk_find_effect = { KIND = flag:junk_shell }
+}
+
+jen_relic_create_fake_trinket_effect = {
+	create_artifact = {
+		name = jen_art_fake_trinket
+		description = jen_art_fake_trinket_desc
+		type = miscellaneous
+		visuals = jen_art_fake_trinket
+		template = jen_relic_common_template
+		modifier = jen_art_fake_trinket_modifier
+		wealth = 15
+		quality = 10
+		save_scope_as = jen_new_relic
+	}
+	jen_relic_finalize_unique_effect = { KEY = jen_art_fake_trinket DESC = jen_art_fake_trinket_desc }
+	jen_relic_note_junk_find_effect = { KIND = flag:junk_fake }
+}
+
+jen_relic_success_wreck_effect = {
+	random_list = {
+		25 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_book_glass_treatise } }
+			jen_relic_create_treatise_effect = yes
+		}
+		25 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_book_songs_of_the_fourteen } }
+			jen_relic_create_songs_effect = yes
+		}
+		25 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_bloodknife } }
+			jen_relic_create_bloodknife_effect = yes
+		}
+		8 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_glass_candle } }
+			jen_relic_create_glass_candle_effect = yes
+		}
+		17 = {
+			jen_relic_fail_effect = yes
+		}
+	}
+}
+
+jen_relic_success_manse_effect = {
+	random_list = {
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_circlet_of_the_forty } }
+			jen_relic_create_circlet_effect = yes
+		}
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_fused_bracers } }
+			jen_relic_create_fused_bracers_effect = yes
+		}
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_ash_scale_cloak } }
+			jen_relic_create_ash_scale_cloak_effect = yes
+		}
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_book_blood_ledger } }
+			jen_relic_create_ledger_effect = yes
+		}
+		12 = {
+			jen_relic_fail_effect = yes
+		}
+	}
+}
+
+jen_relic_success_shrine_effect = {
+	random_list = {
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_dragonbone_spear } }
+			jen_relic_create_dragonbone_spear_effect = yes
+		}
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_ash_crown } }
+			jen_relic_create_ash_crown_effect = yes
+		}
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_bloodknife } }
+			jen_relic_create_bloodknife_effect = yes
+		}
+		8 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_glass_candle } }
+			jen_relic_create_glass_candle_effect = yes
+		}
+		26 = {
+			jen_relic_fail_effect = yes
+		}
+	}
+}
+
+jen_relic_success_vault_effect = {
+	random_list = {
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_book_blood_ledger } }
+			jen_relic_create_ledger_effect = yes
+		}
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_book_glass_treatise } }
+			jen_relic_create_treatise_effect = yes
+		}
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_circlet_of_the_forty } }
+			jen_relic_create_circlet_effect = yes
+		}
+		22 = {
+			trigger = { NOT = { has_global_variable = jen_relic_jen_art_ash_scale_cloak } }
+			jen_relic_create_ash_scale_cloak_effect = yes
+		}
+		12 = {
+			jen_relic_fail_effect = yes
+		}
+	}
+}
+
+jen_relic_success_effect = {
+	if = {
+		limit = { var:jen_relic_site = 1 }
+		jen_relic_success_wreck_effect = yes
+	}
+	else_if = {
+		limit = { var:jen_relic_site = 2 }
+		jen_relic_success_manse_effect = yes
+	}
+	else_if = {
+		limit = { var:jen_relic_site = 3 }
+		jen_relic_success_shrine_effect = yes
+	}
+	else = {
+		jen_relic_success_vault_effect = yes
+	}
+}
+
+jen_relic_kill_companion_effect = {
+	if = {
+		limit = {
+			any_knight = {
+				is_alive = yes
+				is_adult = yes
+			}
+		}
+		random_knight = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+			}
+			save_scope_as = jen_dead_companion
+			death = {
+				death_reason = death_accident
+			}
+		}
+		set_variable = { name = jen_relic_fail_kind value = flag:companion }
+	}
+	else = {
+		stress_impact = {
+			base = medium_stress_impact_gain
+		}
+		set_variable = { name = jen_relic_fail_kind value = flag:nothing }
+	}
+}
+
+jen_relic_fail_effect = {
+	random_list = {
+		25 = {
+			add_trait = wounded_1
+			set_variable = { name = jen_relic_fail_kind value = flag:wound }
+		}
+		20 = {
+			jen_relic_kill_companion_effect = yes
+		}
+		20 = {
+			jen_relic_create_fake_trinket_effect = yes
+		}
+		20 = {
+			add_character_modifier = {
+				modifier = jen_relic_sea_curse_modifier
+				years = 5
+			}
+			set_variable = { name = jen_relic_fail_kind value = flag:curse }
+		}
+		15 = {
+			jen_relic_create_empty_shell_effect = yes
+		}
+	}
+	if = {
+		limit = {
+			var:jen_relic_site = 3
+			any_knight = {
+				is_alive = yes
+				is_adult = yes
+				NOT = { jen_faith_is_valyrian_trigger = yes }
+			}
+		}
+		random = {
+			chance = 40
+			random_knight = {
+				limit = {
+					is_alive = yes
+					is_adult = yes
+					NOT = { jen_faith_is_valyrian_trigger = yes }
+				}
+				death = {
+					death_reason = death_accident
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			any_knight = {
+				is_alive = yes
+				is_adult = yes
+				NOT = { jen_faith_is_valyrian_trigger = yes }
+			}
+		}
+		random = {
+			chance = 20
+			stress_impact = {
+			base = medium_stress_impact_gain
+		}
+		}
+	}
+}
+
+jen_relic_resolve_expedition_effect = {
+	remove_variable = jen_relic_got_real
+	remove_variable = jen_relic_got_junk
+	remove_variable = jen_relic_fail_kind
+	random_list = {
+		40 = {
+			modifier = {
+				add = 20
+				has_trait = dragonrider
+			}
+			modifier = {
+				add = 10
+				agot_is_dragonblood_character = yes
+			}
+			modifier = {
+				add = 15
+				var:jen_relic_site = 4
+				intrigue >= 12
+			}
+			modifier = {
+				add = -15
+				var:jen_relic_site = 3
+			}
+			jen_relic_success_effect = yes
+		}
+		60 = {
+			modifier = {
+				add = 15
+				var:jen_relic_site = 3
+			}
+			jen_relic_fail_effect = yes
+		}
+	}
+	remove_variable = jen_relic_site
+}
+
+jen_relic_open_result_event_effect = {
+	jen_relic_resolve_expedition_effect = yes
+	if = {
+		limit = {
+			has_variable = jen_relic_got_real
+			exists = scope:jen_new_relic
+		}
+		debug_log = "BotD relic expedition SUCCESS named find"
+		trigger_event = jen_relic_expedition.0020
+	}
+	else = {
+		debug_log = "BotD relic expedition FAIL or junk"
+		trigger_event = jen_relic_expedition.0021
+	}
+}
+
+jen_glass_candle_peek_effect = {
+	stress_impact = {
+		base = medium_stress_impact_gain
+	}
+	add_character_modifier = {
+		modifier = jen_glass_candle_focus_modifier
+		years = 3
+	}
+}
+jen_debug_give_all_relics_effect = {
+	# Debug only: spawn every Seek relic (icons check). Destroy existing copies first so unique templates actually recreate with current visuals.
+	hidden_effect = {
+		while = {
+			limit = {
+				any_character_artifact = {
+					jen_artifact_is_seek_relic_trigger = yes
+				}
+			}
+			count = 40
+			random_character_artifact = {
+				limit = { jen_artifact_is_seek_relic_trigger = yes }
+				save_scope_as = jen_debug_old_relic
+			}
+			if = {
+				limit = { exists = scope:jen_debug_old_relic }
+				destroy_artifact = scope:jen_debug_old_relic
+			}
+		}
+		remove_global_variable = jen_relic_jen_art_dragonbone_spear
+		remove_global_variable = jen_relic_jen_art_bloodknife
+		remove_global_variable = jen_relic_jen_art_ash_scale_cloak
+		remove_global_variable = jen_relic_jen_art_fused_bracers
+		remove_global_variable = jen_relic_jen_art_circlet_of_the_forty
+		remove_global_variable = jen_relic_jen_art_ash_crown
+		remove_global_variable = jen_relic_jen_art_book_songs_of_the_fourteen
+		remove_global_variable = jen_relic_jen_art_book_glass_treatise
+		remove_global_variable = jen_relic_jen_art_book_blood_ledger
+		remove_global_variable = jen_relic_jen_art_glass_candle
+		remove_variable = jen_relic_got_real
+		remove_variable = jen_relic_got_junk
+		remove_variable = jen_relic_fail_kind
+
+		jen_relic_create_dragonbone_spear_effect = yes
+		jen_relic_create_bloodknife_effect = yes
+		jen_relic_create_ash_scale_cloak_effect = yes
+		jen_relic_create_fused_bracers_effect = yes
+		jen_relic_create_circlet_effect = yes
+		jen_relic_create_ash_crown_effect = yes
+		jen_relic_create_songs_effect = yes
+		jen_relic_create_treatise_effect = yes
+		jen_relic_create_ledger_effect = yes
+		jen_relic_create_glass_candle_effect = yes
+		jen_relic_create_empty_shell_effect = yes
+		jen_relic_create_fake_trinket_effect = yes
+
+		remove_variable = jen_relic_got_real
+		remove_variable = jen_relic_got_junk
+		remove_variable = jen_relic_fail_kind
+		debug_log = "BotD debug: gave all Seek relics"
+	}
+}

@@ -1,0 +1,253 @@
+﻿namespace = jen_blood_night
+
+# The doors. Auto-gather. One continue.
+jen_blood_night.0001 = {
+	type = character_event
+	title = jen_blood_night.0001.t
+	desc = jen_blood_night.0001.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_blood_night_pairing }
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		debug_log = "BotD Blood Night 0001 doors"
+		jen_blood_night_begin_night_effect = yes
+	}
+
+	option = {
+		name = jen_blood_night.0001.a
+		custom_tooltip = jen_blood_night.0001.a.tt
+		trigger_event = {
+			id = jen_blood_night.0002
+			days = 1
+		}
+	}
+}
+
+# Wine / mood. Real choice: pleasure vs children.
+jen_blood_night.0002 = {
+	type = character_event
+	title = jen_blood_night.0002.t
+	desc = jen_blood_night.0002.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_blood_night_wine }
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	immediate = {
+		debug_log = "BotD Blood Night 0002 wine intent"
+	}
+
+	option = {
+		name = jen_blood_night.0002.a
+		custom_tooltip = jen_blood_night.0002.a.tt
+		jen_blood_night_set_intent_pleasure_effect = yes
+		trigger_event = {
+			id = jen_blood_night.0003
+			days = 1
+		}
+	}
+
+	option = {
+		name = jen_blood_night.0002.b
+		custom_tooltip = jen_blood_night.0002.b.tt
+		jen_blood_night_set_intent_children_effect = yes
+		trigger_event = {
+			id = jen_blood_night.0003
+			days = 1
+		}
+	}
+}
+
+# The chamber. Eggs, bed, fire. Continue only.
+jen_blood_night.0003 = {
+	type = character_event
+	title = jen_blood_night.0003.t
+	desc = jen_blood_night.0003.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_blood_night_chamber }
+
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+
+	immediate = {
+		debug_log = "BotD Blood Night 0003 chamber"
+		jen_blood_night_strip_hall_effect = yes
+	}
+
+	option = {
+		name = jen_blood_night.0003.a
+		custom_tooltip = jen_blood_night.0003.a.tt
+		trigger_event = {
+			id = jen_blood_night.0009
+			days = 1
+		}
+	}
+}
+
+# Hidden: auto-pair the room, then show the player's match.
+jen_blood_night.0009 = {
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "BotD Blood Night auto-pair"
+		jen_blood_night_auto_pair_room_effect = yes
+		if = {
+			limit = { exists = var:jen_blood_night_partner }
+			trigger_event = jen_blood_night.0010
+		}
+		else = {
+			trigger_event = jen_blood_night.0020
+		}
+	}
+}
+
+# Your auto-match. Display only. One continue.
+jen_blood_night.0010 = {
+	type = character_event
+	title = jen_blood_night.0010.t
+	desc = jen_blood_night.0010.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_blood_night_match }
+
+	left_portrait = {
+		character = root
+		animation = flirtation
+	}
+	right_portrait = {
+		character = scope:partner
+		animation = flirtation
+	}
+
+	immediate = {
+		debug_log = "BotD Blood Night 0010 match display"
+		jen_blood_night_load_partners_effect = yes
+	}
+
+	option = {
+		name = jen_blood_night.0010.a
+		custom_tooltip = jen_blood_night.0010.a.tt
+		jen_blood_night_take_match_effect = yes
+	}
+}
+
+# Kept IDs. Story-night does not fire these.
+jen_blood_night.0011 = {
+	type = character_event
+	hidden = yes
+	immediate = { trigger_event = jen_blood_night.0020 }
+}
+jen_blood_night.0012 = {
+	type = character_event
+	hidden = yes
+	immediate = { trigger_event = jen_blood_night.0020 }
+}
+jen_blood_night.0013 = {
+	type = character_event
+	hidden = yes
+	immediate = { trigger_event = jen_blood_night.0020 }
+}
+jen_blood_night.0014 = {
+	type = character_event
+	hidden = yes
+	immediate = { trigger_event = jen_blood_night.0020 }
+}
+jen_blood_night.0015 = {
+	type = character_event
+	hidden = yes
+	immediate = { trigger_event = jen_blood_night.0020 }
+}
+jen_blood_night.0016 = {
+	type = character_event
+	hidden = yes
+	immediate = { trigger_event = jen_blood_night.0020 }
+}
+jen_blood_night.0017 = {
+	type = character_event
+	hidden = yes
+	immediate = { trigger_event = jen_blood_night.0020 }
+}
+jen_blood_night.0018 = {
+	type = character_event
+	hidden = yes
+	immediate = { trigger_event = jen_blood_night.0020 }
+}
+
+# Morning. Pair names. Blood-Rite XP.
+jen_blood_night.0020 = {
+	type = character_event
+	title = jen_blood_night.0020.t
+	desc = {
+		desc = jen_blood_night.0020.desc
+		triggered_desc = {
+			trigger = { exists = scope:jen_bn_p1a exists = scope:jen_bn_p1b }
+			desc = jen_blood_night.0020.p1
+		}
+		triggered_desc = {
+			trigger = { exists = scope:jen_bn_p2a exists = scope:jen_bn_p2b }
+			desc = jen_blood_night.0020.p2
+		}
+		triggered_desc = {
+			trigger = { exists = scope:jen_bn_p3a exists = scope:jen_bn_p3b }
+			desc = jen_blood_night.0020.p3
+		}
+		triggered_desc = {
+			trigger = { exists = scope:jen_bn_p4a exists = scope:jen_bn_p4b }
+			desc = jen_blood_night.0020.p4
+		}
+		triggered_desc = {
+			trigger = { exists = scope:jen_bn_p5a exists = scope:jen_bn_p5b }
+			desc = jen_blood_night.0020.p5
+		}
+		triggered_desc = {
+			trigger = { exists = scope:jen_bn_p6a exists = scope:jen_bn_p6b }
+			desc = jen_blood_night.0020.p6
+		}
+		triggered_desc = {
+			trigger = { exists = scope:jen_bn_p7a exists = scope:jen_bn_p7b }
+			desc = jen_blood_night.0020.p7
+		}
+		triggered_desc = {
+			trigger = { exists = scope:jen_bn_p8a exists = scope:jen_bn_p8b }
+			desc = jen_blood_night.0020.p8
+		}
+	}
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_blood_night_morning }
+
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	right_portrait = {
+		character = scope:partner
+		animation = personality_content
+	}
+
+	immediate = {
+		debug_log = "BotD Blood Night 0020 morning"
+		jen_blood_night_dress_hall_effect = yes
+		jen_blood_night_load_partners_effect = yes
+		jen_blood_night_collect_pair_report_effect = yes
+	}
+
+	option = {
+		name = jen_blood_night.0020.a
+		custom_tooltip = jen_blood_night.0020.a.tt
+		jen_blood_night_morning_effect = yes
+	}
+
+	after = {
+		jen_blood_night_dress_hall_effect = yes
+	}
+}

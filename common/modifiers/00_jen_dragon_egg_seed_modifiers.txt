@@ -1,0 +1,7 @@
+﻿# After letting blood onto an egg.
+
+jen_let_blood = {
+	icon = wounded_1
+	health = -0.4
+	prowess = -2
+}

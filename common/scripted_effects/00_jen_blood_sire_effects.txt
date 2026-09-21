@@ -1,0 +1,79 @@
+﻿jen_blood_sire_load_sire_effect = {
+	if = {
+		limit = { exists = court_position:jen_dragon_blood_sire_court_position }
+		court_position:jen_dragon_blood_sire_court_position = { save_scope_as = sire }
+	}
+}
+
+jen_blood_sire_load_woman_effect = {
+	if = {
+		limit = { exists = var:jen_blood_sire_woman }
+		var:jen_blood_sire_woman = { save_scope_as = womb }
+	}
+}
+
+jen_blood_sire_pick_woman_effect = {
+	random_courtier_or_guest = {
+		limit = {
+			jen_blood_sire_woman_base_trigger = yes
+			NAND = {
+				exists = var:jen_blood_sire_woman
+				this = var:jen_blood_sire_woman
+			}
+		}
+		save_scope_as = womb
+	}
+	if = {
+		limit = {
+			NOT = { exists = scope:womb }
+			jen_blood_sire_woman_base_trigger = yes
+			NAND = {
+				exists = var:jen_blood_sire_woman
+				this = var:jen_blood_sire_woman
+			}
+		}
+		save_scope_as = womb
+	}
+	if = {
+		limit = { NOT = { exists = scope:womb } }
+		random_courtier_or_guest = {
+			limit = { jen_blood_sire_woman_base_trigger = yes }
+			save_scope_as = womb
+		}
+	}
+	if = {
+		limit = {
+			NOT = { exists = scope:womb }
+			jen_blood_sire_woman_base_trigger = yes
+		}
+		save_scope_as = womb
+	}
+	if = {
+		limit = { exists = scope:womb }
+		set_variable = {
+			name = jen_blood_sire_woman
+			value = scope:womb
+		}
+	}
+}
+
+jen_blood_sire_give_seed_effect = {
+	if = {
+		limit = {
+			exists = scope:sire
+			exists = scope:womb
+			scope:sire = { is_alive = yes is_male = yes }
+			scope:womb = { is_alive = yes is_female = yes }
+		}
+		scope:womb = {
+			had_sex_with_effect = {
+				CHARACTER = scope:sire
+				PREGNANCY_CHANCE = pregnancy_chance
+			}
+		}
+	}
+}
+
+jen_blood_sire_clear_pick_effect = {
+	remove_variable = jen_blood_sire_woman
+}

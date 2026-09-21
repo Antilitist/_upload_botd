@@ -1,0 +1,16 @@
+﻿namespace = jen_pit
+
+jen_pit.0001 = {
+	type = character_event
+	title = jen_pit.0001.t
+	desc = jen_pit.0001.desc
+	theme = stewardship
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	option = {
+		name = jen_pit.0001.a
+	}
+}

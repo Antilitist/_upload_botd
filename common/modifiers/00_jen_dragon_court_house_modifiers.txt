@@ -1,0 +1,6 @@
+﻿# Set by Establish the Dragon Court. Unlocks BotD court jobs and extra council seats.
+
+jen_dragon_court_established = {
+	icon = prestige_positive
+	monthly_prestige = 0.15
+}

@@ -1,0 +1,701 @@
+﻿quarterly_playable_pulse = {
+
+	on_actions = {
+
+		jen_dragon_lifestyle_progress_pulse
+
+		jen_dragon_raising_yearly_catchup
+
+		jen_lustful_vital_fertility_yearly
+
+		jen_relic_fix_book_candle_pulse
+
+	}
+
+}
+
+
+
+yearly_playable_pulse = {
+
+	on_actions = {
+
+		jen_dragon_lifestyle_yearly
+
+		jen_dragon_raising_yearly_catchup
+
+		jen_dragon_court_yearly
+		jen_dragon_egg_seed_yearly
+		jen_valyrian_yearly
+		jen_lustful_vital_fertility_yearly
+		jen_voice_yearly
+		jen_pit_yearly
+		jen_relic_fix_book_candle_pulse
+	}
+
+}
+
+
+
+on_join_court = {
+
+	on_actions = {
+
+		jen_dragon_raising_on_hatchling_born
+
+	}
+
+}
+
+on_birth_child = {
+
+	on_actions = {
+
+		jen_dragon_raising_on_hatchling_born
+		jen_valyrian_on_birth
+
+	}
+
+}
+
+on_marriage = {
+	on_actions = {
+		jen_valyrian_on_marriage
+	}
+}
+
+
+
+on_dragon_3rd_birthday = {
+
+	on_actions = {
+
+		jen_dragon_raising_on_growth
+
+		jen_dragon_court_on_growth
+
+	}
+
+}
+
+
+
+# Ownership is set after create_character, so wait a few days.
+
+jen_dragon_raising_on_hatchling_born = {
+
+	trigger = {
+
+		has_trait = dragon
+
+		age < 1
+
+	}
+
+	effect = {
+
+		trigger_event = {
+
+			id = jen_dragon_raising.0001
+
+			days = 3
+
+		}
+
+	}
+
+}
+
+
+
+jen_dragon_raising_on_growth = {
+
+	trigger = {
+
+		has_trait = dragon
+
+		has_character_flag = owned_dragon
+
+		NOT = { has_variable = jen_shaped_at_growth }
+
+	}
+
+	effect = {
+
+		save_scope_as = dragon
+
+		jen_fire_shaping_for_eligible_player_effect = {
+
+			EVENT = jen_dragon_raising.1010
+
+			SHAPED_VAR = jen_shaped_at_growth
+
+		}
+
+	}
+
+}
+
+
+
+jen_dragon_raising_yearly_catchup = {
+
+	trigger = {
+
+		is_ai = no
+
+		is_alive = yes
+
+		jen_dragon_raising_perk_count >= 1
+
+	}
+
+	effect = {
+
+		jen_dragon_raising_scan_yard_effect = yes
+
+	}
+
+}
+
+
+
+on_perks_refunded = {
+
+	on_actions = {
+
+		jen_dragon_on_perks_refunded
+
+	}
+
+}
+
+
+
+jen_dragon_on_perks_refunded = {
+
+	effect = {
+
+		if = {
+
+			limit = { has_trait = jen_wyrmrider }
+
+			remove_trait = jen_wyrmrider
+
+		}
+
+		if = {
+
+			limit = { has_trait = jen_dragon_keeper }
+
+			remove_trait = jen_dragon_keeper
+
+		}
+
+		if = {
+
+			limit = { has_trait = jen_dragonlord }
+
+			remove_trait = jen_dragonlord
+
+		}
+
+	}
+
+}
+
+
+
+jen_dragon_lifestyle_yearly = {
+
+	effect = {
+
+		if = {
+
+			limit = {
+
+				has_perk = jen_dragon_reins_perk
+
+				has_trait = dragonrider
+
+			}
+
+			agot_add_dragon_training_xp = { VALUE = 5 }
+
+		}
+
+		if = {
+
+			limit = {
+
+				has_perk = jen_dragon_pulse_perk
+
+				has_trait = dragonrider
+
+			}
+
+			add_trait_xp = {
+
+				trait = dragonrider
+
+				track = dragon_bond
+
+				value = 5
+
+			}
+
+		}
+
+		if = {
+
+			limit = {
+
+				has_trait = dragonrider
+
+				culture = { has_cultural_tradition = tradition_jen_wings_over_the_wall }
+
+			}
+
+			agot_add_dragon_training_xp = { VALUE = 5 }
+
+		}
+
+		if = {
+
+			limit = {
+
+				has_trait = dragonrider
+
+				culture = { has_cultural_tradition = tradition_jen_fire_made_flesh }
+
+			}
+
+			add_trait_xp = {
+
+				trait = dragonrider
+
+				track = dragon_bond
+
+				value = 5
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+jen_dragon_lifestyle_progress_pulse = {
+
+	trigger = {
+
+		has_lifestyle = jen_dragon_lifestyle
+
+		jen_agot_can_use_dragon_lifestyle_trigger = yes
+
+		is_playable_character = yes
+
+		trigger_if = {
+
+			limit = { is_ai = no }
+
+			has_had_focus_for_days > 30
+
+		}
+
+		NOT = {
+
+			has_character_flag = had_recent_lifestyle_ongoing_event
+
+		}
+
+	}
+
+
+
+	first_valid_on_action = {
+
+		jen_dragon_lifestyle_ongoing_events
+
+	}
+
+}
+
+
+
+jen_dragon_lifestyle_ongoing_events = {
+
+	trigger = {
+
+		is_available = yes
+
+	}
+
+
+
+	random_on_action = {
+
+		chance_to_happen = 10
+
+		chance_of_no_event = {
+
+			if = {
+
+				limit = {
+
+					is_ai = yes
+
+					highest_held_title_tier >= tier_kingdom
+
+				}
+
+				add = 30
+
+			}
+
+			else_if = {
+
+				limit = { is_ai = yes }
+
+				add = 80
+
+			}
+
+		}
+
+
+
+		100 = jen_dragon_lifestyle_common_events
+
+	}
+
+}
+
+
+
+jen_dragon_lifestyle_common_events = {
+
+	random_events = {
+
+		100 = jen_dragon_lifestyle.1000
+
+		100 = jen_dragon_lifestyle.1010
+
+		100 = jen_dragon_lifestyle.1020
+
+		100 = jen_dragon_lifestyle.1030
+
+	}
+
+}
+
+
+
+
+
+jen_dragon_court_yearly = {
+
+	trigger = {
+
+		is_ai = no
+
+		is_playable_character = yes
+
+		is_available = yes
+
+		jen_dragon_court_can_employ_trigger = yes
+
+		OR = {
+
+			employs_court_position = jen_dragon_egg_watcher_court_position
+
+			employs_court_position = jen_dragon_yard_keeper_court_position
+
+			employs_court_position = jen_dragon_pitmaster_court_position
+
+			employs_court_position = jen_dragon_wingmaster_court_position
+
+			employs_court_position = jen_dragon_bloodbinder_court_position
+
+			employs_court_position = jen_dragon_scale_scribe_court_position
+
+			employs_court_position = jen_dragon_cradle_nurse_court_position
+
+			exists = cp:jen_dragon_councillor_master_of_dragons
+
+			exists = cp:jen_dragon_councillor_lord_of_the_pit
+
+			exists = cp:jen_dragon_councillor_blood_chamberlain
+
+		}
+
+	}
+
+	effect = {
+
+		debug_log = "BotD court yearly pulse"
+
+		jen_dragon_court_debug_log_eligibility_effect = yes
+
+	}
+
+	random_events = {
+
+		chance_to_happen = 18
+
+		100 = jen_dragon_court.1000
+
+		100 = jen_dragon_court.1001
+
+		100 = jen_dragon_court.1100
+
+		100 = jen_dragon_court.1101
+
+		100 = jen_dragon_court.1200
+
+		100 = jen_dragon_court.1300
+
+		100 = jen_dragon_court.1400
+
+		100 = jen_dragon_court.1500
+
+		100 = jen_dragon_court.1600
+
+		100 = jen_dragon_court.3000
+
+		100 = jen_dragon_court.3100
+
+		100 = jen_dragon_court.3200
+
+		900 = 0
+
+	}
+
+}
+
+
+
+
+jen_dragon_egg_seed_yearly = {
+	trigger = {
+		is_ai = no
+		is_playable_character = yes
+		any_character_artifact = {
+			has_variable = dragon_egg
+			has_variable = jen_blood_seeded
+		}
+	}
+	effect = {
+		jen_dragon_egg_seed_yearly_effect = yes
+	}
+}
+
+jen_dragon_court_on_growth = {
+
+	trigger = {
+
+		has_trait = dragon
+
+		has_character_flag = owned_dragon
+
+		age >= 3
+
+		age <= 8
+
+	}
+
+	effect = {
+
+		save_scope_as = dragon
+
+		debug_log = "BotD yard-pit debate queued from 3rd birthday"
+
+		jen_dragon_fire_yard_pit_debate_effect = yes
+
+	}
+
+}
+
+
+on_death = {
+	on_actions = {
+		jen_kin_oath_on_death
+		jen_valyrian_on_death
+	}
+}
+
+jen_kin_oath_on_death = {
+	trigger = {
+		exists = var:jen_oath_kin
+		var:jen_oath_kin = { is_alive = yes }
+	}
+	effect = {
+		debug_log = "BotD kin-oath death ping"
+		var:jen_oath_kin = { save_scope_as = living_oath }
+		save_scope_as = dead_kin
+		scope:living_oath = {
+			if = {
+				limit = { is_ai = no }
+				trigger_event = {
+					id = jen_dragon_court.1431
+					days = { 1 3 }
+				}
+			}
+			else = {
+				jen_kin_oath_widow_effect = yes
+			}
+		}
+	}
+}
+
+on_game_start = {
+	on_actions = {
+		jen_dragon_court_tradition_seed
+		jen_relic_fix_book_candles_start
+	}
+}
+
+jen_relic_fix_book_candles_start = {
+	effect = {
+		jen_relic_fix_book_candles_world_effect = yes
+	}
+}
+
+jen_relic_fix_book_candle_pulse = {
+	trigger = {
+		any_character_artifact = {
+			OR = {
+				has_variable = jen_is_glass_candle
+				has_artifact_modifier = jen_art_glass_candle_modifier
+			}
+			NOT = { artifact_type = glass_candle }
+		}
+	}
+	effect = {
+		jen_relic_fix_book_candle_effect = yes
+	}
+}
+
+jen_dragon_court_tradition_seed = {
+	effect = {
+		jen_seed_dragon_court_tradition_effect = yes
+		jen_stamp_true_valyrian_traditions_effect = yes
+	}
+}
+
+jen_valyrian_yearly = {
+	trigger = {
+		is_alive = yes
+		is_human = yes
+	}
+	effect = {
+		jen_valyrian_refresh_sister_wife_effect = yes
+		jen_valyrian_refresh_rider_sacrament_effect = yes
+		jen_valyrian_refresh_gods_that_walk_effect = yes
+	}
+}
+
+random_yearly_everyone_pulse = {
+	on_actions = {
+		jen_lustful_vital_fertility_yearly
+	}
+}
+
+jen_lustful_vital_fertility_yearly = {
+	trigger = {
+		is_alive = yes
+		is_adult = yes
+		is_human = yes
+		exists = culture
+		culture = { has_cultural_parameter = jen_lustful_dragonblood }
+	}
+	effect = {
+		jen_lustful_refresh_vital_fertility_effect = yes
+	}
+}
+
+jen_valyrian_on_marriage = {
+	effect = {
+		jen_valyrian_kin_marriage_piety_effect = yes
+		jen_valyrian_unmixed_blood_piety_effect = yes
+		jen_valyrian_refresh_sister_wife_effect = yes
+	}
+}
+
+jen_valyrian_on_birth = {
+	trigger = {
+		is_human = yes
+	}
+	effect = {
+		jen_valyrian_flesh_of_the_flames_birth_effect = yes
+		jen_valyrian_ensure_dragonblood_inheritance_effect = yes
+	}
+}
+
+jen_valyrian_on_death = {
+	trigger = {
+		is_human = yes
+		NOT = { has_trait = dragon }
+		any_player = {
+			is_alive = yes
+			is_ai = no
+			is_close_family_of = root
+			jen_faith_is_valyrian_trigger = yes
+		}
+	}
+	effect = {
+		save_scope_as = dead_kin
+		every_player = {
+			limit = {
+				is_alive = yes
+				is_ai = no
+				is_close_family_of = root
+				jen_faith_is_valyrian_trigger = yes
+			}
+			trigger_event = {
+				id = jen_valyrian_funeral.0001
+				days = { 1 3 }
+			}
+		}
+	}
+}
+
+on_ruler_designer_finished = {
+	on_actions = {
+		jen_dragon_cc_fill_capstone_trees
+	}
+}
+
+jen_dragon_cc_fill_capstone_trees = {
+	effect = {
+		jen_dragon_cc_fill_capstone_trees_effect = yes
+	}
+}
+
+jen_voice_yearly = {
+	trigger = {
+		is_ai = no
+		is_playable_character = yes
+		is_alive = yes
+		exists = cp:jen_dragon_councillor_voice_of_the_fourteen
+	}
+	effect = {
+		jen_voice_yearly_effect = yes
+	}
+}
+
+jen_pit_yearly = {
+	trigger = {
+		is_ai = no
+		is_playable_character = yes
+		is_alive = yes
+		exists = cp:jen_dragon_councillor_lord_of_the_pit
+	}
+	effect = {
+		jen_pit_yearly_effect = yes
+	}
+}
+

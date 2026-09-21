@@ -1,0 +1,126 @@
+﻿# Bloodbinder rider-binding. scope:dragon is the beast.
+
+jen_save_bind_dragon_effect = {
+	if = {
+		limit = {
+			any_relation = {
+				type = agot_dragon
+				is_alive = yes
+				has_trait = dragon
+				var:current_rider ?= root
+			}
+		}
+		random_relation = {
+			type = agot_dragon
+			limit = {
+				is_alive = yes
+				has_trait = dragon
+				var:current_rider ?= root
+			}
+			save_scope_as = dragon
+		}
+	}
+	else_if = {
+		limit = { jen_has_living_bound_dragon_trigger = yes }
+		random_relation = {
+			type = agot_dragon
+			limit = {
+				is_alive = yes
+				has_trait = dragon
+			}
+			save_scope_as = dragon
+		}
+	}
+}
+
+jen_bind_rider_success_effect = {
+	debug_log = "BotD rider bind succeeded"
+	add_stress = medium_stress_gain
+	add_character_modifier = {
+		modifier = jen_blood_bound
+		years = 1
+	}
+	add_character_flag = {
+		flag = jen_recent_rider_bind
+		years = 8
+	}
+	set_variable = {
+		name = jen_bind_dragon
+		value = scope:dragon
+	}
+	scope:dragon = {
+		set_variable = {
+			name = jen_blood_bound_rider
+			value = root
+		}
+	}
+	custom_tooltip = jen_bind_rider_success_tt
+	trigger_event = {
+		id = jen_dragon_court.1421
+		days = { 330 390 }
+	}
+}
+
+jen_bind_rider_fail_effect = {
+	debug_log = "BotD rider bind failed"
+	add_stress = major_stress_gain
+	add_character_flag = {
+		flag = jen_recent_rider_bind
+		years = 8
+	}
+	add_character_modifier = {
+		modifier = jen_dragon_spurned
+		years = 10
+	}
+	if = {
+		limit = { has_trait = dragonrider }
+		add_trait_xp = {
+			trait = dragonrider
+			track = dragon_bond
+			value = -8
+		}
+	}
+	scope:dragon = {
+		set_variable = {
+			name = jen_spurned_rider
+			value = root
+		}
+	}
+	custom_tooltip = jen_bind_rider_fail_tt
+}
+
+jen_bind_rider_payoff_effect = {
+	if = {
+		limit = {
+			exists = var:jen_bind_dragon
+			var:jen_bind_dragon = {
+				is_alive = yes
+				has_trait = dragon
+			}
+			has_relation_agot_dragon = var:jen_bind_dragon
+			has_trait = dragonrider
+		}
+		debug_log = "BotD rider bind payoff"
+		var:jen_bind_dragon = { save_scope_as = dragon }
+		add_trait_xp = {
+			trait = dragonrider
+			track = dragon_bond
+			value = {
+				integer_range = {
+					min = 12
+					max = 20
+				}
+			}
+		}
+		custom_tooltip = jen_bind_rider_payoff_tt
+	}
+	else = {
+		debug_log = "BotD rider bind payoff lost"
+		add_stress = medium_stress_gain
+		custom_tooltip = jen_bind_rider_payoff_lost_tt
+	}
+	if = {
+		limit = { exists = var:jen_bind_dragon }
+		remove_variable = jen_bind_dragon
+	}
+}

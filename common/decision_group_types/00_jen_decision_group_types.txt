@@ -1,0 +1,7 @@
+﻿# BotD decision tab. Loc key is decision_group_type + this id.
+# Match AGOT banking: big_button, no important_decision_group.
+
+jen_blood_of_the_dragon = {
+	sort_order = 185
+	gui_tags = { big_button }
+}

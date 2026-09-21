@@ -1,0 +1,58 @@
+﻿# Debug: right-click a dragon. Console: type debug, then these show under AGOT Debug.
+# Live hatch/growth uses the same events via on_birth + 3rd birthday; this skips those gates.
+jen_dragon_raising_debug_interaction = {
+	icon = icon_scheme_dragon
+	category = interaction_category_agot_debug
+	interface_priority = 95
+	ignores_pending_interaction_block = yes
+	auto_accept = yes
+	use_diplomatic_range = no
+
+	send_option = {
+		flag = jen_grant_mid_raising
+		localization = jen_grant_mid_raising
+	}
+	send_option = {
+		flag = jen_grant_full_raising
+		localization = jen_grant_full_raising
+	}
+	send_option = {
+		flag = jen_fire_hatch_shaping
+		localization = jen_fire_hatch_shaping
+	}
+	send_option = {
+		flag = jen_fire_growth_shaping
+		localization = jen_fire_growth_shaping
+	}
+
+	is_shown = {
+		OR = {
+			has_game_rule = agot_debug_on
+			debug_only = yes
+		}
+		scope:actor = { is_ai = no }
+		scope:recipient = { has_trait = dragon }
+	}
+
+	ai_will_do = { base = 0 }
+
+	on_accept = {
+		scope:recipient = { save_scope_as = dragon }
+		if = {
+			limit = { scope:jen_grant_mid_raising = yes }
+			scope:actor = { jen_dragon_grant_mid_raising_perks_effect = yes }
+		}
+		if = {
+			limit = { scope:jen_grant_full_raising = yes }
+			scope:actor = { jen_dragon_grant_all_raising_perks_effect = yes }
+		}
+		if = {
+			limit = { scope:jen_fire_hatch_shaping = yes }
+			scope:actor = { trigger_event = jen_dragon_raising.1000 }
+		}
+		if = {
+			limit = { scope:jen_fire_growth_shaping = yes }
+			scope:actor = { trigger_event = jen_dragon_raising.1010 }
+		}
+	}
+}

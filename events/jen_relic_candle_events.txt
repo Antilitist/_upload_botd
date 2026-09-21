@@ -1,0 +1,65 @@
+﻿namespace = jen_relic_candle
+
+jen_relic_candle.0001 = {
+	type = character_event
+	title = jen_relic_candle.0001.t
+	desc = jen_relic_candle.0001.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_dragon_bg_scriptorium }
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	lower_left_portrait = scope:candle_1
+	lower_center_portrait = scope:candle_2
+	lower_right_portrait = scope:candle_3
+
+	immediate = {
+		debug_log = "BotD glass candle peek"
+		if = {
+			limit = { exists = liege }
+			liege = { save_scope_as = candle_1 }
+		}
+		random_vassal = {
+			limit = {
+				is_landed = yes
+				is_adult = yes
+				this != root
+			}
+			save_scope_as = candle_2
+		}
+		random_independent_ruler = {
+			limit = {
+				is_landed = yes
+				is_adult = yes
+				this != root
+				in_diplomatic_range = root
+			}
+			save_scope_as = candle_3
+		}
+	}
+
+	option = {
+		name = jen_relic_candle.0001.a
+		trigger = { exists = scope:candle_1 }
+		scope:candle_1 = { save_scope_as = recipient }
+		jen_glass_candle_peek_effect = yes
+	}
+	option = {
+		name = jen_relic_candle.0001.b
+		trigger = { exists = scope:candle_2 }
+		scope:candle_2 = { save_scope_as = recipient }
+		jen_glass_candle_peek_effect = yes
+	}
+	option = {
+		name = jen_relic_candle.0001.c
+		trigger = { exists = scope:candle_3 }
+		scope:candle_3 = { save_scope_as = recipient }
+		jen_glass_candle_peek_effect = yes
+	}
+	option = {
+		name = jen_relic_candle.0001.d
+		custom_tooltip = jen_relic_candle.0001.d.tt
+	}
+}

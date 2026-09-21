@@ -1,0 +1,104 @@
+﻿doctrine_jen_valyrian_tenets = {
+	category = "core_tenets"
+
+	number_of_picks = 20
+
+	is_available_on_create = {
+		religion_tag = jen_valyrian_religion
+	}
+
+	doctrine_types = {
+		tenet_jen_dragon_worship
+		tenet_jen_blood_of_the_fourteen
+		tenet_jen_kin_of_fire
+		tenet_jen_unmixed_blood
+		tenet_jen_sister_wife
+		tenet_jen_blood_wives
+		tenet_jen_fourteen_mines
+		tenet_jen_blood_forged
+		tenet_jen_flesh_of_the_flames
+		tenet_jen_riders_sacrament
+		tenet_jen_no_soft_gods
+		tenet_jen_the_forty
+		tenet_jen_stone_shapers
+		tenet_jen_high_speech
+		tenet_jen_only_flame
+		tenet_jen_blood_returns
+		tenet_jen_dragonlord_kings
+		tenet_jen_guile_and_blood
+		tenet_jen_skulls_of_the_lesser
+		tenet_jen_blood_remembers
+		tenet_jen_gods_that_walk
+		tenet_jen_unsoftened_flame
+		tenet_jen_nightfires
+	}
+}
+
+# Adds Blood-Wives to AGOT's marriage row. Same key as AGOT — keep vanilla three.
+doctrine_marriage_type = {
+	category = "marriage"
+
+	doctrine_types = {
+		doctrine_monogamy
+		doctrine_polygamy
+		doctrine_concubines
+		doctrine_jen_blood_wives
+	}
+}
+
+jen_doctrine_group_valyrian_supremacy = {
+	category = "special"
+
+	is_available_on_create = {
+		OR = {
+			religion_tag = jen_valyrian_religion
+			has_doctrine = doctrine_jen_valyrian_supremacy
+		}
+	}
+
+	doctrine_types = {
+		doctrine_jen_valyrian_supremacy
+	}
+}
+
+jen_doctrine_group_sorcerous_arts = {
+	category = "special"
+
+	is_available_on_create = {
+		OR = {
+			religion_tag = jen_valyrian_religion
+			has_doctrine = doctrine_jen_sorcerous_arts
+		}
+	}
+
+	doctrine_types = {
+		doctrine_jen_sorcerous_arts
+	}
+}
+
+jen_doctrine_group_fire_and_blood = {
+	category = "special"
+
+	is_available_on_create = {
+		OR = {
+			religion_tag = jen_valyrian_religion
+			has_doctrine = doctrine_jen_fire_and_blood
+		}
+	}
+
+	doctrine_types = {
+		doctrine_jen_fire_and_blood
+	}
+}
+
+jen_is_valyrian_faith = {
+	category = "special"
+
+	is_available_on_create = {
+		has_doctrine = special_doctrine_jen_is_valyrian_faith
+	}
+
+	doctrine_types = {
+		special_doctrine_jen_is_valyrian_faith
+	}
+}

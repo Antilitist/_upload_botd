@@ -1,0 +1,116 @@
+﻿namespace = jen_blood_sire
+
+jen_blood_sire.0001 = {
+	type = character_event
+	title = jen_blood_sire.0001.t
+	desc = jen_blood_sire.0001.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_blood_sire_chamber }
+
+	left_portrait = {
+		character = scope:sire
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:womb
+		animation = idle
+	}
+
+	immediate = {
+		debug_log = "BotD Blood-Sire 0001 name the womb"
+		jen_blood_sire_load_sire_effect = yes
+		jen_blood_sire_load_woman_effect = yes
+		if = {
+			limit = { NOT = { exists = scope:womb } }
+			jen_blood_sire_pick_woman_effect = yes
+		}
+	}
+
+	option = {
+		name = jen_blood_sire.0001.a
+		trigger = {
+			exists = scope:sire
+			exists = scope:womb
+		}
+		custom_tooltip = jen_blood_sire.0001.a.tt
+		trigger_event = jen_blood_sire.0002
+	}
+	option = {
+		name = jen_blood_sire.0001.b
+		trigger = {
+			OR = {
+				any_courtier_or_guest = {
+					jen_blood_sire_woman_base_trigger = yes
+					NAND = {
+						exists = var:jen_blood_sire_woman
+						this = var:jen_blood_sire_woman
+					}
+				}
+				AND = {
+					jen_blood_sire_woman_base_trigger = yes
+					NAND = {
+						exists = var:jen_blood_sire_woman
+						this = var:jen_blood_sire_woman
+					}
+				}
+			}
+		}
+		custom_tooltip = jen_blood_sire.0001.b.tt
+		jen_blood_sire_pick_woman_effect = yes
+		trigger_event = jen_blood_sire.0001
+	}
+	option = {
+		name = jen_blood_sire.0001.c
+		custom_tooltip = jen_blood_sire.0001.c.tt
+		jen_blood_sire_clear_pick_effect = yes
+	}
+}
+
+jen_blood_sire.0002 = {
+	type = character_event
+	title = jen_blood_sire.0002.t
+	desc = jen_blood_sire.0002.desc
+	theme = jen_dragon_lifestyle
+	override_background = { reference = jen_blood_sire_chamber }
+
+	left_portrait = {
+		character = scope:sire
+		animation = flirtation
+	}
+	right_portrait = {
+		character = scope:womb
+		animation = flirtation
+	}
+
+	immediate = {
+		debug_log = "BotD Blood-Sire 0002 the seed is given"
+		jen_blood_sire_load_sire_effect = yes
+		jen_blood_sire_load_woman_effect = yes
+		if = {
+			limit = { exists = scope:sire }
+			scope:sire = { make_naked_effect = yes }
+		}
+		if = {
+			limit = { exists = scope:womb }
+			scope:womb = { make_naked_effect = yes }
+		}
+		jen_blood_sire_give_seed_effect = yes
+	}
+
+	option = {
+		name = jen_blood_sire.0002.a
+		custom_tooltip = jen_blood_sire.0002.a.tt
+	}
+
+	after = {
+		if = {
+			limit = { exists = scope:sire }
+			scope:sire = { remove_naked_effect = yes }
+		}
+		if = {
+			limit = { exists = scope:womb }
+			scope:womb = { remove_naked_effect = yes }
+		}
+		jen_blood_sire_clear_pick_effect = yes
+	}
+}

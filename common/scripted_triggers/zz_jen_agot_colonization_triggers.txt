@@ -1,0 +1,142 @@
+﻿# Overlay AGOT settlement caps. Extra Slots does not ship this file.
+# Freehold Domain: AGOT 1/2/3/4 + 10. Cultures without the tradition stay AGOT.
+
+above_settlement_limit = {
+	trigger_if = {
+		limit = { culture = { has_cultural_tradition = tradition_jen_freehold_domain } }
+		trigger_if = {
+			limit = { highest_held_title_tier = tier_county }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count > 11
+			}
+		}
+		trigger_else_if = {
+			limit = { highest_held_title_tier = tier_duchy }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count > 12
+			}
+		}
+		trigger_else_if = {
+			limit = { highest_held_title_tier = tier_kingdom }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count > 13
+			}
+		}
+		trigger_else = {
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count > 14
+			}
+		}
+	}
+	trigger_else = {
+		trigger_if = {
+			limit = { highest_held_title_tier = tier_county }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count > 1
+			}
+		}
+		trigger_else_if = {
+			limit = { highest_held_title_tier = tier_duchy }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count > 2
+			}
+		}
+		trigger_else_if = {
+			limit = { highest_held_title_tier = tier_kingdom }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count > 3
+			}
+		}
+		trigger_else = {
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count > 4
+			}
+		}
+	}
+}
+
+agot_at_settlement_limit = {
+	trigger_if = {
+		limit = { culture = { has_cultural_tradition = tradition_jen_freehold_domain } }
+		trigger_if = {
+			limit = { highest_held_title_tier = tier_county }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count = 11
+			}
+		}
+		trigger_else_if = {
+			limit = { highest_held_title_tier = tier_duchy }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count = 12
+			}
+		}
+		trigger_else_if = {
+			limit = { highest_held_title_tier = tier_kingdom }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count = 13
+			}
+		}
+		trigger_else = {
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count = 14
+			}
+		}
+	}
+	trigger_else = {
+		trigger_if = {
+			limit = { highest_held_title_tier = tier_county }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count = 1
+			}
+		}
+		trigger_else_if = {
+			limit = { highest_held_title_tier = tier_duchy }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count = 2
+			}
+		}
+		trigger_else_if = {
+			limit = { highest_held_title_tier = tier_kingdom }
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count = 3
+			}
+		}
+		trigger_else = {
+			any_held_title = {
+				tier = tier_county
+				title_province ?= { has_holding_type = settlement_holding }
+				count = 4
+			}
+		}
+	}
+}

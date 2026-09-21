@@ -1,0 +1,43 @@
+﻿# Bloodbinder rite: paint a live egg with dragonblood.
+
+jen_seed_dragon_egg_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/jen_decision_seed_egg.dds"
+	}
+	desc = jen_seed_dragon_egg_decision_desc
+	selection_tooltip = jen_seed_dragon_egg_decision_tooltip
+	confirm_text = jen_seed_dragon_egg_decision_confirm
+	decision_group_type = jen_blood_of_the_dragon
+	ai_check_interval = 0
+	cooldown = { years = 5 }
+	sort_order = 80
+
+	is_shown = {
+		is_ai = no
+		employs_court_position = jen_dragon_bloodbinder_court_position
+		jen_dragon_court_can_employ_trigger = yes
+		jen_has_unseeded_live_egg_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = jen_must_be_available_tt
+			is_available = yes
+		}
+		custom_description = {
+			text = jen_seed_egg_need_blood_tt
+			OR = {
+				jen_is_valid_egg_seeder_trigger = yes
+				jen_has_court_dragonblood_kin_trigger = yes
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = jen_seed_dragon_egg_decision_effect_tt
+		trigger_event = jen_dragon_court.1410
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}

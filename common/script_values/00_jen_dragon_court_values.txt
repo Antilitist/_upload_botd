@@ -1,0 +1,6 @@
+﻿# GUI gate for window_council.gui (CoS CalculateScriptValue pattern).
+# Boot-safe: no nested trigger. Court GUI shows; jobs still use jen_dragon_court_can_employ_trigger.
+
+jen_dragon_court_can_employ_value = {
+	value = 1
+}

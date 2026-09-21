@@ -1,0 +1,34 @@
+﻿jen_can_seek_valyrian_relic_trigger = {
+	is_adult = yes
+	is_landed = yes
+	OR = {
+		jen_dragon_court_is_established_trigger = yes
+		culture = culture:jen_true_valyrian
+		jen_faith_is_valyrian_trigger = yes
+	}
+}
+
+jen_holds_glass_candle_trigger = {
+	any_character_artifact = {
+		has_variable = jen_is_glass_candle
+	}
+}
+
+jen_artifact_is_seek_relic_trigger = {
+	OR = {
+		has_variable = jen_is_glass_candle
+		has_variable = jen_relic_junk
+		has_artifact_modifier = jen_art_dragonbone_spear_modifier
+		has_artifact_modifier = jen_art_bloodknife_modifier
+		has_artifact_modifier = jen_art_ash_scale_cloak_modifier
+		has_artifact_modifier = jen_art_fused_bracers_modifier
+		has_artifact_modifier = jen_art_circlet_of_the_forty_modifier
+		has_artifact_modifier = jen_art_ash_crown_modifier
+		has_artifact_modifier = jen_art_book_songs_modifier
+		has_artifact_modifier = jen_art_book_treatise_modifier
+		has_artifact_modifier = jen_art_book_ledger_modifier
+		has_artifact_modifier = jen_art_glass_candle_modifier
+		has_artifact_modifier = jen_art_empty_shell_modifier
+		has_artifact_modifier = jen_art_fake_trinket_modifier
+	}
+}

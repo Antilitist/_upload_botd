@@ -1,0 +1,21 @@
+﻿jen_blood_sire_woman_base_trigger = {
+	is_female = yes
+	is_adult = yes
+	is_alive = yes
+	is_human = yes
+	is_pregnant = no
+	is_available = yes
+	NOT = { has_trait = dragon }
+}
+
+jen_blood_sire_has_eligible_woman_trigger = {
+	OR = {
+		any_courtier_or_guest = { jen_blood_sire_woman_base_trigger = yes }
+		jen_blood_sire_woman_base_trigger = yes
+	}
+}
+
+jen_blood_sire_employs_sire_trigger = {
+	employs_court_position = jen_dragon_blood_sire_court_position
+	exists = court_position:jen_dragon_blood_sire_court_position
+}

@@ -1,0 +1,19 @@
+﻿jen_dragon_raising_perk_count = {
+	value = 0
+	# Finisher trait = mastered the tree. Keep First Fire / The Yard / The Growing
+	# even after leaving Raising focus.
+	if = {
+		limit = { has_trait = jen_dragon_keeper }
+		add = 8
+	}
+	else = {
+		if = { limit = { has_perk = jen_dragon_clutch_perk } add = 1 }
+		if = { limit = { has_perk = jen_dragon_warmth_perk } add = 1 }
+		if = { limit = { has_perk = jen_dragon_hatchling_perk } add = 1 }
+		if = { limit = { has_perk = jen_dragon_pitmaster_perk } add = 1 }
+		if = { limit = { has_perk = jen_dragon_scale_perk } add = 1 }
+		if = { limit = { has_perk = jen_dragon_keepers_eye_perk } add = 1 }
+		if = { limit = { has_perk = jen_dragon_brood_perk } add = 1 }
+		if = { limit = { has_perk = jen_dragon_keeper_perk } add = 1 }
+	}
+}

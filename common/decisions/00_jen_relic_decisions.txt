@@ -1,0 +1,111 @@
+﻿jen_seek_valyrian_relic_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/jen_decision_seek_relic.dds"
+	}
+	desc = jen_seek_valyrian_relic_decision_desc
+	selection_tooltip = jen_seek_valyrian_relic_decision_tooltip
+	confirm_text = jen_seek_valyrian_relic_decision_confirm
+	decision_group_type = jen_blood_of_the_dragon
+	ai_check_interval = 0
+	cooldown = { years = 4 }
+	sort_order = 76
+
+	is_shown = {
+		is_playable_character = yes
+		is_ai = no
+		jen_can_seek_valyrian_relic_trigger = yes
+	}
+
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = jen_must_be_available_tt
+			is_available = yes
+		}
+		is_imprisoned = no
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 200
+		prestige = 300
+	}
+
+	effect = {
+		custom_tooltip = jen_seek_valyrian_relic_decision_effect_tt
+		trigger_event = jen_relic_expedition.0001
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
+jen_light_glass_candle_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/jen_decision_glass_candle.dds"
+	}
+	desc = jen_light_glass_candle_decision_desc
+	selection_tooltip = jen_light_glass_candle_decision_tooltip
+	confirm_text = jen_light_glass_candle_decision_confirm
+	decision_group_type = jen_blood_of_the_dragon
+	ai_check_interval = 0
+	cooldown = { years = 5 }
+	sort_order = 77
+
+	is_shown = {
+		is_playable_character = yes
+		is_ai = no
+		jen_holds_glass_candle_trigger = yes
+	}
+
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = jen_must_be_available_tt
+			is_available = yes
+		}
+	}
+
+	cost = {
+		piety = 200
+	}
+
+	effect = {
+		jen_relic_fix_book_candle_effect = yes
+		custom_tooltip = jen_light_glass_candle_decision_effect_tt
+		trigger_event = jen_relic_candle.0001
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+jen_debug_give_all_relics_decision = {
+	decision_group_type = debug
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/jen_decision_seek_relic.dds"
+	}
+	desc = jen_debug_give_all_relics_decision_desc
+	selection_tooltip = jen_debug_give_all_relics_decision_tooltip
+	confirm_text = jen_debug_give_all_relics_decision_confirm
+	ai_check_interval = 0
+	sort_order = 900
+
+	is_shown = {
+		OR = {
+			debug_only = yes
+			has_game_rule = agot_debug_on
+		}
+		is_playable_character = yes
+		is_ai = no
+	}
+
+	is_valid_showing_failures_only = {
+		always = yes
+	}
+
+	effect = {
+		custom_tooltip = jen_debug_give_all_relics_decision_effect_tt
+		jen_debug_give_all_relics_effect = yes
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}

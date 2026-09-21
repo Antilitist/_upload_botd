@@ -1,0 +1,28 @@
+jen_force_valyrian_clothes = {
+	usage = game
+	selection_behavior = max
+	priority = 100
+
+	# Default for True Valyrian adult women: AGOT vestments with dynastic/house colors.
+	jen_default_valyrian_dynastic_dress = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = female_valyrian_high_noble_vestaments_01b
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 1000
+				is_female = yes
+				is_adult = yes
+				culture = culture:jen_true_valyrian
+				NOT = { has_character_flag = jen_no_valyrian_clothes }
+			}
+		}
+	}
+}

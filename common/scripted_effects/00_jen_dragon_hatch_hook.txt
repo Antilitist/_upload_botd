@@ -1,0 +1,39 @@
+﻿# Overlay AGOT agot_dragon_tree_creation_effect.
+# Egg hatches use create_character; on_birth_child and on_join_court do not fire
+# for generated characters. FAB calls this after owned_dragon is set.
+# Last-load wins for scripted effects. Keep the AGOT body, then queue First Fire.
+
+agot_dragon_tree_creation_effect = {
+	$DRAGON$ = { save_scope_as = dragon }
+	if = {
+		limit = {
+			exists = scope:dragon.mother
+			scope:dragon.mother = { has_trait = dragon }
+		}
+		agot_add_to_dragon_tree = { PARENT = scope:dragon.mother CHILD = scope:dragon }
+	}
+	else_if = {
+		limit = {
+			exists = character:dragon_vermax
+			exists = scope:dragon.father
+			scope:dragon.father = character:dragon_vermax
+		}
+		agot_add_to_dragon_tree = { PARENT = character:dragon_vermax CHILD = scope:dragon }
+	}
+	if = {
+		limit = {
+			scope:dragon = {
+				is_alive = yes
+				has_trait = dragon
+				age < 1
+				NOT = { has_variable = jen_shaped_at_hatch }
+			}
+		}
+		scope:dragon = {
+			trigger_event = {
+				id = jen_dragon_raising.0001
+				days = 3
+			}
+		}
+	}
+}

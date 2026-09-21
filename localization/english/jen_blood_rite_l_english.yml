@@ -1,0 +1,10 @@
+﻿l_english:
+ trait_jen_blood_rite:0 "Night-Initiate"
+ trait_jen_blood_rite_desc:0 "This character has stood in a Blood Night. The rite remembers them. Diplomacy, prestige, and piety grow as they return."
+ trait_jen_blood_rite_character_desc:0 "They have stood in a Blood Night. The more nights they keep, the higher they stand in the rite."
+ trait_jen_blood_rite_2:0 "Blood-Rite"
+ trait_jen_blood_rite_3:0 "High Blood-Rite"
+
+ trait_track_jen_blood_rite:0 "Blood Rite"
+ trait_track_jen_blood_rite_desc:0 "Standing in Blood Nights deepens the rite. Night-Initiate, then Blood-Rite, then High Blood-Rite."
+

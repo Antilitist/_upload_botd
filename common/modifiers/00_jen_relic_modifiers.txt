@@ -1,0 +1,77 @@
+jen_art_dragonbone_spear_modifier = {
+	prowess_no_portrait = 6
+	monthly_prestige = 0.25
+	knight_limit = 1
+}
+
+jen_art_bloodknife_modifier = {
+	prowess_no_portrait = 3
+	monthly_piety = 0.35
+	intrigue = 1
+}
+
+jen_art_ash_scale_cloak_modifier = {
+	dread_baseline_add = 12
+	attraction_opinion = 10
+	monthly_prestige = 0.2
+	health = -0.05
+}
+
+jen_art_fused_bracers_modifier = {
+	prowess_no_portrait = 4
+	monthly_prestige = 0.15
+}
+
+jen_art_circlet_of_the_forty_modifier = {
+	court_grandeur_baseline_add = 12
+	monthly_prestige = 0.3
+	diplomacy = 1
+}
+
+jen_art_ash_crown_modifier = {
+	dread_baseline_add = 15
+	monthly_prestige = 0.25
+	court_grandeur_baseline_add = 4
+	stress_gain_mult = 0.1
+}
+
+jen_art_book_songs_modifier = {
+	monthly_piety = 0.25
+	learning = 2
+}
+
+jen_art_book_treatise_modifier = {
+	learning = 3
+	monthly_prestige = 0.1
+}
+
+jen_art_book_ledger_modifier = {
+	stewardship = 2
+	intrigue = 2
+}
+
+jen_art_glass_candle_modifier = {
+	monthly_piety = 0.35
+	learning = 2
+	intrigue = 1
+}
+
+jen_art_empty_shell_modifier = {
+	monthly_prestige = 0.01
+}
+
+jen_art_fake_trinket_modifier = {
+	monthly_prestige = 0.01
+}
+
+jen_relic_sea_curse_modifier = {
+	icon = health_negative
+	health = -0.15
+	stress_gain_mult = 0.2
+}
+
+jen_glass_candle_focus_modifier = {
+	icon = intrigue_positive
+	owned_hostile_scheme_success_chance_add = 10
+	owned_personal_scheme_success_chance_add = 10
+}
